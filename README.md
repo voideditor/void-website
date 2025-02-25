@@ -14,7 +14,7 @@ See [void](http://github.com/voideditor/void) for our main repository.
 
 ## Contributing
 
-To make a change to our website, we highly recommend talking us first! 
+To make a change to our website, we highly recommend talking to us first! 
 Ping Mathew in our Discord server, or just shoot us an email.
 It's important that we agree with the design from the start so your hard work aligns with Void's design principles.
 Once you have changes, please submit a PR. 
