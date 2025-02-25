@@ -1,0 +1,50 @@
+<svg id="eE5jrHZAolL1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 1024 1024" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    width="1024" height="1024">
+    <defs>
+        <linearGradient id="eE5jrHZAolL7-stroke" x1="0" y1="0.5" x2="1" y2="0.5" spreadMethod="pad"
+            gradientUnits="objectBoundingBox" gradientTransform="translate(0 0)">
+            <stop id="eE5jrHZAolL7-stroke-0" offset="0%" stop-color="#4fa8c6" />
+            <stop id="eE5jrHZAolL7-stroke-1" offset="100%" stop-color="#227b9e" />
+        </linearGradient>
+        <linearGradient id="eE5jrHZAolL11-fill" x1="0.090424" y1="0.786788" x2="0.909576"
+            y2="0.213212" spreadMethod="pad" gradientUnits="objectBoundingBox"
+            gradientTransform="translate(0 0)">
+            <stop id="eE5jrHZAolL11-fill-0" offset="0%" stop-color="rgba(76,110,245,0.67)" />
+            <stop id="eE5jrHZAolL11-fill-1" offset="100%" stop-color="#30dcf4" />
+        </linearGradient>
+        <linearGradient id="eE5jrHZAolL11-stroke" x1="0.853553" y1="0.146447" x2="0.146447"
+            y2="0.853553" spreadMethod="pad" gradientUnits="objectBoundingBox"
+            gradientTransform="translate(0 0)">
+            <stop id="eE5jrHZAolL11-stroke-0" offset="0%" stop-color="#6176c9" />
+            <stop id="eE5jrHZAolL11-stroke-1" offset="100%" stop-color="#15aabf" />
+        </linearGradient>
+        <linearGradient id="eE5jrHZAolL13-stroke" x1="0.853553" y1="0.146447" x2="0.146447"
+            y2="0.853553" spreadMethod="pad" gradientUnits="objectBoundingBox"
+            gradientTransform="translate(0 0)">
+            <stop id="eE5jrHZAolL13-stroke-0" offset="0%" stop-color="#6176c9" />
+            <stop id="eE5jrHZAolL13-stroke-1" offset="100%" stop-color="#15aabf" />
+        </linearGradient>
+        <linearGradient id="eE5jrHZAolL14-fill" x1="-0.441963" y1="1.312391" x2="0.909576"
+            y2="0.213212" spreadMethod="pad" gradientUnits="objectBoundingBox"
+            gradientTransform="translate(0 0)">
+            <stop id="eE5jrHZAolL14-fill-0" offset="0%" stop-color="rgba(76,110,245,0.82)" />
+            <stop id="eE5jrHZAolL14-fill-1" offset="100%" stop-color="#30dcf4" />
+        </linearGradient>
+        <linearGradient id="eE5jrHZAolL14-stroke" x1="0.853553" y1="0.146447" x2="-0.116574"
+            y2="1.105375" spreadMethod="pad" gradientUnits="objectBoundingBox"
+            gradientTransform="translate(0 0)">
+            <stop id="eE5jrHZAolL14-stroke-0" offset="0%" stop-color="#6176c9" />
+            <stop id="eE5jrHZAolL14-stroke-1" offset="100%" stop-color="#15aabf" />
+        </linearGradient>
+    </defs>
+    <g transform="matrix(5.750088 0 0 5.750154-801.640138-925.872702)">
+        <rect width="256" height="256" rx="28" ry="28"
+            transform="matrix(.470639 0 0 0.470639 184.254136 173.262972)"
+            fill="rgba(255,255,255,0)" stroke="url(#eE5jrHZAolL13-stroke)" stroke-width="40"
+            stroke-linejoin="round" />
+        <rect width="256" height="256" rx="28" ry="28"
+            transform="matrix(.470639 0 0 0.470639 152.173578 206.369669)"
+            fill="url(#eE5jrHZAolL14-fill)" stroke="url(#eE5jrHZAolL14-stroke)" stroke-width="40" />
+    </g>
+</svg>

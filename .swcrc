@@ -1,0 +1,31 @@
+// swc ./_src/GlassPromptBar.tsx -o Glass2.tsx --config-file .swcrc
+// make sure @swc/core@1.6 is installed globally (npm i -g @swc/core@1.6)
+// right now i also have @swc/cli@0.4.0
+{
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
+            "tsx": true
+        },
+        "transform": {
+            "legacyDecorator": false
+        },
+        "target": "es2022",
+        "loose": false,
+        "externalHelpers": false,
+        "keepClassNames": false
+        // "experimental": {
+        //     "plugins": [
+        //         [
+        //             "C:/Users/andre/OneDrive/Desktop/glass/glass-swc/dist/glass_swc.wasm",
+        //             {}
+        //         ]
+        //     ]
+        // }
+    },
+    "module": {
+        "type": "nodenext"
+    },
+    "minify": false,
+    "sourceMaps": false
+}

@@ -1,0 +1,181 @@
+---
+title: 'SOTA of Coding LLMs'
+publishedAt: '2025-01-28'
+description: ""
+---
+{/* 
+can add lastModified: '...' if desired when we get there
+*/}
+
+You might have noticed that Void lets you use any LLM model you like!
+
+Unlimited model selection is a huge unlock, but it can be overwhelming if you're just getting started.
+We created this page to outline the SOTA of LLMs for coding.
+
+
+
+{/* - feel free to check the lates */}
+
+
+
+## Models
+
+
+
+Below are the most notable models in 2025 broken into three categories: Chat, Thinking, and Coding.
+We will be updating this list throughout 2025, so feel free to check back as things change. 
+
+### Model Guide - Chat
+
+The models below are the standard chat LLMs we're used to today. Although they don't think before responding,
+they're the most popular type of model, and have tooling around them that often makes them more useful than thinking models (e.g. they support tool use and give a result faster).
+Anthropic's Claude 3.5 Sonnet is SOTA, and __ is SOTA as the open source alternative.
+
+Gemini allows for huge context window, but it's not as capable as Claude or 4o, and it's unclear if LLMs are really able to deal with such a large context.
+Even OpenAI's thinking model o3-mini has a context window that's a fraction of this size.
+
+We're currently awaiting GPT 4.5, which might be better than Claude 3.5 Sonnet. 
+
+
+<ModelGuide modelType='chat' />
+
+{/* Generally, Claude 3.5 Sonnett is the winner (as of 2-16-25). If you want to self-host, use 4o. */}
+
+- https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft%E2%80%99s-newest-small-language-model-specializing-in-comple/4357090
+
+
+### Model Guide - Coding
+
+The models in this next category are called "coding", because they've all been trained or tuned on coding tasks.
+Specifically, they all know the "fill-in-the-middle" (FIM) autocomplete format. 
+
+As a result, models in this category they tend to work better at autocomplete than even Claude and 4o.
+For autocomplete, we recommend Codestral and Qwen in this category: not only do they know FIM, but they're open source and fast.
+
+<ModelGuide modelType='coding' />
+
+
+
+
+
+
+
+
+### Model Guide - Thinking
+
+The models in this next section produce a chain of thought (CoT) before responding, making them much smarter than regular chat models.
+We don't recommend these models yet, but we likely will very soon (March or April 2025).
+
+The reason is that neither of the current SOTA models - DeepSeek or o1 - supports tool use (and o1 doesn't even support streaming).
+We're waiting for the big labs to release o3, Claude Thinking, and the successor to DeepSeek R1.
+
+
+<ModelGuide modelType='thinking' />
+
+
+### Summary 
+
+- Autocomplete 
+- Chat
+- Quick Edits (inline code)
+- Apply (create search/replace blocks in the background)
+
+
+For autocomplete, we recommend 
+
+For quick edits, chat, and apply, we recommend 
+
+This will change in the future as CoT models become more available.
+We will likely support the next thinking model as an agent
+
+This covers the models.
+It doesn't cover the providers you can use to access the models.
+
+Not always straightforward for open source. 
+
+Feel free to check out our Providers page.
+
+
+
+----NEW PAGE ----
+
+
+## Providers
+
+
+If you're unfamiliar with providers: someone or something needs to run a model. That thing is called a "provider".
+OpenAI is the provider if you send API requests to GPT 4o through openai.com, and Azure is the provider if you host
+your own instance of GPT 4o on Microsoft Azure.
+
+
+Surprisingly, the provider of a model is loosely correlated with the creator of it.
+For example, OpenAI created the GPT 4o model but is not the only provider of it, and Meta created the Llama model but doesn't provide it.
+
+https://excalidraw.com/#json=1OPQ4MTEDVjwXvpEib9Rf,kNBcRV1S0lZQIXYypZtUCA
+
+
+### Direct API
+Companies that provide their own models via a direct API are listed below. Notably, Meta and Microsoft are not on the list.
+A direct API is not the same as cloud hosting, which some of these companies also offer (see below for Cloud Hosting).
+
+- **Anthropic**, 
+**OpenAI**, 
+**Google**, 
+**xAI**, 
+**Mistral**,
+**DeepSeek**.
+
+
+### Local Providers
+
+Here are the most popular providers for running models on your own computer or network.
+{/* These are free, 100% private, and work without internet.  */}
+
+- **Ollama:** Most popular; Run any OSS model. Most common for use on one computer.
+- **llama.cpp:** Similar to Ollama, but more hands-on and bare metal.
+- **vLLM:** Python software that a lot of companies use to run models on network. 
+- **Others:** As long as your endpoint is OpenAI-compatible, Void lets you connect with it. SillyTavern, LMStudio, LiteLM, etc.
+
+
+
+
+
+
+
+
+
+### Cloud Hosting
+
+If you have large enough demand to host models in the cloud, you can use one of these options:
+
+- **Microsoft Azure AI Foundry**:
+    Amazingly, OpenAI lets you host their proprietary models like 4o on your own private Azure cloud. This is a result of OpenAI's deal with Microsft. You can also go with Mistral models, Microsoft models (Phi4), and a few others.
+- **Google Vertex AI**: Lets you host your own Google Gemini models. 
+
+{/* - **Amazon Bedrock**: Doesn't do hosting, but lets you connect with models */}
+
+
+- Gemini
+- https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models
+- https://ai.google.dev/gemini-api/docs/models/gemini#model-variations
+
+
+
+### Routers
+
+Routers take your message and route it to an actual provider (whichever one is fastest/cheapest).
+Highly recommend for open source models that are too big to self-host. You can use pretty much any model, open or closed source.
+
+- **OpenRouter**: Extremely popular. 
+- **Groq API**: Hardware company with insanely fast models. Not an actual router but it offers different models so feels like one.
+
+
+
+
+
+
+
+
+
+
+For more reading, see our Discord channel's ai-news section.

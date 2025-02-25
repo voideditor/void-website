@@ -1,0 +1,140 @@
+---
+title: 'Void Codebase Guide'
+publishedAt: '2024-12-21'
+description: ""
+---
+
+{/* 
+All these ideas are information we've gathered after working with VSCode for a few months.
+
+
+
+The way you write most code in VSCode is by creating a class called a service. 
+Most classes are only registered once (they're "singletons"). 
+You'll see registerSingleton everywhere - this just lets you access the class from anywhere.
+You always register a singleton by createDecorator and registerSingleton, 
+
+The folder the code lives in like `common/`, `browser/`, `node/` dictates what imports they can access, and since you want node modules, you should use `node/` (or `electron-main/` which is just `node/` but with more).  
+
+
+- Here's how we mount React  (react is just a framework, it's JS with nice state management)
+- Settings are encrypted
+
+
+
+## Services
+VSCode doesn't use any frameworks to organize their code 
+Instead, they organize their code into "Services". A service is just a class that's responsible for something. For example, the Metrics service
+is responsible 
+
+
+We only want one Metrics service to run, and this is a very common pattern. A class that only gets created and run once is called a "Singleton". You register 
+
+registerSingleton(IMetricsService, MetricsService, )
+
+Typically this is how you should mount any new services you create.
+
+The interface
+
+We find it annoying that you need to register the class and the interface since there's a lot of redundancy, but it's not a huge deal.
+
+Other 
+
+[[]]
+
+You can import a service using the 
+@IMyService
+this is called a dependency injection.
+
+
+Sometimes you want to create multiple classes, like if you want to 
+put a Widget somewhere ("Widgets" are the React Components of VSCode).
+If you want to create a new class, you can use instantiationService.createInstance().
+For example, instantiationService.createInstance(Class, Params);
+
+It will automatically inject all the @IMyService dependencies. You could also use new Service(), but you need to manually provide all services it depends on.
+
+
+
+## How VSCode is Organized
+
+
+
+VSCode has 3 environments : common/, browser/
+
+
+You see these all over the repo:
+
+[[IMAGE]]
+
+The name of the folder you're in tells you what environment you're in.
+
+In VSCode, browser/ doesn't just mean web browser - it means frontend (like HTML). If you open VSCode on your Desktop, the HTML you see comes from browser/.
+VSCode *can* run in web browsers, but this isn't called browser/, it's called "web" (web is not an environment, it's just terminology VSCode uses when dealing with web browsers). 
+
+In order to run these environments, Electron creates two processes that run in parallel:
+1. a user-facing process, which runs the environments on the left (browser and HTML-related items),
+and 2. a backend process which runs environments on the right (node and backend-related items).
+
+A huge majority of your code should live as a service in common/.
+
+A note on imports: things in browser/ don't have access to node_modules, so if you want to import anything you have two options:
+
+- bundle the node_module code and put it in the browser/ files. We do this for React.
+- Import the node_module from inside node/ or electron-main/, and set up a simple API so browser/ can use it. 
+This API idea sounds scary because it's called an "IPC proxy", but it's very simple, you just need to copy some boilerplace.
+
+
+VSCode has a hierarchy of imports. It doesn't have as much meaning as environment, which actually dictates where the code runs.
+The main idea is code organization. 
+editor/ is Monaco editor - if you've ever typed code in the web, chances are you've used the Monaco editor. It's VSCode's editor that can run 
+
+gulpfiles build all this stuff, and are torture to 
+
+The most 
+
+
+
+
+
+
+
+
+## organization
+
+An editor (ICodeEditor) is the Monaco editor 
+
+
+A model (ITextModel) is the representation of text underneath it 
+
+
+
+There are two editors here :
+
+
+Two editors are open with the same model, which is why changing text in the left changes it in the right. The model is the same 
+
+
+
+When you switch tabs, the editor stays the same, it's just the model that changes. 
+This was the most unintuitive part of working with VSCode for us - we thought a new editor would be created when you switch 
+tabs, but it's the same editor.
+
+Use editor.onDidChangeModel() to listen for tab changes.
+
+
+
+A decoration is a highlight. You add it to a model, and it's there until you discard it (even if you switch tabs or close/reopen it in the editor).
+
+A zone is a little area between lines. It lives on an individual editor at a time. 
+You can only add a zone to one editor at a time.
+This was really annoying to us, so we added a service that lets you add a zone to a model('s URI), the same way you do for a decoration. 
+It's called "consistentItemService". We use it for some other things too.
+
+
+
+
+
+
+
+*/}
