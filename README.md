@@ -17,7 +17,7 @@ See [void](http://github.com/voideditor/void) for our main repository.
 To make a change to our website, we highly recommend talking to us first! 
 Ping Mathew in our Discord server, or just shoot us an email.
 It's important that we agree with the design from the start so your hard work aligns with Void's design principles.
-Once you have changes, please submit a PR. 
+Once you have changes, feel free to submit a PR. 
 
 We are very open to improving the look and feel of our website, but keep in mind a few of our notable guiding principles:
 - Given the choice, prioritize looking unpolished over looking generic
