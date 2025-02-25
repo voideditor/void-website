@@ -2,8 +2,8 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Github, Twitter } from "lucide-react"
-import { contributeLink, discordLink } from "../links";
+import { Github } from "lucide-react"
+import { contributeLink, discordLink, githubLink } from "../links";
 import { useState } from "react";
 import { logWaitlist } from "./landingpage_logging";
 
@@ -112,13 +112,9 @@ export function Footer() {
                     <div className="lg:col-span-1 space-y-6">
                         <h4 className="text-foreground/90 font-medium">Connect</h4>
                         <div className="flex gap-4">
-                            <Link href="https://github.com/voideditor/void"
+                            <Link href={githubLink}
                                 className="text-foreground/60 hover:text-foreground/90 transition-colors p-2 hover:bg-foreground/5 rounded-lg">
                                 <Github className="w-5 h-5" />
-                            </Link>
-                            <Link href="https://twitter.com/void"
-                                className="text-foreground/60 hover:text-foreground/90 transition-colors p-2 hover:bg-foreground/5 rounded-lg">
-                                <Twitter className="w-5 h-5" />
                             </Link>
                             <Link href={discordLink}
                                 className="text-foreground/60 hover:text-foreground/90 transition-colors p-2 hover:bg-foreground/5 rounded-lg">
@@ -132,6 +128,9 @@ export function Footer() {
                 <div className="mt-16 pt-8 border-t border-primary flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-foreground/40 text-sm">
                         © {new Date().getFullYear()} Void. All rights reserved.
+                    </p>
+                    <p className="text-foreground/20 text-xs">
+                        Made with ❤️ by simplyzetax
                     </p>
                     <div className="flex items-center gap-3">
                         <span className="text-foreground/40 text-sm">Backed by</span>
