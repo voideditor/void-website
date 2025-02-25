@@ -14,6 +14,9 @@ See [void](http://github.com/voideditor/void) for our main repository.
 
 ## Contributing
 
+To make a change to our website, we highly recommend talking to us first! 
+Ping Mathew in our Discord server, or just shoot us an email.
+It's important that we agree with the design from the start so your hard work aligns with Void's design principles.
 
 We are very open to improving the look and feel of our website, but keep in mind a few of our notable guiding principles:
 - Given the choice, prioritize looking unpolished over looking generic
@@ -21,7 +24,4 @@ We are very open to improving the look and feel of our website, but keep in mind
 - Recognition of our unique logo is important, so don't simplify or change it unless you have a new/creative take
 
 
-To make a change to our website, we highly recommend talking to us first! 
-Ping Mathew in our Discord server, or just shoot us an email.
-It's important that we agree with the design from the start so your hard work aligns with Void's design principles.
 
