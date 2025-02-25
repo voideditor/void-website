@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Github, Twitter } from "lucide-react"
-import { discordLink } from "../links";
+import { contributeLink, discordLink } from "../links";
 import { useState } from "react";
 import { logWaitlist } from "./landingpage_logging";
 
@@ -94,9 +94,8 @@ export function Footer() {
                             <h4 className="text-white/90 font-medium">Community</h4>
                             <ul className="space-y-3">
                                 {[
-                                    ['GitHub', 'https://github.com/voideditor/void'],
-                                    ['Discord', 'https://discord.gg/void'],
-                                    ['Twitter', 'https://twitter.com/void'],
+                                    ['GitHub', contributeLink],
+                                    ['Discord', discordLink],
                                 ].map(([title, href]) => (
                                     <li key={title}>
                                         <Link href={href}
