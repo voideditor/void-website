@@ -1,5 +1,5 @@
 <p align="center">
-<img src="app/icon.png" alt="Void Icon" width="300px">
+<img src="app/icon.png" alt="Void Icon" width="100px">
 </p>
 
 
