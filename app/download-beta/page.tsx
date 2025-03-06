@@ -88,7 +88,7 @@ const FloatingElement = () => {
             {/* Floating image */}
             <div className='animate-float'>
                 <Image
-                    quality={150}
+                    quality={100}
                     width={23 * 4}
                     height={24 * 4}
                     draggable={false}
