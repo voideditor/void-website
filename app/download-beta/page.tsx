@@ -79,48 +79,42 @@ const DownloadButton = ({ url, tag, defaultFileName = 'Void-Installer', children
 
 
 
-
-
 const FloatingElement = () => {
     return (
-        <div className='relative flex flex-col items-center scale-[150%]'>
-
-            {/* Floating image */}
+        <div className='relative flex flex-col items-center'>
+            {/* Floating image - increased dimensions by 150% */}
             <div className='animate-float'>
                 <Image
-                    quality={100}
-                    width={23 * 4}
-                    height={24 * 4}
+                    quality={150}
+                    width={23 * 4 * 1.5}  // 150% of original width
+                    height={24 * 4 * 1.5}  // 150% of original height
                     draggable={false}
                     src='/void/logo_cube_noshadow.png'
                     alt='Slice of the Void logo'
                 />
             </div>
 
-            {/* Shadow SVG with smaller size and adjusted viewBox */}
+            {/* Shadow SVG - increased dimensions by 150% */}
             <svg
-                className='absolute -bottom-4 opacity-20 animate-shadow'
-                width='50'
-                height='15'
-                viewBox='-6 -2 36 10'
+                className='absolute -bottom-6 opacity-20 animate-shadow'  // -bottom-6 instead of -bottom-4
+                width='75'  // 50 * 1.5 = 75
+                height='22.5'  // 15 * 1.5 = 22.5
+                viewBox='-9 -3 54 15'  // scaled viewBox (-6 * 1.5, -2 * 1.5, 36 * 1.5, 10 * 1.5)
             >
                 <defs>
                     <filter id='blur' x='-50%' y='-50%' width='300%' height='300%'>
-                        <feGaussianBlur in='SourceGraphic' stdDeviation='1.5' />
+                        <feGaussianBlur in='SourceGraphic' stdDeviation='2.25' />  {/* 1.5 * 1.5 = 2.25 */}
                     </filter>
                 </defs>
                 <ellipse
-                    cx='12'
-                    cy='3'
-                    rx='12'
-                    ry='3'
+                    cx='18'  // 12 * 1.5 = 18
+                    cy='4.5'  // 3 * 1.5 = 4.5
+                    rx='18'  // 12 * 1.5 = 18
+                    ry='4.5'  // 3 * 1.5 = 4.5
                     fill='black'
                     filter='url(#blur)'
                 />
             </svg>
-
-
-
         </div>
     );
 };
