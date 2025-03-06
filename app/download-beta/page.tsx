@@ -85,7 +85,6 @@ const FloatingElement = () => {
             {/* Floating image - increased dimensions by 150% */}
             <div className='animate-float'>
                 <Image
-                    quality={150}
                     width={23 * 4 * 1.5}  // 150% of original width
                     height={24 * 4 * 1.5}  // 150% of original height
                     draggable={false}
