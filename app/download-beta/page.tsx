@@ -2,78 +2,29 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { discordLink, downloadOfOS, releaseLink } from '@/components/links';
-import { useMemo, useState } from 'react';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa';
 
 
-import './twinkle.css'
 import Image from 'next/image';
 import posthog from 'posthog-js';
-
-
-const generatePseudoRandomPositions = (numToGenerate: number, seed: number) => {
-    const prng = (seed: number) => {
-        let value = seed;
-        return () => {
-            value = (value * 16807) % 2147483647;
-            return value / 2147483647;
-        };
-    };
-    const random = prng(seed);
-    const positions: { left: number, top: number, startOffset: number, duration: number }[] = [];
-    for (let i = 0; i < numToGenerate; i++) {
-        positions.push({
-            left: random() * 100,
-            top: random() * 100,
-            startOffset: random() * 1,
-            duration: 1.5 + random() * 2,
-        });
-    }
-    return positions;
-};
-
-
-const SparkleOverlay = ({ number, seed }: { number: number, seed: number }) => {
-    const sparklePositions = useMemo(() => generatePseudoRandomPositions(number, seed), [number, seed]);
-
-    return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {sparklePositions.map((position, i) => (
-                <div
-                    key={i}
-                    className="absolute w-0.5 h-0.5 bg-white rounded-full"
-                    style={{
-                        left: `${position.left}%`,
-                        top: `${position.top}%`,
-                        animation: `twinkle ${position.duration}s infinite ease-in-out`,
-                        animationDelay: `-${position.startOffset * position.duration}s`,
-                    }}
-                />
-            ))}
-        </div>
-    );
-};
-
-
+import { SparkleOverlay } from '@/components/ui/sparke';
 
 const DownloadButton = ({ url, tag, defaultFileName = 'Void-Installer', children, className }: { url: string, tag: string, defaultFileName?: string, children: React.ReactNode, className?: string }) => {
-
     return (
         <a
             draggable={false}
-            tabIndex={0} // part of screen reader tab index
-            className={`group gap-2 flex justify-center items-center drop-shadow-xl p-2 py-3 rounded-lg btn px-8 opacity-90 whitespace-nowrap border-0 
-            bg-black/95 hover:bg-black/90
-             hover:brightness-105 active:brightness-105 active:scale-95 duration-200 border-none outline-none
-             cursor-pointer
-             ${className}`}
+            tabIndex={0}
+            className={`group px-8 py-4 rounded-md bg-black text-white dark:bg-white/80 dark:text-black font-medium text-lg
+            hover:bg-black/90 dark:hover:bg-white/90 transition-all duration-300 relative overflow-hidden ${className}`}
             href={url}
             onClick={() => { posthog.capture('Click Download', { url, tag }) }}
         >
-            {children}
+            <span className="relative z-10 flex justify-center items-center gap-2">
+                {children}
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/50 to-white/0
+                translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
         </a>
-
-
     );
 };
 
@@ -121,102 +72,76 @@ const FloatingElement = () => {
 
 // TODO need to add this to opengraph, sitemap, metdata, etc, it's 100% private right now
 const DownloadBetaPage = () => {
-    return <main className='min-h-screen relative max-w-[1400px] mx-auto px-4 lg:px-12 '>
-
-        <section className=' h-fit py-16 mt-4 sm:mt-32
-        flex flex-col md:flex-row
-        items-center justify-center gap-x-8 
-        rounded-xl text-black shadow-xl bg-gray-100'>
-
-
-
-
-            {/* left: text */}
-            <div className='text-balance max-sm:text-base text-xl max-w-[600px] space-y-5'>
-                {/* title */}
-                <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
-                    <div className='flex justify-center items-center '>
-                        {`Download Void.`}
-                    </div>
-                </h2>
-
-                {/* desc */}
-                <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                    {`Try the beta edition of Void, and help us improve by providing `}
-                    <a href={discordLink} target='_blank' rel="noreferrer noopener nofollow"
-                        className='underline'>
-                        feedback
-                    </a>!
+    return (
+        <div className="min-h-screen bg-white dark:bg-black">
+            <div className="min-h-screen flex flex-col relative overflow-hidden">
+                {/* Grid background */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff14_1px,transparent_1px)] bg-[size:4rem_4rem]">
+                    <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-transparent" />
                 </div>
 
-                {/* buttons */}
-                <div className='space-y-4 px-4 max-sm:scale-75 max-[450px]:scale-50'>
+                <main className="relative max-w-6xl mx-auto px-4 pt-24 pb-40">
+                    <section className="space-y-16 animate-fade-in">
+                        {/* Title */}
+                        <div className="text-center space-y-4">
+                            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-black dark:text-white">
+                                Download Void
+                            </h1>
+                            <p className="text-black/60 dark:text-white/60 text-xl max-w-2xl mx-auto">
+                                Try the beta edition of Void, and help us improve by providing{' '}
+                                <a href={discordLink} target="_blank" rel="noreferrer noopener nofollow"
+                                    className="text-black dark:text-white underline hover:opacity-80 transition-opacity">
+                                    feedback
+                                </a>!
+                            </p>
+                        </div>
 
-                    <div className='flex items-center gap-4'>
-                        <DownloadButton url={downloadOfOS.mac.appleSilicon} tag='darwin-arm64' className='relative w-full'>
-                            <SparkleOverlay number={25} seed={42} />
-                            <span className='flex items-center gap-2'>
-                                <span className='text-white text-xl font-medium'>
-                                    Download for Mac
-                                </span>
-                                <FaApple className='fill-white min-w-7 min-h-7' />
-                            </span>
-                        </DownloadButton>
+                        {/* Download buttons */}
+                        <div className="max-w-2xl mx-auto space-y-4">
+                            <div className="flex items-center gap-4">
+                                <DownloadButton url={downloadOfOS.mac.appleSilicon} tag="darwin-arm64" className="relative w-full">
+                                    <SparkleOverlay number={25} seed={42} />
+                                    <span>Download for Mac</span>
+                                    <FaApple className="w-6 h-6" />
+                                </DownloadButton>
 
-                        <DownloadButton url={downloadOfOS.mac.intel} tag='darwin-x64' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={10} seed={47} />
-                            <span className='flex items-center gap-2'>
-                                <span className='text-white text-xl font-medium'>
-                                    Intel
-                                </span>
-                                <FaApple className='fill-white min-w-7 min-h-7' />
-                            </span>
-                        </DownloadButton>
+                                <DownloadButton url={downloadOfOS.mac.intel} tag="darwin-x64" className="relative w-40 flex-shrink-0">
+                                    <SparkleOverlay number={10} seed={47} />
+                                    <span>Intel</span>
+                                    <FaApple className="w-6 h-6" />
+                                </DownloadButton>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <DownloadButton url={downloadOfOS.windows.x64} tag="win32-x64" className="relative w-full">
+                                    <SparkleOverlay number={25} seed={43} />
+                                    <span>Download for Windows</span>
+                                    <FaWindows className="w-6 h-6" />
+                                </DownloadButton>
+                            </div>
+                        </div>
+
+                        {/* Floating logo */}
+                        <div className="mt-20">
+                            <FloatingElement />
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <div className="mt-32 text-center">
+                        <p className="text-black/40 dark:text-white/40">
+                            Alternatively, download Void from the source on{' '}
+                            <a href={releaseLink} target="_blank" rel="noreferrer noopener nofollow"
+                                className="underline hover:text-black/60 dark:hover:text-white/60 transition-colors">
+                                GitHub
+                            </a>.
+                        </p>
                     </div>
-
-                    <div className='flex items-center gap-4'>
-                        <DownloadButton url={downloadOfOS.windows.x64} tag='win32-x64' className='relative w-full'>
-                            <SparkleOverlay number={25} seed={43} />
-                            <span className='flex items-center gap-2'>
-                                <span className='text-white text-xl font-medium'>
-                                    Download for Windows
-                                </span>
-                                <FaWindows className='fill-white min-w-7 min-h-7' />
-                            </span>
-                        </DownloadButton>
-                        {/* <DownloadButton url={downloadOfOS.linux.x64} tag='win32-x64' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={25} seed={47} />
-                            <span className='flex items-center gap-2'>
-                                <span className='text-white text-xl font-medium'>
-                                    Linux
-                                </span>
-                                <FaLinux className='fill-white min-w-7 min-h-7' />
-                            </span>
-                        </DownloadButton> */}
-                    </div>
-
-                </div>
+                </main>
             </div>
-
-            {/* right: floater */}
-            <div className='min-w-60 min-h-60 flex justify-center items-center'>
-                <FloatingElement />
-            </div>
-
-
-        </section>
-
-
-        {/* desc */}
-        <div className='mx-auto text-center px-4 text-balance opacity-25 pt-60 pb-40'>
-            {`Alternatively, download Void from the source on `}
-            <a href={releaseLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
-                GitHub
-            </a>{`.`}
         </div>
-
-    </main>
-}
+    );
+};
 
 export default DownloadBetaPage
 
