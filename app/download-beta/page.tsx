@@ -78,11 +78,10 @@ const DownloadButton = ({ url, tag, defaultFileName = 'Void-Installer', children
 };
 
 
-
 const FloatingElement = () => {
     return (
         <div className='relative flex flex-col items-center'>
-            {/* Floating image - increased dimensions by 150% */}
+            {/* Floating image - increased dimensions by 150%  */}
             <div className='animate-float'>
                 <Image
                     width={23 * 4 * 1.5}  // 150% of original width
