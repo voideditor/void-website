@@ -87,7 +87,7 @@ const FloatingElement = () => {
 
             {/* Floating image */}
             <div className='animate-float'>
-                <Image
+                <img // remove Vercel's image optimization here since we're scaling it up and it becomes blurry
                     width={23 * 4}
                     height={24 * 4}
                     draggable={false}
