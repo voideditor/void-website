@@ -8,6 +8,8 @@ import "./globals.css";
 import { Footer } from "@/components/landingpage/Footer";
 import { Header } from "@/components/landingpage/Header";
 import { CSPostHogProvider } from '../components/providers'
+import Navbar from "@/components/ui/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -43,14 +45,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     <div className='overflow-hidden rounded-sm'>
                         {/* in dark mode, text-black is not the default */}
                         <GlassProvider>
-                            <Header />
-                            {children}
-                            <Footer />
+                            <ThemeProvider>
+                                <Navbar />
+                                {children}
+                                <Footer />
+                            </ThemeProvider>
                         </GlassProvider>
                     </div>
                 </body>
             </CSPostHogProvider>
-        </html>
+        </html >
     </>
     );
 }
