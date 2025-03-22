@@ -11,7 +11,7 @@ export const waitlistLink = '/email'
 export const changelogLink = '/changelog'
 export const downloadLink = '/download-beta'
 
-const latestTag = 'v1.0.0' // PROBABLY SHOULD NOT CHANGE THIS unless major update
+const latestTag = 'latest' // could also make this 'v1.0.0' or whatever release tag
 
 export const releaseLink = `https://github.com/voideditor/void/releases/${latestTag}`
 
