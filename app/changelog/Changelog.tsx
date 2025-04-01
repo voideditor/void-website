@@ -7,6 +7,7 @@ interface ChangelogEntry {
   version?: string,
   date?: string;
   changes: string[];
+  className?: string;
 }
 
 
@@ -33,6 +34,32 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   // },
 
 
+  {
+    name: "Next Release",
+    version: 'v1.0.3',
+    className: 'opacity-50',
+    date: "Coming April 7, 2025",
+    changes: [
+      "Auto-updates are coming, so we'll be pushing smaller and more frequent changes.",
+      "We've built SSH support, Linux support, and Agent mode checkpoints! Currently testing; coming soon.",
+    ]
+  },
+  {
+    name: "Beta Patch #2",
+    version: 'v1.0.2',
+    date: "March 22, 2025",
+    changes: [
+      "Added Agent mode, Gather mode, and Chat mode!",
+      "Agent mode can control your terminal, read/write files, and search your codebase.",
+      "Void detects if your model supports tools (Agent/Gather), FIM (Autocomplete), and Reasoning.",
+      "Parsing of reasoning for all common models and providers.",
+      "Autocomplete has been re-enabled, and you can use it with any FIM model.",
+      "Added a slider to set your thinking level preference for models that support it.",
+      "Improved file selection mechanics.",
+      "Rebase from VSCode 1.99.0.",
+      "Claude 3.7, Deepseek V3, Gemini 2.0, and QwQ support.",
+    ]
+  },
   {
     name: "Beta Patch #1",
     version: 'v1.0.1',
@@ -88,9 +115,9 @@ const isFutureDate = (dateStr?: string) => {
 };
 
 
-const ChangelogEntry = ({ name, date, version, changes }: ChangelogEntry) => {
+const ChangelogEntry = ({ name, date, version, changes, className }: ChangelogEntry) => {
   return (
-    <div className={`md:grid md:grid-cols-[170px_1fr] gap-4 md:gap-8 transition-all duration-300`}>
+    <div className={`md:grid md:grid-cols-[170px_1fr] gap-4 md:gap-8 transition-all duration-300 ${className}`}>
       <div className="text-gray-500 md:text-right md:pr-8 pt-0.5 md:border-r border-gray-200 mb-2 md:mb-0">
         {date}
       </div>
