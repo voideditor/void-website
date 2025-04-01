@@ -41,7 +41,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     date: "Coming April 7, 2025",
     changes: [
       "Auto-updates are coming, so we'll be pushing smaller and more frequent changes.",
-      "We've built SSH support, Linux support, and Agent mode checkpoints! Currently testing; coming soon.",
+      "We've built SSH support, Linux support, and Agent mode checkpoints! Currently finalizing; coming soon.",
     ]
   },
   {
