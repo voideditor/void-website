@@ -36,7 +36,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
   {
     name: "Next Release",
-    version: 'v1.0.3',
+    version: '',
     className: 'opacity-50',
     date: "Coming April 7, 2025",
     changes: [
@@ -126,9 +126,9 @@ const ChangelogEntry = ({ name, date, version, changes, className }: ChangelogEn
           <div className="flex items-center gap-4">
             <h2 className="text-xl font-semibold">{name}</h2>
           </div>
-          <div className="text-gray-500 text-sm ">
+          {!!version && <div className="text-gray-500 text-sm ">
             {version}
-          </div>
+          </div>}
         </div>
 
         <ul className="space-y-3 text-gray-600 text-sm">
