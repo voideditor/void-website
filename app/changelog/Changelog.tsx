@@ -51,11 +51,12 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     changes: [
       "Added Agent mode, Gather mode, and Chat mode!",
       "Agent mode can control your terminal, read/write files, and search your codebase.",
-      "Void detects if your model supports tools (Agent/Gather), FIM (Autocomplete), and Reasoning.",
-      "Parsing of reasoning for all common models and providers.",
+      "Chat and Gather mode will make suggestions to edit specific files, which you can Apply with nicer UI.",
+      "Auto-detection when a model supports reasoning, tools (Agent/Gather), and FIM (Autocomplete).",
+      "New slider to set a model's reasoning level preference.",
       "Autocomplete has been re-enabled, and you can use it with any FIM model.",
-      "Added a slider to set your thinking level preference for models that support it.",
-      "Improved file selection mechanics.",
+      "Added Fast Apply option, enabled by default.",
+      "Chat mode now links to symbols in your code.",
       "Rebase from VSCode 1.99.0.",
       "Claude 3.7, Deepseek V3, Gemini 2.0, and QwQ support.",
     ]
