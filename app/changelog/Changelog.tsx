@@ -52,7 +52,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "Added Agent mode, Gather mode, and Chat mode!",
       "Agent mode can control your terminal, read/write files, and search your codebase.",
       "Chat and Gather mode will make suggestions to edit specific files. UI around applying these changes is nicer.",
-      "Void auto-detects when a model supports reasoning, tools (Agent/Gather), and FIM (Autocomplete).",
+      "Void auto-detects when a model supports tools (Agent/Gather), FIM (Autocomplete), and thinking (Reasoning).",
       "New slider to set a model's reasoning level preference.",
       "Autocomplete has been re-enabled, and you can use it with any FIM model.",
       "Added a Fast Apply option, enabled by default.",
