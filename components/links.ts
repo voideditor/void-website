@@ -11,7 +11,7 @@ export const waitlistLink = '/email'
 export const changelogLink = '/changelog'
 export const downloadLink = '/download-beta'
 
-export const releaseLink = `https://github.com/voideditor/void/releases/latest`
+export const releaseLink = `https://github.com/voideditor/void/releases`
 
 const downloadPrefix = `https://github.com/voideditor/void/releases/latest/download`
 export const downloadOfOS = {
