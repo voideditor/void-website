@@ -55,7 +55,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "Void auto-detects when a model supports reasoning, tools (Agent/Gather), and FIM (Autocomplete).",
       "New slider to set a model's reasoning level preference.",
       "Autocomplete has been re-enabled, and you can use it with any FIM model.",
-      "Added Fast Apply option, enabled by default.",
+      "Added a Fast Apply option, enabled by default.",
       "Chat mode now links to symbols in your code.",
       "Rebase from VSCode 1.99.0.",
       "Claude 3.7, Deepseek V3, Gemini 2.0, and QwQ support.",
