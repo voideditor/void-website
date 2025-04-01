@@ -56,7 +56,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "New slider to set a model's reasoning level preference.",
       "Autocomplete has been re-enabled, and you can use it with any FIM model.",
       "Added a Fast Apply option, enabled by default.",
-      "Chat mode now links to symbols in your code.",
+      "Chat mode now creates links to symbols in your code.",
       "Rebase from VSCode 1.99.0.",
       "Claude 3.7, Deepseek V3, Gemini 2.0, and QwQ support.",
     ]
