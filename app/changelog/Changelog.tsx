@@ -42,6 +42,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     changes: [
       "Auto-updates are coming, so we'll be pushing smaller and more frequent changes.",
       "We've built SSH support, Linux support, and Agent mode checkpoints! Currently finalizing; coming soon.",
+      "Gemini 2.5 Pro, OpenHands 32B, DeepSeek V3, Phi4 .",
     ]
   },
   {

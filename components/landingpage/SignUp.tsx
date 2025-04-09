@@ -56,7 +56,7 @@ export const SignUp = () => {
                     }}
                 >Get Early Access</h2>
                 <div className='text-black/50 text-center text-balance mx-auto'>
-                    {`Join Void's `}<a href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>Discord</a>{` channel for private beta access, or enter your email below for an alert when we officially release! `}
+                    {`Join Void's `}<a href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>Discord</a>{` channel for private beta access, and enter your email below for an alert when we officially release! `}
                 </div>
                 <form className="flex max-sm:flex-col justify-center items-center max-w-xs gap-4 mx-auto" onSubmit={handleSubmit}>
                     <label className="w-full max-w-xs">
