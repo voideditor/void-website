@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FaDiscord } from "react-icons/fa"
 import VoidAnimatedText from "./VoidAnimatedText"
 import { IoLogoGithub } from "react-icons/io"
-import {  changelogLink, contributeLink, discordLink, waitlistLink, githubLink } from "../links"
+import {   discordLink, waitlistLink, githubLink } from "../links"
 import Image from "next/image"
 import { baseUrl } from "@/app/sitemap"
 

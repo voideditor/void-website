@@ -1,6 +1,6 @@
 export const discordLink = 'https://discord.gg/RSNjgaugJs'
 
-export const contributeLink = 'https://github.com/voideditor/void/blob/main/HOW_TO_CONTRIBUTE.md'
+// export const contributeLink = 'https://github.com/voideditor/void/blob/main/HOW_TO_CONTRIBUTE.md'
 export const githubLink = 'https://github.com/voideditor/void#readme'
 export const githubStarLink = 'https://github.com/voideditor/void'
 
