@@ -157,43 +157,59 @@ const DownloadBetaPage = () => {
                             <SparkleOverlay number={25} seed={42} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
-                                    Download for Mac
+                                    Mac
                                 </span>
                                 <FaApple className='fill-white min-w-7 min-h-7' />
                             </span>
                         </DownloadButton>
-
-                        <DownloadButton url={downloadOfOS.mac.intel} tag='darwin-x64' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={10} seed={47} />
-                            <span className='flex items-center gap-2'>
-                                <span className='text-white text-xl font-medium'>
-                                    Intel
-                                </span>
-                                <FaApple className='fill-white min-w-7 min-h-7' />
-                            </span>
-                        </DownloadButton>
-                    </div>
-
-                    <div className='flex items-center gap-4'>
+                        
                         <DownloadButton url={downloadOfOS.windows.x64} tag='win32-x64' className='relative w-full'>
                             <SparkleOverlay number={25} seed={43} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
-                                    Download for Windows
+                                    Windows
                                 </span>
                                 <FaWindows className='fill-white min-w-7 min-h-7' />
                             </span>
                         </DownloadButton>
-                        {/* <DownloadButton url={downloadOfOS.linux.x64} tag='win32-x64' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={25} seed={47} />
+
+                        <DownloadButton url={downloadOfOS.linux.x64} tag='win32-x64' className='relative w-40 flex-grow-0 flex-shrink-0'>
+                            <SparkleOverlay number={25} seed={48} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
                                     Linux
                                 </span>
                                 <FaLinux className='fill-white min-w-7 min-h-7' />
                             </span>
-                        </DownloadButton> */}
+                        </DownloadButton>
+
+                       
                     </div>
+
+                    <div className='flex items-center gap-4'>
+                    <DownloadButton url={downloadOfOS.mac.intel} tag='darwin-x64' className='relative w-full'>
+                            <SparkleOverlay number={10} seed={47} />
+                            <span className='flex items-center gap-2'>
+                                <span className='text-white text-xl font-medium'>
+                                    Mac - Intel Chip
+                                </span>
+                                <FaApple className='fill-white min-w-7 min-h-7' />
+                            </span>
+                        </DownloadButton>
+
+                        <DownloadButton url={downloadOfOS.windows.arm} tag='windows-arm' className='relative w-40 flex-grow-0 flex-shrink-0'>
+                            <SparkleOverlay number={25} seed={47} />
+                            <span className='flex items-center gap-2'>
+                                <span className='text-white text-xl font-medium'>
+                                    ARM
+                                </span>
+                                <FaWindows className='fill-white min-w-7 min-h-7' />
+
+                            </span>
+                        </DownloadButton>
+                    </div>
+
+
 
                 </div>
             </div>

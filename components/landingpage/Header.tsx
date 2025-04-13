@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FaDiscord } from "react-icons/fa"
 import VoidAnimatedText from "./VoidAnimatedText"
 import { IoLogoGithub } from "react-icons/io"
-import {   discordLink, waitlistLink, githubLink } from "../links"
+import {   discordLink, waitlistLink, githubLink, downloadLink } from "../links"
 import Image from "next/image"
 import { baseUrl } from "@/app/sitemap"
 
@@ -25,13 +25,21 @@ export const Header = () => {
                 </Link>
 
 
-                <Link draggable={false} href={waitlistLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100'>
+                <Link draggable={false} href={downloadLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100'>
+                    <div className='flex items-center justify-center duration-200 gap-1'>
+                        <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
+                            Download
+                        </span>
+                    </div>
+                </Link>
+
+                {/* <Link draggable={false} href={waitlistLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100'>
                     <div className='flex items-center justify-center duration-200 gap-1'>
                         <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
                             Waitlist
                         </span>
                     </div>
-                </Link>
+                </Link> */}
 
 
 

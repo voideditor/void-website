@@ -16,13 +16,16 @@ export const releaseLink = `https://github.com/voideditor/void/releases`
 const downloadPrefix = `https://github.com/voideditor/void/releases/latest/download`
 export const downloadOfOS = {
     mac: {
-        appleSilicon: `${downloadPrefix}/Void-Installer-darwin-arm64.dmg`,
-        intel: `${downloadPrefix}/Void-Installer-darwin-x64.dmg`,
+        // appleSilicon: `${downloadPrefix}/Void-Installer-darwin-arm64.dmg`,
+        // intel: `${downloadPrefix}/Void-Installer-darwin-x64.dmg`,
+        appleSilicon: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/Void.arm64.1.0.3.25103.dmg`,
+        intel: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/Void.x64.1.0.3.25103.dmg`,
     },
     windows: {
-        x64: `${downloadPrefix}/Void-Installer-win32-x64.exe`,
+        x64: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/VoidSetup-x64-1.0.3.25103.exe`,
+        arm: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/VoidSetup-arm64-1.0.3.25103.exe`,
     },
     linux: {
-        x64: `${downloadPrefix}/Void-Installer-linux-x64.zip`
+        x64: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/Void-1.0.3.25103.glibc2.29-x86_64.AppImage`
     },
 }
