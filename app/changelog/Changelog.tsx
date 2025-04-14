@@ -35,14 +35,28 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
 
   {
-    name: "Next Release",
-    version: '',
-    className: 'opacity-50',
-    date: "Coming April 7, 2025",
+    name: "Beta Patch #4",
+    version: 'v1.1.0',
+    // className: 'opacity-50',
+    date: "April 14, 2025",
     changes: [
-      "Auto-updates are coming, so we'll be pushing smaller and more frequent changes.",
-      "We've built SSH support, Linux support, and Agent mode checkpoints! Currently finalizing; coming soon.",
-      "Gemini 2.5 Pro, OpenHands 32B, DeepSeek V3, Phi4 .",
+      "Added checkpoints that let you jump between LLM edits.",
+      "Added lint error reporting to the LLM after edits.",
+      "Upgraded tool-calling implementation; now, any model can run in Agent mode - R1, Gemma3, Quasar Alpha, etc.",
+      "Dynamic context squashing when the context window is not sufficiently large.",
+      "SSH support, WSL support, and Linux support.",
+      "Void now comes with auto-updates, so we'll be pushing smaller and more frequent changes.",
+      "Gemini 2.5 Pro, OpenHands LM, DeepSeek V3, Phi4, and Quasar Alpha support.",
+    ]
+  },
+  {
+    name: "Beta Patch #3",
+    version: 'v1.0.3',
+    // className: 'opacity-50',
+    date: "April 7, 2025",
+    changes: [
+      "Experimental version of Void pushed to our Discord members.",
+      "Initial version of v1.1.0 above.",
     ]
   },
   {
@@ -50,7 +64,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     version: 'v1.0.2',
     date: "March 22, 2025",
     changes: [
-      "Added Agent mode, Gather mode, and Chat mode!",
+      "Added Agent mode, Gather mode, and Chat mode.",
       "Agent mode can control your terminal, read/write files, and search your codebase.",
       "Chat and Gather mode now make suggestions to edit specific files.",
       "Void auto-detects when a model supports tools (Agent/Gather), FIM (Autocomplete), and thinking (Reasoning).",

@@ -35,9 +35,6 @@ export const Footer = () => {
                     <a href={changelogLink} className="text-black hover:underline">{'Changelog'}</a>
                     {/* <a href={changelogLink} className="text-black hover:underline">{'FAQ'}</a> */}
 
-                    {/* TODO change this to downloadLink */}
-                    <a href={waitlistLink} className="text-black hover:underline">{'Beta'}</a>
-
                 </div>
 
             </div>

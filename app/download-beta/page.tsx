@@ -150,9 +150,9 @@ const DownloadBetaPage = () => {
                 </div>
 
                 {/* buttons */}
-                <div className='space-y-4 px-4 max-sm:scale-75 max-[450px]:scale-50'>
+                <div className='px-4 max-sm:scale-75 max-[450px]:scale-50 space-y-2'>
 
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-x-2'>
                         <DownloadButton url={downloadOfOS.mac.appleSilicon} tag='darwin-arm64' className='relative w-full'>
                             <SparkleOverlay number={25} seed={42} />
                             <span className='flex items-center gap-2'>
@@ -177,13 +177,13 @@ const DownloadBetaPage = () => {
 
                     </div>
 
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-x-2'>
 
                         <DownloadButton url={downloadOfOS.windows.x64} tag='windows-x64' className='relative w-full'>
                             <SparkleOverlay number={25} seed={43} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
-                                    Windows
+                                    Download for Windows
                                 </span>
                                 <FaWindows className='fill-white min-w-7 min-h-7' />
                             </span>
@@ -200,17 +200,24 @@ const DownloadBetaPage = () => {
 
                             </span>
                         </DownloadButton>
+                    </div>
+                    {/* <div className='flex items-center gap-x-2'>
 
-                        <DownloadButton url={downloadOfOS.linux.x64} tag='Linux' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={25} seed={48} />
+                        <DownloadButton url={downloadOfOS.linux.x64} tag='windows-x64' className='relative w-full'>
+                            <SparkleOverlay number={25} seed={43} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
-                                    Linux
+                                    Download for Linux
                                 </span>
                                 <FaLinux className='fill-white min-w-7 min-h-7' />
                             </span>
                         </DownloadButton>
-                    </div>
+
+
+                        <div className='w-40 flex-shrink-0 flex-grow-0'>
+
+                        </div>
+                    </div> */}
 
                 </div>
             </div>
@@ -226,7 +233,14 @@ const DownloadBetaPage = () => {
 
         {/* desc */}
         <div className='mx-auto text-center px-4 text-balance opacity-25 pt-60 pb-40'>
-            {`Alternatively, download Void from the source on `}
+            <div>
+                {`For Linux users, download Void `}
+                <a href={downloadOfOS.linux.x64} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
+                    here
+                </a>.
+            </div>
+
+            {`You can also download Void from the source on `}
             <a href={releaseLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
                 GitHub
             </a>{`.`}
