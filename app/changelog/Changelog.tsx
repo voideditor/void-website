@@ -41,7 +41,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     date: "April 14, 2025",
     changes: [
       "Added checkpoints that let you jump between LLM edits.",
-      "Added lint error reporting to the LLM after edits.",
+      "Agent mode can now fix lint errors after editing files.",
       "Upgraded tool-calling implementation; now, any model can run in Agent mode - R1, Gemma3, Quasar Alpha, etc.",
       "Dynamic context squashing when the context window is not sufficiently large.",
       "SSH support, WSL support, and Linux support.",

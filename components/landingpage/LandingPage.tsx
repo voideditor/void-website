@@ -5,7 +5,7 @@ import React from 'react';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
-import { FaArrowsAlt, FaCheck, FaChevronLeft, FaChevronRight, FaDotCircle, FaExternalLinkSquareAlt, FaEye, FaLink, FaLock, FaStar } from 'react-icons/fa';
+import { FaArrowsAlt, FaCheck, FaChevronLeft, FaChevronRight, FaDiscord, FaDotCircle, FaExternalLinkSquareAlt, FaEye, FaLink, FaLock, FaStar } from 'react-icons/fa';
 import { FaArrowsLeftRight } from 'react-icons/fa6';
 
 import { VscVscode } from 'react-icons/vsc'
@@ -212,7 +212,7 @@ const CoreFeatures = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             <BigContent src='/demos/autocomplete3.png' title={`Tab`} desc={`Press 'Tab' to apply autocomplete.`} />
             <BigContent src='/demos2/aa.png' title={`Quick Edit`} desc={`Edit your selection inline.`} />
-            <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent mode, Gather mode, and normal chat. `} />
+            <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} />
 
         </div>
 
@@ -221,7 +221,7 @@ const CoreFeatures = () => {
 }
 
 const ALotMoreFeatures = () => {
-    return <div className='py-20 space-y-20'>
+    return <div className='py-20 space-y-40'>
         <div>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
                 {/* {`All you could ask for.`} */}
@@ -230,7 +230,7 @@ const ALotMoreFeatures = () => {
                 {"Any LLM, Anywhere."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`We don't send your messages through our backend like Cursor or Windsurf. Cut out the middleman and connect directly.`}
+                {`Void doesn't send your messages through a private backend like Cursor or Windsurf. Cut out the middleman and connect directly.`}
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
                 {/* Box 1 */}
@@ -249,7 +249,7 @@ const ALotMoreFeatures = () => {
                         <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/mistral_small.png" alt="mistral" name="Mistral, Codestral" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/qwen.png" alt="Qwen Logo" name="Qwen 2.5 Coder, QwQ" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/openhands.png" alt="openhands" name="OpenHands LM" />
-                        <ProviderLogo size={'sm'} className='brightness-50 p-3 opacity-[80%]' src="/openai-logomark.png" alt="openai-compatible" name="Custom Endpoints" />
+                        <ProviderLogo size={'sm'} className='brightness-50 p-3 opacity-[80%]' src="/openai-logomark.png" alt="openai-compatible" name="Any OpenAI-Compatible Endpoint" />
                     </div>
 
                     <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
@@ -274,13 +274,50 @@ const ALotMoreFeatures = () => {
                     <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
                         {`Directly connect to any any provider. Use models like Gemini 2.5, Claude 3.7, Grok 3, GPT 4o, and Quasar Alpha. `}
                     </div>
-                    <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
-                        {``}
-                    </div>
                 </div>
             </div>
         </div>
 
+
+
+        <div>
+            <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
+                {"Agents and MCP."}
+            </h2>
+            <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
+                {`Void lets you use any model in Agent mode - even open source models that don't natively support tool calling.`}
+            </div>
+
+            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
+                {/* Box 1 */}
+                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6'>
+                    <div className='text-center text-3xl font-black'>
+                        Agent Mode
+                    </div>
+
+
+                    <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
+                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access
+                        ${/*`and MCP access.`*/''}
+                         `}
+                    </div>
+                </div>
+
+                {/* Box 2 */}
+                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6'>
+                    <div className='text-center text-3xl font-black'>
+                        Gather Mode
+                    </div>
+
+                    {/* <div className='flex gap-2 items-center justify-center grayscale' data-tooltip-id="hover-group-online">
+            </div> */}
+
+                    <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
+                        {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black mt-20'>
@@ -295,11 +332,10 @@ const ALotMoreFeatures = () => {
                 {` AI features. `} */}
             </div>
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2 justify-items-stretch max-w-[1200px] mx-auto">
-                <GridElement name='Agent Mode.' src='/demos/techstack.png' />
-                <GridElement name='Gather Mode.' src='/demos/techstack.png' />
+                <GridElement name='Auto-Apply.' src='/demos/techstack.png' />
                 <GridElement name='Checkpoints.' src='/demos/techstack.png' />
-                <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' />
                 <GridElement name='Fast Apply, Even on 1000-Line Files.' src='/demos/instant.png' />
+                <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' />
                 <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' />
                 {/* <GridElement name='SSH and WSL Support.' src='/demos/techstack.png' />
 
@@ -327,7 +363,9 @@ const ALotMoreFeatures = () => {
 }
 
 const PoweredByVscode = () => {
-    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
+    return <section className='w-full h-fit py-16 mt-32 mb-40 
+    flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100
+    '>
 
         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
             <div className='flex justify-center items-center '>
@@ -348,28 +386,26 @@ const PoweredByVscode = () => {
 
     </section>
 }
-// const InterestedInContributing = () => {
-//     return <section className='w-full h-fit py-16 border mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
+const InterestedInContributing = () => {
+    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
 
-//         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
-//             <div className='flex justify-center items-center '>
-//                 {`Interested in Contributing?`}
-//             </div>
-//         </h2>
+        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
+            <div className='flex justify-center items-center '>
+                {`Interested in Contributing?`}
+            </div>
+        </h2>
 
-//         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
-//             <div className='text-center px-4 text-balance'>
-//                 {`Join our Discord community to get in touch`}
-//             </div>
-//         </div>
-//         <div className='flex items-center gap-8'>
-//             <VscVscode className='size-20 fill-black/80' />
-//             {/* <FaArrowsLeftRight className='size-6' /> */}
-//             {/* <Image src={process.env.NEXT_PUBLIC_LOGO_URL!} alt={`A slice of the void`} height={70} width={70} /> */}
-//         </div>
+        <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
+            <div className='text-center px-4 text-balance'>
+                {`Our community hosts weekly meetups in our Discord channel. We'd love to see you there!`}
+            </div>
+        </div>
+        <div className='flex items-center gap-8'>
+            <FaDiscord className='size-20 fill-black/80' />
+        </div>
 
-//     </section>
-// }
+    </section>
+}
 
 
 
@@ -403,55 +439,6 @@ const GetStartedWithVoid = () => {
     </div>
 }
 
-const AgentModes = () => {
-    return <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
-        {/* Box 1 */}
-        <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6'>
-            <div className='text-center text-3xl font-black'>
-                Agent Mode
-            </div>
-
-            <div className="mx-auto w-fit grid grid-cols-5 max-w-[500px] place-items-center grayscale px-8" data-tooltip-id="hover-group-local">
-                <ProviderLogo size={'sm'} className='brightness-50 p-1 opacity-[80%] h-10 sm:h-20 ' src="/ollama.png" alt="Ollama Logo" name="Ollama (Provider)" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/vLLM.png" alt="vLLM Logo" name="vLLM (Provider)" />
-                <ProviderLogo size={'sm'} className='brightness-50 w-10 sm:w-20 h-auto' src="/meta.svg" alt="Llama" name="Llama 4" />
-                <ProviderLogo size={'sm'} className='brightness-50  ' src="/deepseek.png" alt="DeepSeek Logo" name="DeepSeek R1, V3" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/gemma3.png" alt="gemma" name="Google Gemma 3" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-3' src="/ms.png" alt="microsoft phi" name="Microsoft Phi 4" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/mistral_small.png" alt="mistral" name="Mistral, Codestral" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/qwen.png" alt="Qwen Logo" name="Qwen 2.5 Coder, QwQ" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/openhands.png" alt="openhands" name="OpenHands LM" />
-                <ProviderLogo size={'sm'} className='brightness-50 p-3 opacity-[80%]' src="/openai-logomark.png" alt="openai-compatible" name="Custom Endpoints" />
-            </div>
-
-            <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
-                {`Never run out of API credits again. Host any open source model with Void: DeepSeek, Llama, Gemini, Qwen, and more.`}
-            </div>
-        </div>
-
-        {/* Box 2 */}
-        <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6'>
-            <div className='text-center text-3xl font-black'>
-                Gather Mode
-            </div>
-
-            <div className='flex gap-2 items-center justify-center grayscale' data-tooltip-id="hover-group-online">
-                <ProviderLogo size={'lg'} className='brightness-50 md:p-2 p-1' src="/claude-icon.png" alt="Claude Logo" name="Anthropic" />
-                <ProviderLogo size={'lg'} className='brightness-50 p-1 opacity-[80%]  md:p-2 ' src="/openai-logomark.png" alt="OpenAI Logo" name="OpenAI" />
-                <ProviderLogo size={'lg'} className='brightness-50  md:p-3 p-1 ' src="/gemini.png" alt="Gemini Logo" name="Google Gemini" />
-                <ProviderLogo size={'lg'} className='brightness-[30%] p-1' src="/openrouter.png" alt="OpenRouter Logo" name="OpenRouter" />
-                <ProviderLogo size={'lg'} className='brightness-50 opacity-[80%]' src="/grok.png" alt="Grok Logo" name="xAI (Grok)" />
-            </div>
-
-            <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
-                {`Directly connect to any any provider. Use models like Gemini 2.5, Claude 3.7, Grok 3, GPT 4o, and Quasar Alpha. `}
-            </div>
-            <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
-                {``}
-            </div>
-        </div>
-    </div>
-}
 
 export default function LandingPage() {
     return (<>
@@ -473,10 +460,9 @@ export default function LandingPage() {
         </div>
         <Wave isExitWave={true} />
 
-        <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12 pt-40'>
-            <AgentModes />
+        <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12'>
             {/* Removed DataPrivacy section from here since it's now part of ALotMoreFeatures */}
-            {/* <InterestedInContributing /> */}
+            <InterestedInContributing />
             <GetStartedWithVoid />
         </div>
 
