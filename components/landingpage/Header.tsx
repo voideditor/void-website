@@ -52,19 +52,6 @@ export const Header = () => {
                 </Link>
 
 
-
-
-                {/* <Link draggable={false} href='/blog'>
-                        Blog
-            </Link> */}
-
-                {/* <a draggable={false} href={contributeLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 ml-auto max-[350px]:hidden'>
-                    <div className='flex items-center justify-center duration-200 gap-1'>
-                        <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
-                            Contribute
-                        </span>
-                    </div>
-                </a> */}
                 <a draggable={false} href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 ml-auto max-[350px]:hidden'>
                     <div className='flex items-center justify-center duration-200 gap-1'>
                         <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
