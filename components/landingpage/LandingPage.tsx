@@ -297,7 +297,7 @@ const ALotMoreFeatures = () => {
 
 
                     <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
-                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access
+                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access.
                         ${/*`and MCP access.`*/''}
                          `}
                     </div>
