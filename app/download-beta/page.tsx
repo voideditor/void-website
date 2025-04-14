@@ -1,63 +1,15 @@
-'use client'
 /* eslint-disable @next/next/no-img-element */
 
 import { discordLink, releaseLink } from '@/components/links';
-import { useMemo, useState, useEffect } from 'react';
 import { FaApple, FaWindows } from 'react-icons/fa';
-
-
 import './twinkle.css'
 import Image from 'next/image';
-import posthog from 'posthog-js';
+// Import the SparkleOverlay component
+import SparkleOverlay from './SparkleOverlay';
+import { useEffect, useState } from 'react';
 
 
-const generatePseudoRandomPositions = (numToGenerate: number, seed: number) => {
-    const prng = (seed: number) => {
-        let value = seed;
-        return () => {
-            value = (value * 16807) % 2147483647;
-            return value / 2147483647;
-        };
-    };
-    const random = prng(seed);
-    const positions: { left: number, top: number, startOffset: number, duration: number }[] = [];
-    for (let i = 0; i < numToGenerate; i++) {
-        positions.push({
-            left: random() * 100,
-            top: random() * 100,
-            startOffset: random() * 1,
-            duration: 1.5 + random() * 2,
-        });
-    }
-    return positions;
-};
-
-
-const SparkleOverlay = ({ number, seed }: { number: number, seed: number }) => {
-    const sparklePositions = useMemo(() => generatePseudoRandomPositions(number, seed), [number, seed]);
-
-    return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {sparklePositions.map((position, i) => (
-                <div
-                    key={i}
-                    className="absolute w-0.5 h-0.5 bg-white rounded-full"
-                    style={{
-                        left: `${position.left}%`,
-                        top: `${position.top}%`,
-                        animation: `twinkle ${position.duration}s infinite ease-in-out`,
-                        animationDelay: `-${position.startOffset * position.duration}s`,
-                    }}
-                />
-            ))}
-        </div>
-    );
-};
-
-
-
-const DownloadButton = ({ url, tag, children, className }: { url: string, tag: string, children: React.ReactNode, className?: string }) => {
-
+const DownloadButton = ({ url, children, className }: { url: string, children: React.ReactNode, className?: string }) => {
     return (
         <a
             draggable={false}
@@ -68,12 +20,9 @@ const DownloadButton = ({ url, tag, children, className }: { url: string, tag: s
              cursor-pointer
              ${className}`}
             href={url}
-            onClick={() => { posthog.capture('Click Download', { url, tag }) }}
         >
             {children}
         </a>
-
-
     );
 };
 
@@ -119,30 +68,41 @@ const FloatingElement = () => {
 
 
 
+// Function to get the latest release version server-side
+async function getLatestReleaseVersion() {
+    try {
+        const response = await fetch('https://api.github.com/repos/voideditor/binaries/releases/latest', {
+            cache: 'no-store' // Don't cache this request
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            return data.tag_name;
+        }
+    } catch (error) {
+        console.error('Failed to fetch latest release:', error);
+    }
+
+    // Fallback version if fetch fails
+    return '1.2.0.25104';
+}
+
 // TODO need to add this to opengraph, sitemap, metdata, etc, it's 100% private right now
-const DownloadBetaPage = () => {
-    const [releaseVersion, setReleaseVersion] = useState('1.2.0.25104'); // Default fallback version
-    const [isLoading, setIsLoading] = useState(true);
+const DownloadBetaPage = async () => {
+    // Fetch the latest release version on the server
+    const [releaseVersion, setReleaseVersion] = useState('')
+    const [update, setUpdate] = useState(0)
 
-    // Fetch the latest release version from GitHub
     useEffect(() => {
-        const fetchLatestRelease = async () => {
-            try {
-                const response = await fetch('https://api.github.com/repos/voideditor/binaries/releases/latest');
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('data', JSON.stringify(data))
-                    setReleaseVersion(data.tag_name);
-                }
-            } catch (error) {
-                console.error('Failed to fetch latest release:', error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+        const i = setInterval(() => setUpdate(v => v + 1), 1000 * 15 * 60) // every 15 min, re-fetch
+        return () => clearInterval(i)
+    }, [])
 
-        fetchLatestRelease();
-    }, []);
+    useEffect(() => {
+        getLatestReleaseVersion()
+            .then(r => setReleaseVersion(r))
+            .catch((e) => console.log('Error', e))
+    }, [update])
 
     // Define download links with dynamic release version
     const downloadLinks = {
@@ -192,7 +152,7 @@ const DownloadBetaPage = () => {
                 <div className='px-4 max-sm:scale-75 max-[450px]:scale-50 space-y-2'>
 
                     <div className='flex items-center gap-x-2'>
-                        <DownloadButton url={downloadLinks.mac.appleSilicon} tag='darwin-arm64' className='relative w-full'>
+                        <DownloadButton url={downloadLinks.mac.appleSilicon} className='relative w-full'>
                             <SparkleOverlay number={25} seed={42} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
@@ -202,7 +162,7 @@ const DownloadBetaPage = () => {
                             </span>
                         </DownloadButton>
 
-                        <DownloadButton url={downloadLinks.mac.intel} tag='apple-intel' className='relative w-40 flex-grow-0 flex-shrink-0'>
+                        <DownloadButton url={downloadLinks.mac.intel} className='relative w-40 flex-grow-0 flex-shrink-0'>
                             <SparkleOverlay number={15} seed={501} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
@@ -211,14 +171,10 @@ const DownloadBetaPage = () => {
                                 <FaApple className='fill-white min-w-7 min-h-7' />
                             </span>
                         </DownloadButton>
-
-
-
                     </div>
 
                     <div className='flex items-center gap-x-2'>
-
-                        <DownloadButton url={downloadLinks.windows.x64} tag='windows-x64' className='relative w-full'>
+                        <DownloadButton url={downloadLinks.windows.x64} className='relative w-full'>
                             <SparkleOverlay number={25} seed={43} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
@@ -228,15 +184,13 @@ const DownloadBetaPage = () => {
                             </span>
                         </DownloadButton>
 
-
-                        <DownloadButton url={downloadLinks.windows.arm} tag='windows-arm' className='relative w-40 flex-grow-0 flex-shrink-0'>
+                        <DownloadButton url={downloadLinks.windows.arm} className='relative w-40 flex-grow-0 flex-shrink-0'>
                             <SparkleOverlay number={15} seed={100} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
                                     ARM
                                 </span>
                                 <FaWindows className='fill-white min-w-7 min-h-7' />
-
                             </span>
                         </DownloadButton>
                     </div>
