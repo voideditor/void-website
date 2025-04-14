@@ -6,21 +6,68 @@ import './twinkle.css'
 import Image from 'next/image';
 import SparkleOverlay from './SparkleOverlay';
 
+
+
+
+
+
+
+
+// Add this top-level cache (outside the function)
+let cachedVersion: string | null = null;
+let lastChecked: number = 0; // epoch ms
+const TTL = 15 * 60 * 1000; // 15 minutes
+
+// All required asset filenames (can be regex or exact)
+const REQUIRED_ASSETS = [
+    (v: string) => `VoidUserSetup-x64-${v}.exe`,
+    (v: string) => `VoidSetup-arm64-${v}.exe`,
+    (v: string) => `Void.x64.${v}.dmg`,
+    (v: string) => `Void.arm64.${v}.dmg`,
+    (v: string) => `Void-${v}.glibc2.29-x86_64.AppImage`,
+];
+
 // Server-side helper
 async function getLatestReleaseVersion(): Promise<string> {
+    const now = Date.now();
+    if (cachedVersion && now - lastChecked < TTL) {
+        return cachedVersion;
+    }
+
     try {
         const response = await fetch('https://api.github.com/repos/voideditor/binaries/releases/latest', {
-            next: { revalidate: 15 * 60 },
+            // Avoid Next.js caching here—we handle our own
+            cache: 'no-store',
         });
+
         if (response.ok) {
             const data = await response.json();
-            return data.tag_name;
+            const version = data.tag_name;
+            const assetNames: string[] = data.assets.map((a: any) => a.name);
+
+            const allAssetsExist = REQUIRED_ASSETS.every((makeName) =>
+                assetNames.includes(makeName(version))
+            );
+
+            if (allAssetsExist) {
+                cachedVersion = version;
+                lastChecked = now;
+                return version;
+            } else {
+                console.warn('Some expected assets are missing in latest release');
+            }
         }
     } catch (e) {
         console.error('Failed to fetch latest release:', e);
     }
-    return '1.2.0.25104';
+
+    return cachedVersion ?? '1.2.0.25104';
 }
+
+
+
+
+
 
 // Floating Element
 const FloatingElement = () => (
