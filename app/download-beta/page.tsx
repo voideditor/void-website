@@ -121,7 +121,7 @@ const FloatingElement = () => {
 
 // TODO need to add this to opengraph, sitemap, metdata, etc, it's 100% private right now
 const DownloadBetaPage = () => {
-    const [releaseVersion, setReleaseVersion] = useState('1.1.0.25104'); // Default fallback version
+    const [releaseVersion, setReleaseVersion] = useState('1.2.0.25104'); // Default fallback version
     const [isLoading, setIsLoading] = useState(true);
 
     // Fetch the latest release version from GitHub
