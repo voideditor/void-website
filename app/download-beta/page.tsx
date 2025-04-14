@@ -1,9 +1,9 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 
-import { discordLink, downloadOfOS, releaseLink } from '@/components/links';
-import { useMemo, useState } from 'react';
-import { FaApple, FaLinux, FaWindows } from 'react-icons/fa';
+import { discordLink, releaseLink } from '@/components/links';
+import { useMemo, useState, useEffect } from 'react';
+import { FaApple, FaWindows } from 'react-icons/fa';
 
 
 import './twinkle.css'
@@ -56,7 +56,7 @@ const SparkleOverlay = ({ number, seed }: { number: number, seed: number }) => {
 
 
 
-const DownloadButton = ({ url, tag, defaultFileName = 'Void-Installer', children, className }: { url: string, tag: string, defaultFileName?: string, children: React.ReactNode, className?: string }) => {
+const DownloadButton = ({ url, tag, children, className }: { url: string, tag: string, children: React.ReactNode, className?: string }) => {
 
     return (
         <a
@@ -121,6 +121,45 @@ const FloatingElement = () => {
 
 // TODO need to add this to opengraph, sitemap, metdata, etc, it's 100% private right now
 const DownloadBetaPage = () => {
+    const [releaseVersion, setReleaseVersion] = useState('1.1.0.25104'); // Default fallback version
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Fetch the latest release version from GitHub
+    useEffect(() => {
+        const fetchLatestRelease = async () => {
+            try {
+                const response = await fetch('https://api.github.com/repos/voideditor/binaries/releases/latest');
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('data', JSON.stringify(data))
+                    setReleaseVersion(data.tag_name);
+                }
+            } catch (error) {
+                console.error('Failed to fetch latest release:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchLatestRelease();
+    }, []);
+
+    // Define download links with dynamic release version
+    const downloadLinks = {
+        windows: {
+            x64: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidUserSetup-x64-${releaseVersion}.exe`,
+            arm: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidSetup-arm64-${releaseVersion}.exe`,
+        },
+        mac: {
+            intel: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/Void.x64.${releaseVersion}.dmg`,
+            appleSilicon: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/Void.arm64.${releaseVersion}.dmg`,
+        },
+        linux: {
+            x64: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/Void-${releaseVersion}.glibc2.29-x86_64.AppImage`,
+            // arm: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/void_${releaseVersion}_arm64.deb`,
+        }
+    };
+
     return <main className='min-h-screen relative max-w-[1400px] mx-auto px-4 lg:px-12 '>
 
         <section className=' h-fit py-16 mt-4 sm:mt-32
@@ -142,18 +181,18 @@ const DownloadBetaPage = () => {
 
                 {/* desc */}
                 <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                    {`Try the beta edition of Void, and help us improve by providing `}
+                    {`Try the beta edition of Void for free, and provide `}
                     <a href={discordLink} target='_blank' rel="noreferrer noopener nofollow"
                         className='underline'>
                         feedback
-                    </a>!
+                    </a>.
                 </div>
 
                 {/* buttons */}
                 <div className='px-4 max-sm:scale-75 max-[450px]:scale-50 space-y-2'>
 
                     <div className='flex items-center gap-x-2'>
-                        <DownloadButton url={downloadOfOS.mac.appleSilicon} tag='darwin-arm64' className='relative w-full'>
+                        <DownloadButton url={downloadLinks.mac.appleSilicon} tag='darwin-arm64' className='relative w-full'>
                             <SparkleOverlay number={25} seed={42} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
@@ -163,8 +202,8 @@ const DownloadBetaPage = () => {
                             </span>
                         </DownloadButton>
 
-                        <DownloadButton url={downloadOfOS.mac.intel} tag='apple-intel' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={10} seed={47} />
+                        <DownloadButton url={downloadLinks.mac.intel} tag='apple-intel' className='relative w-40 flex-grow-0 flex-shrink-0'>
+                            <SparkleOverlay number={15} seed={501} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
                                     Intel
@@ -179,7 +218,7 @@ const DownloadBetaPage = () => {
 
                     <div className='flex items-center gap-x-2'>
 
-                        <DownloadButton url={downloadOfOS.windows.x64} tag='windows-x64' className='relative w-full'>
+                        <DownloadButton url={downloadLinks.windows.x64} tag='windows-x64' className='relative w-full'>
                             <SparkleOverlay number={25} seed={43} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
@@ -190,8 +229,8 @@ const DownloadBetaPage = () => {
                         </DownloadButton>
 
 
-                        <DownloadButton url={downloadOfOS.windows.arm} tag='windows-arm' className='relative w-40 flex-grow-0 flex-shrink-0'>
-                            <SparkleOverlay number={25} seed={47} />
+                        <DownloadButton url={downloadLinks.windows.arm} tag='windows-arm' className='relative w-40 flex-grow-0 flex-shrink-0'>
+                            <SparkleOverlay number={15} seed={100} />
                             <span className='flex items-center gap-2'>
                                 <span className='text-white text-xl font-medium'>
                                     ARM
@@ -201,24 +240,6 @@ const DownloadBetaPage = () => {
                             </span>
                         </DownloadButton>
                     </div>
-                    {/* <div className='flex items-center gap-x-2'>
-
-                        <DownloadButton url={downloadOfOS.linux.x64} tag='windows-x64' className='relative w-full'>
-                            <SparkleOverlay number={25} seed={43} />
-                            <span className='flex items-center gap-2'>
-                                <span className='text-white text-xl font-medium'>
-                                    Download for Linux
-                                </span>
-                                <FaLinux className='fill-white min-w-7 min-h-7' />
-                            </span>
-                        </DownloadButton>
-
-
-                        <div className='w-40 flex-shrink-0 flex-grow-0'>
-
-                        </div>
-                    </div> */}
-
                 </div>
             </div>
 
@@ -233,17 +254,19 @@ const DownloadBetaPage = () => {
 
         {/* desc */}
         <div className='mx-auto text-center px-4 text-balance opacity-25 pt-60 pb-40'>
-            <div>
+            <div className='my-1'>
                 {`For Linux users, download Void `}
-                <a href={downloadOfOS.linux.x64} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
+                <a href={downloadLinks.linux.x64} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
                     here
                 </a>.
             </div>
 
-            {`You can also download Void from the source on `}
-            <a href={releaseLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
-                GitHub
-            </a>{`.`}
+            <div className='my-1'>
+                {`You can also download Void from the source on `}
+                <a href={releaseLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>
+                    GitHub
+                </a>{`.`}
+            </div>
         </div>
 
     </main>
