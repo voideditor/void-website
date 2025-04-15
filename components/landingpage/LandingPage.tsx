@@ -12,10 +12,11 @@ import { VscVscode } from 'react-icons/vsc'
 import { StarOnGithubButton, JoinWaitlistButton } from '@/app/Buttons';
 import Image from 'next/image';
 import { emailLink } from '../links';
+import { Hammer, Apple } from 'lucide-react'
 
 
-const BigContent = ({ title, desc, src, children, }: { title: string, desc: React.ReactNode, src: string, children?: React.ReactNode }) => {
-    return <div className='flex flex-col items-center'>
+const BigContent = ({ title, desc, src, children, imgClassName = '' }: { title: string, desc: React.ReactNode, src: string, children?: React.ReactNode, imgClassName?: string }) => {
+    return <div className={`flex flex-col items-center`}>
         <h2 className='text-center font-bold max-sm:text-lg text-2xl px-4'>
             {title}
         </h2>
@@ -26,7 +27,7 @@ const BigContent = ({ title, desc, src, children, }: { title: string, desc: Reac
             src={src}
             alt={title}
             // shadow-[0px_0px_0px_4px_rgba(0,0,0)] and ring can overlap
-            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] lg:max-w-[400px] w-full h-full rounded-xl object-contain`}
+            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] lg:max-w-[400px] w-full h-full rounded-xl object-contain ${imgClassName}`}
         />
         {children}
     </div>
@@ -75,7 +76,7 @@ const ProviderLogo = ({
 };
 
 
-const GridElement = ({ name, src = undefined, alt = undefined, children }: { name: string | null, src?: string, alt?: string, children?: React.ReactNode }) => {
+const GridElement = ({ name, src = undefined, alt = undefined, children, imageClassName = '' }: { name: string | null, src?: string, alt?: string, children?: React.ReactNode, imageClassName?: string }) => {
 
     let childContents: React.ReactNode
     if (children) {
@@ -84,7 +85,10 @@ const GridElement = ({ name, src = undefined, alt = undefined, children }: { nam
     else {
         if (name === null)
             throw new Error('GridElement: name was null')
-        childContents = <img src={src ?? '/noise/3.png'} alt={name} className='max-h-[300px] max-w-full w-auto h-auto rounded-lg max-sm:object-contain object-cover ' />
+
+        childContents = <div className="w-full h-[300px] flex items-center justify-center">
+            <img src={src ?? '/noise/3.png'} alt={name} className={`max-h-[300px] max-w-full w-auto h-auto rounded-lg object-contain ${imageClassName}`} />
+        </div>
     }
 
     return <>
@@ -92,7 +96,7 @@ const GridElement = ({ name, src = undefined, alt = undefined, children }: { nam
             <div>
                 <div className='text-center text-xl font-semibold pb-4'>{name}</div>
 
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center bg-[#252526] rounded-lg'>
                     {childContents}
                 </div>
             </div>
@@ -211,8 +215,11 @@ const CoreFeatures = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             <BigContent src='/demos/autocomplete3.png' title={`Tab`} desc={`Press 'Tab' to apply autocomplete.`} />
-            <BigContent src='/demos2/aa.png' title={`Quick Edit`} desc={`Edit your selection inline.`} />
-            <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} />
+            {/* <BigContent src='/demos2/aa.png' title={`Quick Edit`} desc={`Edit your selection inline.`} /> */}
+            {/* <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
+            <BigContent src='/demos/cmdK1.png' title={`Quick Edit`} desc={`Edit your selection inline.`} />
+            {/* <BigContent src='/demos/chat5.png' imgClassName='py-12 bg-[#252526]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
+            <BigContent src='/demos2/CmdL7.png' imgClassName='py-12 px-12 bg-[#1e1e1e]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} />
 
         </div>
 
@@ -236,20 +243,21 @@ const ALotMoreFeatures = () => {
                 {/* Box 1 */}
                 <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6'>
                     <div className='text-center text-3xl font-black'>
-                        Local LLMs
+                        Private LLMs
                     </div>
 
-                    <div className="mx-auto w-fit grid grid-cols-5 max-w-[500px] place-items-center grayscale px-8" data-tooltip-id="hover-group-local">
+                    <div className="mx-auto w-fit grid grid-cols-4 max-w-[500px] place-items-center grayscale px-8" data-tooltip-id="hover-group-local">
                         <ProviderLogo size={'sm'} className='brightness-50 p-1 opacity-[80%] h-10 sm:h-20 ' src="/ollama.png" alt="Ollama Logo" name="Ollama (Provider)" />
-                        <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/vLLM.png" alt="vLLM Logo" name="vLLM (Provider)" />
-                        <ProviderLogo size={'sm'} className='brightness-50 w-10 sm:w-20 h-auto' src="/meta.svg" alt="Llama" name="Llama 4" />
                         <ProviderLogo size={'sm'} className='brightness-50  ' src="/deepseek.png" alt="DeepSeek Logo" name="DeepSeek R1, V3" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/gemma3.png" alt="gemma" name="Google Gemma 3" />
-                        <ProviderLogo size={'sm'} className='brightness-50 p-3' src="/ms.png" alt="microsoft phi" name="Microsoft Phi 4" />
-                        <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/mistral_small.png" alt="mistral" name="Mistral, Codestral" />
+                        <ProviderLogo size={'sm'} className='brightness-50 w-10 sm:w-20 h-auto' src="/meta.svg" alt="Llama" name="Llama 4" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/qwen.png" alt="Qwen Logo" name="Qwen 2.5 Coder, QwQ" />
-                        <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/openhands.png" alt="openhands" name="OpenHands LM" />
+                        <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/mistral_small.png" alt="mistral" name="Mistral, Codestral" />
+                        <ProviderLogo size={'sm'} className='brightness-5 p-4' src="/vLLM.png" alt="vLLM Logo" name="vLLM (Provider)" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-3 opacity-[80%]' src="/openai-logomark.png" alt="openai-compatible" name="Any OpenAI-Compatible Endpoint" />
+                        {/* dont know what to do with these */}
+                        {/* <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/openhands.png" alt="openhands" name="OpenHands LM" /> */}
+                        {/* <ProviderLogo size={'sm'} className='brightness-50 p-3' src="/ms.png" alt="microsoft phi" name="Microsoft Phi 4" /> */}
                     </div>
 
                     <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
@@ -260,15 +268,15 @@ const ALotMoreFeatures = () => {
                 {/* Box 2 */}
                 <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6'>
                     <div className='text-center text-3xl font-black'>
-                        Online LLMs
+                        Frontier LLMs
                     </div>
 
                     <div className='flex gap-2 items-center justify-center grayscale' data-tooltip-id="hover-group-online">
                         <ProviderLogo size={'lg'} className='brightness-50 md:p-2 p-1' src="/claude-icon.png" alt="Claude Logo" name="Anthropic" />
                         <ProviderLogo size={'lg'} className='brightness-50 p-1 opacity-[80%]  md:p-2 ' src="/openai-logomark.png" alt="OpenAI Logo" name="OpenAI" />
                         <ProviderLogo size={'lg'} className='brightness-50  md:p-3 p-1 ' src="/gemini.png" alt="Gemini Logo" name="Google Gemini" />
-                        <ProviderLogo size={'lg'} className='brightness-[30%] p-1' src="/openrouter.png" alt="OpenRouter Logo" name="OpenRouter" />
                         <ProviderLogo size={'lg'} className='brightness-50 opacity-[80%]' src="/grok.png" alt="Grok Logo" name="xAI (Grok)" />
+                        {/* <ProviderLogo size={'lg'} className='brightness-[30%] p-1' src="/openrouter.png" alt="OpenRouter Logo" name="OpenRouter" /> */}
                     </div>
 
                     <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
@@ -278,46 +286,6 @@ const ALotMoreFeatures = () => {
             </div>
         </div>
 
-
-
-        <div>
-            <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
-                {"Agents and MCP."}
-            </h2>
-            <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Void lets you use any model in Agent mode - even open source models that don't natively support tool calling.`}
-            </div>
-
-            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
-                {/* Box 1 */}
-                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6'>
-                    <div className='text-center text-3xl font-black'>
-                        Agent Mode
-                    </div>
-
-
-                    <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
-                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access.
-                        ${/*`and MCP access.`*/''}
-                         `}
-                    </div>
-                </div>
-
-                {/* Box 2 */}
-                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6'>
-                    <div className='text-center text-3xl font-black'>
-                        Gather Mode
-                    </div>
-
-                    {/* <div className='flex gap-2 items-center justify-center grayscale' data-tooltip-id="hover-group-online">
-            </div> */}
-
-                    <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
-                        {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black mt-20'>
@@ -332,11 +300,14 @@ const ALotMoreFeatures = () => {
                 {` AI features. `} */}
             </div>
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2 justify-items-stretch max-w-[1200px] mx-auto">
-                <GridElement name='Auto-Apply.' src='/demos/techstack.png' />
-                <GridElement name='Checkpoints.' src='/demos/techstack.png' />
+                {/* <GridElement name='Auto-Apply.' src='/demos/techstack.png' /> */}
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-8' name='Auto-Apply.' src='/demos2/AutoApply3.png' />
+                {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-8' name='Checkpoints for Every Change.' src='/demos2/Checkpoints2.png' />
                 <GridElement name='Fast Apply, Even on 1000-Line Files.' src='/demos/instant.png' />
-                <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' />
-                <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' />
+                {/* <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' /> */}
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Auto-Fix Lint Errors.' src='/demos2/LintErrors3.png' />
+                {/* <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='SSH and WSL Support.' src='/demos/techstack.png' />
 
                 <div className='flex flex-col items-center mx-auto justify-center'>
@@ -356,6 +327,38 @@ const ALotMoreFeatures = () => {
                         </div>
                     </div>
                 </div> */}
+            </div>
+        </div>
+
+        <div>
+            <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
+                {"Agents and MCP."}
+            </h2>
+            <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
+                {`Void lets you use any model in Agent mode - even open source models that don't natively support tool calling.`}
+            </div>
+
+
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1200px] mx-auto'>
+                {/* Agent Mode */}
+                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
+                    <div className='text-center text-3xl font-black mb-6'>
+                        Agent Mode
+                    </div>
+                    <div className='text-balance mx-auto text-center text-gray-600'>
+                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access.`}
+                    </div>
+                </div>
+
+                {/* Gather Mode */}
+                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
+                    <div className='text-center text-3xl font-black mb-6'>
+                        Gather Mode
+                    </div>
+                    <div className='text-balance mx-auto text-center text-gray-600'>
+                        {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
+                    </div>
+                </div>
             </div>
         </div>
 
