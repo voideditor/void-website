@@ -301,12 +301,12 @@ const ALotMoreFeatures = () => {
             </div>
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2 justify-items-stretch max-w-[1200px] mx-auto">
                 {/* <GridElement name='Auto-Apply.' src='/demos/techstack.png' /> */}
-                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-8' name='Auto-Apply.' src='/demos2/AutoApply3.png' />
-                {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
-                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-8' name='Checkpoints for Every Change.' src='/demos2/Checkpoints2.png' />
+                <GridElement imageClassName='px-4 py-4 lg:px-24 lg:py-8' name='Checkpoints for LLM Changes.' src='/demos2/Checkpoints2.png' />
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Lint Error Detection.' src='/demos2/LintErrors3.png' />
+                <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='Native Tool Use.' src='/demos2/GatherMode.png' />
                 <GridElement name='Fast Apply, Even on 1000-Line Files.' src='/demos/instant.png' />
+                {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' /> */}
-                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Auto-Fix Lint Errors.' src='/demos2/LintErrors3.png' />
                 {/* <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='SSH and WSL Support.' src='/demos/techstack.png' />
 
