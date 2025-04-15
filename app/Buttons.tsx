@@ -2,7 +2,7 @@ import { FiChevronsRight, FiExternalLink } from "react-icons/fi"
 import { IoLogoGithub } from "react-icons/io"
 
 import posthog from "posthog-js"
-import { waitlistLink, githubStarLink } from "@/components/links"
+import { waitlistLink, githubStarLink, downloadLink } from "@/components/links"
 import { FaDiscord } from "react-icons/fa"
 
 export const StarOnGithubButton = ({ label = undefined, posthogLabel }: { label?: string, posthogLabel?: string }) => {
@@ -22,7 +22,7 @@ export const StarOnGithubButton = ({ label = undefined, posthogLabel }: { label?
 
 export const JoinWaitlistButton = ({ posthogLabel }: { posthogLabel?: string }) => {
     return <a // <a> tag instead of Link so the page reloads and scrolls to top
-        href={waitlistLink}
+        href={downloadLink}
         draggable={false}
         tabIndex={0} // part of screen reader tab index
         className="max-sm:w-[60vw] group gap-2 flex items-center justify-center drop-shadow-xl p-2 py-3 rounded-lg btn px-8 opacity-90 whitespace-nowrap border-0 bg-gray-600 hover:brightness-105 active:brightness-105 active:scale-95 duration-200 border-none outline-none"
