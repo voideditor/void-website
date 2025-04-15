@@ -13,19 +13,19 @@ export const downloadLink = '/download-beta'
 
 export const releaseLink = `https://github.com/voideditor/void/releases`
 
-const downloadPrefix = `https://github.com/voideditor/void/releases/latest/download`
-export const downloadOfOS = {
-    mac: {
-        // appleSilicon: `${downloadPrefix}/Void-Installer-darwin-arm64.dmg`,
-        // intel: `${downloadPrefix}/Void-Installer-darwin-x64.dmg`,
-        appleSilicon: `https://github.com/voideditor/binaries/releases/download/1.2.0.25104/Void.arm64.1.2.0.25104.dmg`,
-        intel: `https://github.com/voideditor/binaries/releases/download/1.2.0.25104/Void.x64.1.2.0.25104.dmg`,
-    },
-    windows: {
-        x64: `https://github.com/voideditor/binaries/releases/download/1.2.0.25104/VoidSetup-x64-1.2.0.25104.exe`,
-        arm: `https://github.com/voideditor/binaries/releases/download/1.2.0.25104/VoidSetup-arm64-1.2.0.25104.exe`,
-    },
-    linux: {
-        x64: `https://github.com/voideditor/binaries/releases/download/1.2.0.25104/Void-1.2.0.25104.glibc2.29-x86_64.AppImage`
-    },
-}
+// const downloadPrefix = `https://github.com/voideditor/void/releases/latest/download`
+// export const downloadOfOS = {
+//     mac: {
+//         // appleSilicon: `${downloadPrefix}/Void-Installer-darwin-arm64.dmg`,
+//         // intel: `${downloadPrefix}/Void-Installer-darwin-x64.dmg`,
+//         appleSilicon: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/Void.arm64.1.0.3.25103.dmg`,
+//         intel: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/Void.x64.1.0.3.25103.dmg`,
+//     },
+//     windows: {
+//         x64: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/VoidSetup-x64-1.0.3.25103.exe`,
+//         arm: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/VoidSetup-arm64-1.0.3.25103.exe`,
+//     },
+//     linux: {
+//         x64: `https://github.com/voideditor/binaries/releases/download/1.0.3.25103/Void-1.0.3.25103.glibc2.29-x86_64.AppImage`
+//     },
+// }

@@ -1,24 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import React, { SVGAttributes, useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
-import { FaArrowDown, FaArrowRight, FaArrowsAlt, FaCheck, FaChevronLeft, FaChevronRight, FaDatabase, FaDivide, FaDotCircle, FaExternalLinkSquareAlt, FaEye, FaLink, FaLock, FaMeteor, FaSlash, FaStar, FaTree } from 'react-icons/fa';
-import { FaArrowDown19, FaArrowRightLong, FaArrowsLeftRight, FaLeftRight } from 'react-icons/fa6';
-import { LuArrowLeftRight } from 'react-icons/lu';
-import { CgArrowLongRight } from 'react-icons/cg';
-// import SyntaxHighlighter from 'react-syntax-highlighter';
-// import { atomOneDark, a11yDark, vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { FaArrowsAlt, FaCheck, FaChevronLeft, FaChevronRight, FaDiscord, FaDotCircle, FaExternalLinkSquareAlt, FaEye, FaLink, FaLock, FaStar } from 'react-icons/fa';
+import { FaArrowsLeftRight } from 'react-icons/fa6';
 
 import { VscVscode } from 'react-icons/vsc'
-import { StarOnGithubButton,  JoinWaitlistButton } from '@/app/Buttons';
+import { StarOnGithubButton, JoinWaitlistButton } from '@/app/Buttons';
 import Image from 'next/image';
-import { discordLink, emailLink } from '../links';
+import { emailLink } from '../links';
+import { Hammer, Apple } from 'lucide-react'
 
 
-
-const BigContent = ({ title, desc, src, children, }: { title: string, desc, src: string, children?, }) => {
-    return <div className='flex flex-col items-center'>
+const BigContent = ({ title, desc, src, children, imgClassName = '' }: { title: string, desc: React.ReactNode, src: string, children?: React.ReactNode, imgClassName?: string }) => {
+    return <div className={`flex flex-col items-center`}>
         <h2 className='text-center font-bold max-sm:text-lg text-2xl px-4'>
             {title}
         </h2>
@@ -29,14 +27,56 @@ const BigContent = ({ title, desc, src, children, }: { title: string, desc, src:
             src={src}
             alt={title}
             // shadow-[0px_0px_0px_4px_rgba(0,0,0)] and ring can overlap
-            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] lg:max-w-[400px] w-full h-full rounded-xl object-contain`}
+            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] lg:max-w-[400px] w-full h-full rounded-xl object-contain ${imgClassName}`}
         />
         {children}
-
     </div>
 }
 
-const GridElement = ({ name, src = undefined, alt = undefined, children }: { name: string | null, src?: string, alt?: string, children?: React.ReactNode }) => {
+const ProviderLogo = ({
+    src,
+    alt,
+    name,
+    className,
+    size,
+}: {
+    src: string;
+    alt: string;
+    name: string;
+    className?: string;
+    size: 'sm' | 'lg';
+}) => {
+    // Remove this line
+
+    return (
+        <>
+            <div
+                data-tooltip-id={`tooltip-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                data-tooltip-content={name}
+                className={`
+                    ${size === 'lg' ?
+                        'size-14 sm:size-28'
+                        : 'size-14 sm:size-20'
+                    }
+                    bg-white
+                    flex justify-center items-center shadow-xl
+                     rounded-lg overflow-hidden border border-gray-300/40 relative transition-transform
+                      duration-200 hover:-translate-y-1`}
+            >
+                <img src={src} alt={alt} className={`${className}`} />
+            </div>
+            <Tooltip
+                id={`tooltip-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                place="top"
+                className="bg-black/90 text-white text-xs px-3 py-1.5 rounded-md z-50"
+                delayShow={100}
+            />
+        </>
+    );
+};
+
+
+const GridElement = ({ name, src = undefined, alt = undefined, children, imageClassName = '' }: { name: string | null, src?: string, alt?: string, children?: React.ReactNode, imageClassName?: string }) => {
 
     let childContents: React.ReactNode
     if (children) {
@@ -45,7 +85,10 @@ const GridElement = ({ name, src = undefined, alt = undefined, children }: { nam
     else {
         if (name === null)
             throw new Error('GridElement: name was null')
-        childContents = <img src={src ?? '/noise/3.png'} alt={name} className='max-h-[300px] max-w-full w-auto h-auto rounded-lg max-sm:object-contain object-cover ' />
+
+        childContents = <div className="w-full h-[300px] flex items-center justify-center">
+            <img src={src ?? '/noise/3.png'} alt={name} className={`max-h-[300px] max-w-full w-auto h-auto rounded-lg object-contain ${imageClassName}`} />
+        </div>
     }
 
     return <>
@@ -53,7 +96,7 @@ const GridElement = ({ name, src = undefined, alt = undefined, children }: { nam
             <div>
                 <div className='text-center text-xl font-semibold pb-4'>{name}</div>
 
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center bg-[#252526] rounded-lg'>
                     {childContents}
                 </div>
             </div>
@@ -140,90 +183,8 @@ const Fold = () => {
 
 
 
-
-const DataPrivacy = () => {
-
-
-
-
-    return <section className='relative overflow-hidden flex flex-col items-center justify-center gap-16 my-32 px-8 py-32 lg:px-16 bg-gray-100 rounded-xl text-black shadow-xl'>
-
-        {/* <FaLock className='size-8' /> */}
-        <h2 className=' mx-auto text-center text-4xl lg:text-5xl tracking-tight font-extrabold'>
-            {/* Protect Your Data. */}
-            Any LLM, Anywhere.
-        </h2>
-
-
-        <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
-            {/* {`Host a model on-prem, or communicate directly with your favorite provider. Unlike other editors, you never have to send us your data.`} */}
-            {/* {`Host your own models locally, or communicate directly with your favorites. Void is open source and fully customizable.`} */}
-            {/* {`Host your own models locally, or communicate directly with your favorites. Void is fully `} */}
-            {`Host your own models locally, or communicate directly with your favorites.  `}
-        </div>
-
-        <div className='grid grid-cols-1 lg:grid-cols-2  justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
-            {/* Box 1 */}
-            <div className='rounded-sm gap-8 w-full flex flex-col justify-start shadow-md bg-gray-200 p-8 space-y-6'>
-                <div className='text-center text-3xl font-black'>
-                    Host Locally
-                </div>
-
-
-                <div className=" mx-auto w-fit grid grid-cols-5 max-w-[500px] place-items-center grayscale">
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center  isolate shadow-xl rounded-lg overflow-hidden border border-gray-300/40'><img src="/ollama.png" alt="OpenAI Logo" className="h-10 sm:h-20 w-auto brightness-50" /></div>
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center  isolate shadow-xl rounded-lg overflow-hidden border border-gray-300/40'><img src="/meta.svg" alt="big picture" className=" w-10 sm:w-20 h-auto brightness-50" /></div>
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center  isolate shadow-xl rounded-lg overflow-hidden border border-gray-300/40'><img src="/ms.png" alt="big picture" className="h-10 sm:h-20 w-auto brightness-50 p-2" /></div>
-
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center  isolate shadow-xl rounded-lg overflow-hidden border border-gray-300/40'><img src="/google.png" alt="big picture" className="h-10 sm:h-20 w-auto brightness-50 p-2" /></div>
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center  isolate shadow-xl rounded-lg overflow-hidden border border-gray-300/40'><img src="/mistral_small.png" alt="mistral" className="h-10 sm:h-20 w-auto brightness-50" /></div>
-                </div>
-
-                <div className=' text-balance mx-auto text-center max-w-[80%] text-gray-500'>
-                    {/* {`Integrate with tools like Ollama to host quality models locally. Never run out of API credits again.`} */}
-                    {`Never run out of API credits again. We offer tools like Ollama to host quality models locally.`}
-
-                </div>
-            </div>
-
-            {/* <div className='self-center my-4 text-gray-400'>OR</div> */}
-
-            {/* Box 2 */}
-            <div className='rounded-sm gap-8 w-full flex flex-col justify-start shadow-md bg-gray-200 p-8 max-sm:px-2 space-y-6'>
-                <div className='text-center text-3xl font-black'>
-                    Go Direct
-                </div>
-
-
-                <div className='flex gap-2 items-center justify-center grayscale  '>
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center shadow-xl rounded-lg overflow-hidden'><img src="/claude-icon.png" alt="Claude Logo" className='max-w-32 w-full md:p-2 p-1 isolate brightness-50' /></div>
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center shadow-xl rounded-lg overflow-hidden'><img src="/openai-logomark.png" alt="OpenAI Logo" className='max-w-32 w-full md:p-2 p-1 brightness-50' /></div>
-                    <div className='size-14 sm:size-28 bg-white flex justify-center items-center shadow-xl rounded-lg overflow-hidden'><img src="/gemini.png" alt="Gemini Logo" className='max-w-32  w-full md:p-3 p-1 brightness-50' /></div>
-
-                </div>
-
-                <div className=' text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
-                    {/* {`BYOK and communicate directly with Claude, GPT, or Gemini. `} */}
-
-                    {`Send direct to Claude, GPT, or Gemini. Unlike other editors, we don't act as a middleman to your LLM calls.`}
-                    {/* {`Send direct to Claude, GPT, or Gemini. Unlike other editors, you never send us your data.`} */}
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-    </section>
-
-
-
-
-}
-
 const Wave = ({ isExitWave = false }: { isExitWave?: boolean }) => {
-    return <div className={`overflow-hidden ${isExitWave ? '' : 'pt-20'}`}>
+    return <div className={`overflow-hidden ${isExitWave ? '' : ''}`}>
         <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"
             className={`h-5 w-full ${isExitWave ? '' : 'rotate-180'} scale-x-150 translate-x-[0] fill-slate-200`}>
             <path d="M321.39 56.44c58-10.79 114.16-30.13 172-41.86 82.39-16.72 168.19-17.73 250.45-.39C823.78 31 906.67 72 985.66 92.83c70.05 18.48 146.53 26.09 214.34 3V0H0v27.35a600.21 600.21 0 00321.39 29.09z"></path>
@@ -254,8 +215,11 @@ const CoreFeatures = () => {
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             <BigContent src='/demos/autocomplete3.png' title={`Tab`} desc={`Press 'Tab' to apply autocomplete.`} />
-            <BigContent src='/demos/inline4.png' title={`Ctrl + K`} desc={`Edit your selection inline.`} />
-            <BigContent src='/demos/sidebar4.png' title={`Ctrl + L`} desc={`Ask questions and include files. `} />
+            {/* <BigContent src='/demos2/aa.png' title={`Quick Edit`} desc={`Edit your selection inline.`} /> */}
+            {/* <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
+            <BigContent src='/demos/cmdK1.png' title={`Quick Edit`} desc={`Edit your selection inline.`} />
+            {/* <BigContent src='/demos/chat5.png' imgClassName='py-12 bg-[#252526]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
+            <BigContent src='/demos2/CmdL7.png' imgClassName='py-12 px-12 bg-[#1e1e1e]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} />
 
         </div>
 
@@ -264,22 +228,61 @@ const CoreFeatures = () => {
 }
 
 const ALotMoreFeatures = () => {
-    return <div className='py-20 space-y-20'>
+    return <div className='py-20 space-y-40'>
         <div>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
                 {/* {`All you could ask for.`} */}
                 {/* {`And Much More.`} */}
                 {/* {"Features."} */}
-                {"Community Features."}
+                {"Any LLM, Anywhere."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Anyone can advance our Roadmap or build their own AI integration.`}
+                {`Void doesn't send your messages through a private backend like Cursor or Windsurf. Cut out the middleman and connect directly.`}
             </div>
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 justify-items-stretch max-w-[1200px] mx-auto">
-                <GridElement name='Index your Files.' src='/demos/filesystemunderstanding.png' />
-                <GridElement name='Intelligent Search With AI.' src='/demos/textcolor.png' />
-                <GridElement name='Fine-Tuned Generation (e.g. Docstrings).' src='/demos/docstring.png' />
-                <GridElement name='View and Edit Underlying Prompts.' src='/demos/viewprompt.png' />
+            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
+                {/* Box 1 */}
+                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6'>
+                    <div className='text-center text-3xl font-black'>
+                        Private LLMs
+                    </div>
+
+                    <div className="mx-auto w-fit grid grid-cols-4 max-w-[500px] place-items-center grayscale px-8" data-tooltip-id="hover-group-local">
+                        <ProviderLogo size={'sm'} className='brightness-50 p-1 opacity-[80%] h-10 sm:h-20 ' src="/ollama.png" alt="Ollama Logo" name="Ollama (Provider)" />
+                        <ProviderLogo size={'sm'} className='brightness-50  ' src="/deepseek.png" alt="DeepSeek Logo" name="DeepSeek R1, V3" />
+                        <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/gemma3.png" alt="gemma" name="Google Gemma 3" />
+                        <ProviderLogo size={'sm'} className='brightness-50 w-10 sm:w-20 h-auto' src="/meta.svg" alt="Llama" name="Llama 4" />
+                        <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/qwen.png" alt="Qwen Logo" name="Qwen 2.5 Coder, QwQ" />
+                        <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/mistral_small.png" alt="mistral" name="Mistral, Codestral" />
+                        <ProviderLogo size={'sm'} className='brightness-5 p-4' src="/vLLM.png" alt="vLLM Logo" name="vLLM (Provider)" />
+                        <ProviderLogo size={'sm'} className='brightness-50 p-3 opacity-[80%]' src="/openai-logomark.png" alt="openai-compatible" name="Any OpenAI-Compatible Endpoint" />
+                        {/* dont know what to do with these */}
+                        {/* <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/openhands.png" alt="openhands" name="OpenHands LM" /> */}
+                        {/* <ProviderLogo size={'sm'} className='brightness-50 p-3' src="/ms.png" alt="microsoft phi" name="Microsoft Phi 4" /> */}
+                    </div>
+
+                    <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
+                        {`Never run out of API credits again. Host any open source model with Void: DeepSeek, Llama, Gemini, Qwen, and more.`}
+                    </div>
+                </div>
+
+                {/* Box 2 */}
+                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6'>
+                    <div className='text-center text-3xl font-black'>
+                        Frontier LLMs
+                    </div>
+
+                    <div className='flex gap-2 items-center justify-center grayscale' data-tooltip-id="hover-group-online">
+                        <ProviderLogo size={'lg'} className='brightness-50 md:p-2 p-1' src="/claude-icon.png" alt="Claude Logo" name="Anthropic" />
+                        <ProviderLogo size={'lg'} className='brightness-50 p-1 opacity-[80%]  md:p-2 ' src="/openai-logomark.png" alt="OpenAI Logo" name="OpenAI" />
+                        <ProviderLogo size={'lg'} className='brightness-50  md:p-3 p-1 ' src="/gemini.png" alt="Gemini Logo" name="Google Gemini" />
+                        <ProviderLogo size={'lg'} className='brightness-50 opacity-[80%]' src="/grok.png" alt="Grok Logo" name="xAI (Grok)" />
+                        {/* <ProviderLogo size={'lg'} className='brightness-[30%] p-1' src="/openrouter.png" alt="OpenRouter Logo" name="OpenRouter" /> */}
+                    </div>
+
+                    <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
+                        {`Directly connect to any any provider. Use models like Gemini 2.5, Claude 3.7, Grok 3, GPT 4o, and Quasar Alpha. `}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -289,7 +292,7 @@ const ALotMoreFeatures = () => {
                 {/* {`All you could ask for.`} */}
                 {/* {`And Much More.`} */}
                 {/* {"Features."} */}
-                {"Experimental Features."}
+                {"The Latest Features."}
             </h2>
             <div className='mx-auto text-center max-sm:text-base text-lg max-w-2xl my-8'>
                 {/* {`We're experimenting with  `}
@@ -297,29 +300,17 @@ const ALotMoreFeatures = () => {
                 {` AI features. `} */}
             </div>
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2 justify-items-stretch max-w-[1200px] mx-auto">
-                <GridElement name='Fast Apply, even on 1000-line Files.' src='/demos/instant.png' />
-                <GridElement name='Contextual Awareness.' src='/demos/techstack.png' />
-                <div className='flex flex-col items-center mx-auto justify-center pt-5'>
-                    <div className='text-center text-xl font-semibold pb-4'>
-                        {`Third Party Integrations.`}
-                    </div>
-                    <div className='max-h-[300px] max-w-full rounded-lg border aspect-video flex items-center bg-[#252526] text-gray-200 shadow-xl py-2'>
-                        <div className=''>
-                            <div className='text-center px-4 text-balance max-sm:text-xs'>
-                                {`We're building native support for codebase chat (Greptile), local hosting (Ollama), documentation search (DocSearch), and more.`}
-                            </div>
-                            <div className='bg-white mx-10 py-2 my-4 rounded-sm'>
-                                <div className='flex justify-center items-center overflow-hidden grayscale brightness-0 gap-2 sm:gap-10'>
-                                    <img src="/greptile.png" alt="Greptile Logo" className="h-14 md:h-24 w-auto p-2" />
-                                    <img src="/ollama.png" alt="Ollama Logo" className="h-14 md:h-24 w-auto p-2" />
-                                    <img src="/docsearch.svg" alt="Docsearch Logo" className="h-14 md:h-24 w-auto p-3 pl-7" />
-                                </div>
-                            </div>
+                {/* <GridElement name='Auto-Apply.' src='/demos/techstack.png' /> */}
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-8' name='Auto-Apply.' src='/demos2/AutoApply3.png' />
+                {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-8' name='Checkpoints for Every Change.' src='/demos2/Checkpoints2.png' />
+                <GridElement name='Fast Apply, Even on 1000-Line Files.' src='/demos/instant.png' />
+                {/* <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' /> */}
+                <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Auto-Fix Lint Errors.' src='/demos2/LintErrors3.png' />
+                {/* <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' /> */}
+                {/* <GridElement name='SSH and WSL Support.' src='/demos/techstack.png' />
 
-                        </div>
-                    </div>
-                </div>
-                <div className='flex flex-col items-center mx-auto justify-center pt-5'>
+                <div className='flex flex-col items-center mx-auto justify-center'>
                     <div className='text-center text-xl font-semibold pb-4'>
                         {`And More...`}
                     </div>
@@ -335,6 +326,38 @@ const ALotMoreFeatures = () => {
                             </div>
                         </div>
                     </div>
+                </div> */}
+            </div>
+        </div>
+
+        <div>
+            <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
+                {"Agents and MCP."}
+            </h2>
+            <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
+                {`Void lets you use any model in Agent mode - even open source models that don't natively support tool calling.`}
+            </div>
+
+
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1200px] mx-auto'>
+                {/* Agent Mode */}
+                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
+                    <div className='text-center text-3xl font-black mb-6'>
+                        Agent Mode
+                    </div>
+                    <div className='text-balance mx-auto text-center text-gray-600'>
+                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access.`}
+                    </div>
+                </div>
+
+                {/* Gather Mode */}
+                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
+                    <div className='text-center text-3xl font-black mb-6'>
+                        Gather Mode
+                    </div>
+                    <div className='text-balance mx-auto text-center text-gray-600'>
+                        {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
+                    </div>
                 </div>
             </div>
         </div>
@@ -343,7 +366,9 @@ const ALotMoreFeatures = () => {
 }
 
 const PoweredByVscode = () => {
-    return <section className='w-full h-fit py-16 border mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
+    return <section className='w-full h-fit py-16 mt-32 mb-40 
+    flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100
+    '>
 
         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
             <div className='flex justify-center items-center '>
@@ -364,28 +389,26 @@ const PoweredByVscode = () => {
 
     </section>
 }
-// const InterestedInContributing = () => {
-//     return <section className='w-full h-fit py-16 border mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
+const InterestedInContributing = () => {
+    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
 
-//         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
-//             <div className='flex justify-center items-center '>
-//                 {`Interested in Contributing?`}
-//             </div>
-//         </h2>
+        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
+            <div className='flex justify-center items-center '>
+                {`Interested in Contributing?`}
+            </div>
+        </h2>
 
-//         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
-//             <div className='text-center px-4 text-balance'>
-//                 {`Join our Discord community to get in touch`}
-//             </div>
-//         </div>
-//         <div className='flex items-center gap-8'>
-//             <VscVscode className='size-20 fill-black/80' />
-//             {/* <FaArrowsLeftRight className='size-6' /> */}
-//             {/* <Image src={process.env.NEXT_PUBLIC_LOGO_URL!} alt={`A slice of the void`} height={70} width={70} /> */}
-//         </div>
+        <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
+            <div className='text-center px-4 text-balance'>
+                {`Our community hosts weekly meetups in our Discord channel. We'd love to see you there!`}
+            </div>
+        </div>
+        <div className='flex items-center gap-8'>
+            <FaDiscord className='size-20 fill-black/80' />
+        </div>
 
-//     </section>
-// }
+    </section>
+}
 
 
 
@@ -419,9 +442,8 @@ const GetStartedWithVoid = () => {
     </div>
 }
 
+
 export default function LandingPage() {
-
-
     return (<>
         {/* <Diff /> */}
         {/* <X /> */}
@@ -442,10 +464,10 @@ export default function LandingPage() {
         <Wave isExitWave={true} />
 
         <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12'>
-            <DataPrivacy />
-            {/* <InterestedInContributing /> */}
+            {/* Removed DataPrivacy section from here since it's now part of ALotMoreFeatures */}
+            <InterestedInContributing />
             <GetStartedWithVoid />
         </div>
+
     </>)
 }
-
