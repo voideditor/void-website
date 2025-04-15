@@ -11,7 +11,7 @@ import { FaArrowsLeftRight } from 'react-icons/fa6';
 import { VscVscode } from 'react-icons/vsc'
 import { StarOnGithubButton, JoinWaitlistButton } from '@/app/Buttons';
 import Image from 'next/image';
-import { emailLink } from '../links';
+import { discordLink, emailLink } from '../links';
 import { Hammer, Apple } from 'lucide-react'
 
 
@@ -404,7 +404,9 @@ const InterestedInContributing = () => {
             </div>
         </div>
         <div className='flex items-center gap-8'>
-            <FaDiscord className='size-20 fill-black/80' />
+            <a href={discordLink}>
+                <FaDiscord className='size-20 fill-black/80' />
+            </a>
         </div>
 
     </section>
