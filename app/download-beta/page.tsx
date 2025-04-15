@@ -136,7 +136,7 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                     </h2>
 
                     <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                        Try the beta edition of Void for free, and provide{' '}
+                        Try the beta edition of Void for free, and help us improve by providing{' '}
                         <a href={discordLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                             feedback
                         </a>

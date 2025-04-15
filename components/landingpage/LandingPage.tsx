@@ -253,7 +253,7 @@ const ALotMoreFeatures = () => {
                         <ProviderLogo size={'sm'} className='brightness-50 w-10 sm:w-20 h-auto' src="/meta.svg" alt="Llama" name="Llama 4" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/qwen.png" alt="Qwen Logo" name="Qwen 2.5 Coder, QwQ" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-2' src="/mistral_small.png" alt="mistral" name="Mistral, Codestral" />
-                        <ProviderLogo size={'sm'} className='brightness-5 p-4' src="/vLLM.png" alt="vLLM Logo" name="vLLM (Provider)" />
+                        <ProviderLogo size={'sm'} className='brightness-5 p-4' src="/vllm.png" alt="vLLM Logo" name="vLLM (Provider)" />
                         <ProviderLogo size={'sm'} className='brightness-50 p-3 opacity-[80%]' src="/openai-logomark.png" alt="openai-compatible" name="Any OpenAI-Compatible Endpoint" />
                         {/* dont know what to do with these */}
                         {/* <ProviderLogo size={'sm'} className='brightness-50 p-4' src="/openhands.png" alt="openhands" name="OpenHands LM" /> */}
