@@ -394,13 +394,13 @@ const InterestedInContributing = () => {
 
         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
             <div className='flex justify-center items-center '>
-                {`Interested in Contributing?`}
+                {`Join The Community`}
             </div>
         </h2>
 
         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[700px]'>
             <div className='text-center px-4 text-balance'>
-                {`We host weekly contributor meetups in our Discord channel, and sometimes talk about the state of open source and AI. Feel free to join! `}
+                {`We host weekly contributor meetups in our Discord server and share early releases with our community. Feel free to join!`}
             </div>
         </div>
         <div className='flex items-center justify-center gap-8'>
