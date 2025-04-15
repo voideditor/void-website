@@ -83,18 +83,20 @@ const GridElement = ({ name, src = undefined, alt = undefined, children, imageCl
         childContents = children
     }
     else {
-        if (name === null)
+        const theAlt = alt ?? name
+
+        if (theAlt === null)
             throw new Error('GridElement: name was null')
 
         childContents = <div className="w-full h-[300px] flex items-center justify-center">
-            <img src={src ?? '/noise/3.png'} alt={name} className={`max-h-[300px] max-w-full w-auto h-auto rounded-lg object-contain ${imageClassName}`} />
+            <img src={src ?? '/noise/3.png'} alt={theAlt} className={`max-h-[300px] max-w-full w-auto h-auto rounded-lg object-contain ${imageClassName}`} />
         </div>
     }
 
     return <>
         <div className="py-4">
             <div>
-                <div className='text-center text-xl font-semibold pb-4'>{name}</div>
+                {name ? <div className='text-center text-xl font-semibold pb-4'>{name}</div> : null}
 
                 <div className='flex items-center justify-center bg-[#252526] rounded-lg'>
                     {childContents}
@@ -345,6 +347,7 @@ const ALotMoreFeatures = () => {
                     <div className='text-center text-3xl font-black mb-6'>
                         Agent Mode
                     </div>
+                    {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Agent Mode' src='/demos2/LintErrors.png' /> */}
                     <div className='text-balance mx-auto text-center text-gray-600'>
                         {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access.`}
                     </div>
@@ -355,6 +358,8 @@ const ALotMoreFeatures = () => {
                     <div className='text-center text-3xl font-black mb-6'>
                         Gather Mode
                     </div>
+                    {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Gather Mode' src='/demos2/Links.png' /> */}
+
                     <div className='text-balance mx-auto text-center text-gray-600'>
                         {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
                     </div>
