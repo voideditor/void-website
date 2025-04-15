@@ -219,7 +219,7 @@ const CoreFeatures = () => {
             {/* <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
             <BigContent src='/demos/cmdK1.png' title={`Quick Edit`} desc={`Edit your selection inline.`} />
             {/* <BigContent src='/demos/chat5.png' imgClassName='py-12 bg-[#252526]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
-            <BigContent src='/demos2/CmdL7.png' imgClassName='py-12 px-12 bg-[#1e1e1e]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} />
+            <BigContent src='/demos2/AgentMode.png' imgClassName='p-8 bg-[#1e1e1e]' title={`Chat`} desc={`Agent Mode, Gather Mode, and normal chat. `} />
 
         </div>
 

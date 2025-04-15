@@ -36,7 +36,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
   {
     name: "Beta Patch #4",
-    version: 'v1.1.0',
+    version: 'v1.2.1',
     // className: 'opacity-50',
     date: "April 14, 2025",
     changes: [
