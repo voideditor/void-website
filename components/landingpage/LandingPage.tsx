@@ -398,12 +398,12 @@ const InterestedInContributing = () => {
             </div>
         </h2>
 
-        <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
+        <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[700px]'>
             <div className='text-center px-4 text-balance'>
-                {`Our community hosts weekly meetups in our Discord channel. We'd love to see you there!`}
+                {`We host weekly contributor meetups in our Discord channel, and sometimes talk about the state of open source and AI. Feel free to join! `}
             </div>
         </div>
-        <div className='flex items-center gap-8'>
+        <div className='flex items-center justify-center gap-8'>
             <a href={discordLink}>
                 <FaDiscord className='size-20 fill-black/80' />
             </a>
