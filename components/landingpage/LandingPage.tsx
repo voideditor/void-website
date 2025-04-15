@@ -335,7 +335,7 @@ const ALotMoreFeatures = () => {
                 {"Agents and MCP."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Void lets you use any model in Agent mode - even open source models that don't natively support tool calling.`}
+                {`Use any model in Agent mode - even open source models that don't natively support tool calling.`}
             </div>
 
 
