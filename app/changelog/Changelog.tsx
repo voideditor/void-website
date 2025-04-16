@@ -42,7 +42,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     changes: [
       "Added checkpoints that let you jump between LLM edits.",
       "Agent mode can now fix lint errors after editing files.",
-      "Upgraded tool-calling implementation; now, any model can run in Agent mode - R1, Gemma3, Quasar Alpha, etc.",
+      "Upgraded tool-calling implementation; now, any model can run in Agent mode - R1, Gemma3, GPT 4.1, etc.",
       "Dynamic context squashing when the context window is not sufficiently large.",
       "Added SSH support and WSL support.",
       "Void now comes with auto-updates, so we'll be pushing smaller and more frequent changes.",
