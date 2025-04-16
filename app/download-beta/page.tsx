@@ -152,7 +152,7 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                                     <FaApple className='fill-white min-w-7 min-h-7' />
                                 </span>
                             </DownloadButton>
-                            <DownloadButton url={downloadLinks.mac.intel} className='relative w-40'>
+                            <DownloadButton url={downloadLinks.mac.intel} className='relative flex-grow-0 flex-shrink-0 w-40'>
                                 <SparkleOverlay number={15} seed={501} />
                                 <span className='flex items-center gap-2'>
                                     <span className='text-white text-xl font-medium'>Intel</span>
@@ -169,7 +169,7 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                                     <FaWindows className='fill-white min-w-7 min-h-7' />
                                 </span>
                             </DownloadButton>
-                            <DownloadButton url={downloadLinks.windows.arm} className='relative w-40'>
+                            <DownloadButton url={downloadLinks.windows.arm} className='relative flex-grow-0 flex-shrink-0 w-40'>
                                 <SparkleOverlay number={15} seed={100} />
                                 <span className='flex items-center gap-2'>
                                     <span className='text-white text-xl font-medium'>ARM</span>
