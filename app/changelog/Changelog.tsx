@@ -46,7 +46,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "Dynamic context squashing when the context window is not sufficiently large.",
       "Added SSH support, WSL support, and Linux support.",
       "Void now comes with auto-updates, so we'll be pushing smaller and more frequent changes.",
-      "GPT 4.1, Gemini 2.5 Pro, OpenHands LM, DeepSeek V3, Phi4, and Quasar Alpha support.",
+      "Gemini 2.5 Pro, GPT 4.1 (Quasar Alpha), OpenHands LM, DeepSeek V3, and Phi4 support.",
     ]
   },
   {
