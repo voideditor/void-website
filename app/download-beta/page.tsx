@@ -24,7 +24,7 @@ const REQUIRED_ASSETS = [
     (v: string) => `VoidSetup-arm64-${v}.exe`,
     (v: string) => `Void.x64.${v}.dmg`,
     (v: string) => `Void.arm64.${v}.dmg`,
-    (v: string) => `Void-${v}.glibc2.29-x86_64.AppImage`,
+    // (v: string) => `Void-${v}.glibc2.29-x86_64.AppImage`,
 ];
 
 // Server-side helper
@@ -188,13 +188,13 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
 
             {/* desc */}
             <div className='mx-auto text-center px-4 text-balance opacity-25 pt-60 pb-40'>
-                <div className='my-1'>
+                {/* <div className='my-1'>
                     For Linux users, download Void{' '}
                     <a href={downloadLinks.linux.x64} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                         here
                     </a>
                     .
-                </div>
+                </div> */}
                 <div className='my-1'>
                     You can also download Void from the source on{' '}
                     <a href={releaseLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
