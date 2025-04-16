@@ -35,6 +35,16 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
 
   {
+    name: "Beta Patch #5",
+    version: 'v1.2.4',
+    date: "April 16, 2025",
+    changes: [
+      "Added model onboarding on first launch.",
+      "o3, o4-mini support.",
+    ]
+  },
+
+  {
     name: "Beta Patch #4",
     version: 'v1.2.1',
     // className: 'opacity-50',
