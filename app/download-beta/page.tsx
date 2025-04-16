@@ -196,7 +196,7 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                     .
                 </div> */}
                 <div className='my-1'>
-                    You can also download Void from the source on{' '}
+                    Alternatively, download Void from the source on{' '}
                     <a href={releaseLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                         GitHub
                     </a>
