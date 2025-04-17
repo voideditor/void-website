@@ -334,7 +334,7 @@ const ALotMoreFeatures = () => {
 
         <div>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
-                {"Agents and MCP."}
+                {"Agent Mode."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
                 {`Use any model in Agent mode - even open source models that don't natively support tool calling.`}
