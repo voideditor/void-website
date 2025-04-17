@@ -20,7 +20,7 @@ const TTL = 15 * 60 * 1000; // 15 minutes
 
 // All required asset filenames (can be regex or exact)
 const REQUIRED_ASSETS = [
-    (v: string) => `VoidUserSetup-x64-${v}.exe`,
+    (v: string) => `VoidSetup-x64-${v}.exe`,
     (v: string) => `VoidSetup-arm64-${v}.exe`,
     (v: string) => `Void.x64.${v}.dmg`,
     (v: string) => `Void.arm64.${v}.dmg`,
@@ -114,7 +114,7 @@ const DownloadButton = ({ url, children, className }: { url: string; children: R
 function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
     const downloadLinks = {
         windows: {
-            x64: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidUserSetup-x64-${releaseVersion}.exe`,
+            x64: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidSetup-x64-${releaseVersion}.exe`,
             arm: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidSetup-arm64-${releaseVersion}.exe`,
         },
         mac: {
