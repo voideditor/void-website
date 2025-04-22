@@ -66,7 +66,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     date: "April 7, 2025",
     changes: [
       "Experimental version of Void pushed to our Discord members.",
-      "Initial version of v1.1.0 above.",
+      "Initial version of the next patch.",
     ]
   },
   {
@@ -94,10 +94,10 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "New default theme.",
       "Add support for DeepSeek.",
       "Fixed system prompt errors when using o1 and Gemini.",
-      "Improved prompts for fast-apply and quick edit.",
+      "Improved prompts for Apply and Quick Edit.",
       "Performance improvements for chat.",
       "Temporarily disable autocomplete (needs better model selection guardrails).",
-      "Minor updates to diff streaming algorithm and FIM output parsing algorithm.",
+      "Minor updates to the diff streaming algorithm and FIM output parsing algorithm.",
     ]
   },
 
@@ -126,7 +126,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "Initialized Void's website and GitHub repo.",
       "A lot of early setup work not recorded in this changelog.",
       "Basic features like LLM streaming in the editor, custom history, custom editor UI.",
-      "Users could build Void for an early version of Ctrl+L and fast-apply.",
+      "Users could build Void for an early version of Ctrl+L and (Slow) Apply.",
     ]
   }
 ];
