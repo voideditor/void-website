@@ -12,6 +12,7 @@ export const changelogLink = '/changelog'
 export const downloadLink = '/download-beta'
 
 export const releaseLink = `https://github.com/voideditor/void/releases`
+export const binariesLink = `https://github.com/voideditor/binaries/releases`
 
 // const downloadPrefix = `https://github.com/voideditor/void/releases/latest/download`
 // export const downloadOfOS = {

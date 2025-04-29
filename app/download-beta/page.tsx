@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { discordLink, releaseLink } from '@/components/links';
+import { binariesLink, discordLink, releaseLink } from '@/components/links';
 import { FaApple, FaWindows } from 'react-icons/fa';
 import './twinkle.css'
 import Image from 'next/image';
@@ -188,13 +188,13 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
 
             {/* desc */}
             <div className='mx-auto text-center px-4 text-balance opacity-25 pt-60 pb-40'>
-                {/* <div className='my-1'>
+                <div className='my-1'>
                     For Linux users, download Void{' '}
-                    <a href={downloadLinks.linux.x64} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
+                    <a href={binariesLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                         here
                     </a>
                     .
-                </div> */}
+                </div>
                 <div className='my-1'>
                     Alternatively, download Void from the source on{' '}
                     <a href={releaseLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
