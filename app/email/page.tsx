@@ -4,7 +4,7 @@ import { SignUp } from "../../components/landingpage/SignUp";
 
 
 export const metadata = {
-    title: 'Get Access',
+    title: 'Download',
     description: 'Join the waitlist!',
 }
 
