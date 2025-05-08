@@ -11,10 +11,10 @@ export const StarOnGithubButton = ({ label = undefined, posthogLabel }: { label?
         href={githubStarLink}
         draggable={false}
         tabIndex={0} // part of screen reader tab index
-        className="max-sm:w-[60vw] group gap-2 flex justify-center items-center drop-shadow-xl p-2 py-3 rounded-lg btn px-8 opacity-90 whitespace-nowrap border-0 bg-blue-600 hover:brightness-105 active:brightness-105 active:scale-95 duration-200 border-none outline-none"
+        className="max-sm:w-[60vw] group gap-2 flex justify-center items-center drop-shadow-xl p-2 py-3 rounded-lg btn px-8 opacity-90 whitespace-nowrap border-0 bg-gray-600 hover:brightness-105 active:brightness-105 active:scale-95 duration-200 border-none outline-none"
         onClick={() => posthog.capture('ButtonContribute', { posthogLabel })}
     >
-        <span className='text-white text-xl font-medium'>{label ? label : `Star on Github`}</span>
+        <span className='text-white text-xl font-medium'>{label ? label : `Star on GitHub`}</span>
         <IoLogoGithub className='fill-white min-w-7 min-h-7 max-[320px]:hidden' />
     </a>
 }
@@ -25,11 +25,11 @@ export const JoinWaitlistButton = ({ posthogLabel }: { posthogLabel?: string }) 
         href={downloadLink}
         draggable={false}
         tabIndex={0} // part of screen reader tab index
-        className="max-sm:w-[60vw] group gap-2 flex items-center justify-center drop-shadow-xl p-2 py-3 rounded-lg btn px-8 opacity-90 whitespace-nowrap border-0 bg-gray-600 hover:brightness-105 active:brightness-105 active:scale-95 duration-200 border-none outline-none"
+        className="max-sm:w-[60vw] group gap-2 flex items-center justify-center drop-shadow-xl p-2 py-3 rounded-lg btn px-8 opacity-90 whitespace-nowrap border-0 bg-blue-600 hover:brightness-105 active:brightness-105 active:scale-95 duration-200 border-none outline-none"
         onClick={() => posthog.capture('ButtonGetAccess', { posthogLabel })}
     >
         <span className='text-white text-xl font-medium'>Download Beta</span>
-        <FiExternalLink className='stroke-white min-w-6 min-h-6 max-[320px]:hidden' />
+        {/* <FiExternalLink className='stroke-white min-w-6 min-h-6 max-[320px]:hidden' /> */}
     </a>
 }
 

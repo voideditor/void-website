@@ -154,8 +154,8 @@ const Fold = () => {
                 </div>
 
                 <div className='flex gap-x-3 gap-y-4 justify-center max-sm:flex-wrap'>
-                    <StarOnGithubButton posthogLabel="2" />
                     <JoinWaitlistButton posthogLabel="3" />
+                    <StarOnGithubButton posthogLabel="2" />
                 </div>
 
 
