@@ -61,7 +61,7 @@ async function getLatestReleaseVersion(): Promise<string> {
         console.error('Failed to fetch latest release:', e);
     }
 
-    return cachedVersion ?? '1.2.0.25104';
+    return cachedVersion ?? '1.99.30023';
 }
 
 
