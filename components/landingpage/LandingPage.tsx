@@ -9,7 +9,7 @@ import { FaArrowsAlt, FaCheck, FaChevronLeft, FaChevronRight, FaDiscord, FaDotCi
 import { FaArrowsLeftRight } from 'react-icons/fa6';
 
 import { VscVscode } from 'react-icons/vsc'
-import { StarOnGithubButton, JoinWaitlistButton } from '@/app/Buttons';
+import { StarOnGithubButton, DownloadButton } from '@/app/Buttons';
 import Image from 'next/image';
 import { discordLink, emailLink } from '../links';
 import { Hammer, Apple } from 'lucide-react'
@@ -154,8 +154,8 @@ const Fold = () => {
                 </div>
 
                 <div className='flex gap-x-3 gap-y-4 justify-center max-sm:flex-wrap'>
-                    <JoinWaitlistButton posthogLabel="3" />
-                    {/* <StarOnGithubButton posthogLabel="2" /> */}
+                    <DownloadButton posthogLabel="3" />
+                    <StarOnGithubButton posthogLabel="2" />
                 </div>
 
 
@@ -439,7 +439,7 @@ const GetStartedWithVoid = () => {
 
                 <div className='isolate space-y-4'>
                     <StarOnGithubButton posthogLabel="3" />
-                    <JoinWaitlistButton posthogLabel="3" />
+                    <DownloadButton posthogLabel="3" />
                 </div>
 
             </div>
