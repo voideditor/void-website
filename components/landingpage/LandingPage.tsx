@@ -282,7 +282,7 @@ const ALotMoreFeatures = () => {
                     </div>
 
                     <div className='text-balance mx-auto text-center text-gray-500 max-w-[80%]'>
-                        {`Directly connect to any any provider. Use models like Gemini 2.5, Claude 3.7, Grok 3, o4-mini, and Qwen 3. `}
+                        {`Directly connect to any provider. Use models like Gemini 2.5, Claude 3.7, Grok 3, o4-mini, and Qwen 3. `}
                     </div>
                 </div>
             </div>
