@@ -35,6 +35,22 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
 
   {
+    name: "Beta Patch #6",
+    version: '1.3.9',
+    date: "May 14, 2025",
+    changes: [
+      "Added thinking sliders on o3, Grok, and Gemini.",
+      "New @file and @folder ability.",
+      "Faster Fast-Apply by outputting Search/Replace blocks directly, instead of an intermediate change summary.",
+      "New terminal tools for Agent mode. Agent can open persistent background terminals.",
+      "You can now configure a model's context length, thinking support, tool formatting, and more.",
+      "Improved context-window trimming.",
+      "New onboarding screen with a focus on Gemini and OpenRouter.",
+      "Redesigned chat history pane and settings page.",
+      "Added Linux support.",
+    ]
+  },
+  {
     name: "Beta Patch #5",
     version: 'v1.2.4',
     date: "April 16, 2025",
