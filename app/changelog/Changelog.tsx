@@ -39,15 +39,15 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     version: 'v1.3.9',
     date: "May 14, 2025",
     changes: [
-      "Added thinking sliders on o3, Grok, and Gemini.",
-      "New @file and @folder ability.",
-      "Faster Fast-Apply by outputting Search/Replace blocks directly, instead of an intermediate change summary.",
-      "New terminal tools for Agent mode. Agent can open persistent background terminals.",
       "You can now configure a model's context length, thinking support, tool formatting, and more.",
-      "Improved context-window trimming.",
+      "New @file and @folder ability.",
+      "New terminal tools for Agent mode. Agent can open persistent background terminals.",
+      "Faster Fast-Apply by outputting Search/Replace blocks directly, instead of an intermediate change summary.",
+      "Void now runs on Linux.",
       "New onboarding screen with a focus on Gemini and OpenRouter.",
+      "Context-window truncation works more consistently with small context windows.",
+      "Added reasoning effort sliders on o3, Grok, and Gemini.",
       "Redesigned chat history pane and settings page.",
-      "Added Linux support.",
     ]
   },
   {
