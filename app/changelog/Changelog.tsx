@@ -36,7 +36,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
   {
     name: "Beta Patch #6",
-    version: '1.3.9',
+    version: 'v1.3.9',
     date: "May 14, 2025",
     changes: [
       "Added thinking sliders on o3, Grok, and Gemini.",
