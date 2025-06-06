@@ -334,7 +334,7 @@ const ALotMoreFeatures = () => {
 
         <div>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
-                {"Agent Mode."}
+                {"Agent Mode and MCP."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
                 {`Use any model in Agent mode - even open source models that don't natively support tool calling.`}
@@ -349,7 +349,7 @@ const ALotMoreFeatures = () => {
                     </div>
                     {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Agent Mode' src='/demos2/LintErrors.png' /> */}
                     <div className='text-balance mx-auto text-center text-gray-600'>
-                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access.`}
+                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access and MCP tool access.`}
                     </div>
                 </div>
 
