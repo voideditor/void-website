@@ -35,6 +35,17 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
 
 
   {
+    name: "Beta Patch #7",
+    version: 'v1.4.1',
+    date: "Jun 5, 2025",
+    changes: [
+      "Added MCP support!",
+      "Added AI commit message generation.",
+      "Edit tool now displays a visual diff instead of plaintext.",
+      "Increased support for Claude 4, Azure, and Ollama.",
+    ]
+  },
+  {
     name: "Beta Patch #6",
     version: 'v1.3.9',
     date: "May 14, 2025",
