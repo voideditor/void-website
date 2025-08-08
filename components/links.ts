@@ -1,4 +1,5 @@
 export const discordLink = 'https://discord.gg/RSNjgaugJs'
+export const xLink = 'https://x.com/thevoideditor'
 
 // export const contributeLink = 'https://github.com/voideditor/void/blob/main/HOW_TO_CONTRIBUTE.md'
 export const githubLink = 'https://github.com/voideditor/void#readme'

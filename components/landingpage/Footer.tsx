@@ -1,7 +1,8 @@
 'use client'
 
 import { FaDiscord } from "react-icons/fa"
-import { changelogLink, discordLink, downloadLink, emailLink, githubLink, support_email, waitlistLink } from "../links"
+import { FaXTwitter } from "react-icons/fa6"
+import { changelogLink, discordLink, downloadLink, emailLink, githubLink, support_email, waitlistLink, xLink } from "../links"
 import { IoLogoGithub } from "react-icons/io"
 import Image from "next/image"
 
@@ -26,6 +27,9 @@ export const Footer = () => {
                 <div className="text-center lg:text-right flex flex-wrap-reverse items-center justify-center lg:justify-end gap-4 lg:mt-0">
                     <a href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='group'>
                         <FaDiscord className='mt-1 size-5 group-hover:fill-blue-500 fill-blue-700' />
+                    </a>
+                    <a href={xLink} target='_blank' rel="noreferrer noopener nofollow" className='group'>
+                        <FaXTwitter className='mt-1 size-5 group-hover:fill-gray-700 fill-black' />
                     </a>
                     <a href={githubLink} className='group'>
                         <IoLogoGithub className='mt-1 size-5 group-hover:fill-gray-700 fill-black' />
