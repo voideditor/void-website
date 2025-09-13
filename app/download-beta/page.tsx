@@ -138,7 +138,7 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                     </h2>
 
                     <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                        Try the beta edition of Void, or build from the source on {' '}
+                        Try the beta edition of Void, or check out the source on {' '}
                         <a href={githubLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                             GitHub
                         </a>
