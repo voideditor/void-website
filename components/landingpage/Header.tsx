@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FaDiscord } from "react-icons/fa"
 import VoidAnimatedText from "./VoidAnimatedText"
 import { IoLogoGithub } from "react-icons/io"
-import {   discordLink, waitlistLink, githubLink, downloadLink } from "../links"
+import { discordLink, waitlistLink, githubLink, downloadLink } from "../links"
 import Image from "next/image"
 import { baseUrl } from "@/app/sitemap"
 
@@ -25,7 +25,7 @@ export const Header = () => {
                 </Link>
 
 
-                <Link draggable={false} href={downloadLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100'>
+                <Link draggable={false} href={downloadLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 max-sm:hidden'>
                     <div className='flex items-center justify-center duration-200 gap-1'>
                         <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
                             Download
@@ -43,7 +43,7 @@ export const Header = () => {
 
 
 
-                <Link draggable={false} href={githubLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100'>
+                <Link draggable={false} href={githubLink} className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 max-sm:hidden'>
                     <div className='flex items-center justify-center duration-200 gap-1'>
                         <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
                             Contribute
@@ -51,15 +51,16 @@ export const Header = () => {
                     </div>
                 </Link>
 
+                <div className='ml-auto' />
 
-                <a draggable={false} href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 ml-auto max-[350px]:hidden'>
+                <a draggable={false} href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 max-[350px]:hidden'>
                     <div className='flex items-center justify-center duration-200 gap-1'>
                         <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
                             Discord
                         </span>
                     </div>
                 </a>
-                <a draggable={false} href={githubLink} target='_blank' rel="noreferrer noopener nofollow" className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 max-sm:hidden'>
+                <a draggable={false} href={githubLink} target='_blank' rel="noreferrer noopener nofollow" className='group py-1 px-2 rounded-md overflow-hidden hover:bg-gray-100 duration-100 '>
                     <div className='flex items-center justify-center duration-200 gap-1'>
                         <span className='text-lg whitespace-nowrap text-black max-sm:text-sm'>
                             GitHub
