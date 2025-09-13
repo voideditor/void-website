@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react';
-import { binariesLink, discordLink, releaseLink } from '@/components/links';
+import { binariesLink, discordLink, githubLink, releaseLink } from '@/components/links';
 import { FaApple, FaWindows } from 'react-icons/fa';
 import './twinkle.css'
 import Image from 'next/image';
@@ -138,9 +138,9 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                     </h2>
 
                     <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                        Try the beta edition of Void, and chat with our community on {' '}
-                        <a href={discordLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
-                            Discord
+                        Try the beta edition of Void, or build from the source on {' '}
+                        <a href={githubLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
+                            GitHub
                         </a>
                         .
                     </div>
