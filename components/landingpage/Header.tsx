@@ -18,7 +18,7 @@ export const Header = () => {
                 <Link draggable={false} href='/' className='group pr-2'>
                     <h2 className="flex items-center gap-2 font-extrabold">
                         <img className='group-hover:brightness-[2] duration-200' src={`${process.env.NEXT_PUBLIC_LOGO_URL!}`} alt='Void Logo' height={32} width={32} />
-                        <div className="pb-1 text-transparent tracking-tighter bg-clip-text bg-gradient-to-tl from-black to-gray-500 text-3xl whitespace-nowrap group-hover:brightness-150 duration-200">
+                        <div className="text-transparent tracking-tighter bg-clip-text bg-gradient-to-tl from-black to-gray-500 text-3xl whitespace-nowrap group-hover:brightness-150 duration-200">
                             Void
                         </div>
                     </h2>
