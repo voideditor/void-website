@@ -14,7 +14,7 @@ export default function CollapsibleNotice() {
             <div className="flex items-start gap-2">
                 <MdPauseCircle className="fill-yellow-800 flex-shrink-0" />
                 <p className={`text-sm text-yellow-800 ${!isExpanded ? 'line-clamp-1' : ' text-wrap'}`}>
-                    {`Work is currently paused on the Void IDE while we experiment with a few novel features. You can still download, use, and extend Void with custom models, and we'll push updates when available.  `}
+                    {`Work is currently paused on the Void IDE while we experiment with a few novel coding features. You can still download, use, and extend Void with custom models, and we'll push updates when available.  `}
                 </p>
             </div>
         </div>
