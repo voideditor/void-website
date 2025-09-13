@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
+import React from 'react';
 import { binariesLink, discordLink, releaseLink } from '@/components/links';
 import { FaApple, FaWindows } from 'react-icons/fa';
 import './twinkle.css'
 import Image from 'next/image';
 import SparkleOverlay from './SparkleOverlay';
+import CollapsibleNotice from './CollapsibleNotice';
 
 
 
@@ -136,9 +138,9 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                     </h2>
 
                     <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                        Try the beta edition of Void, and help us improve by providing{' '}
+                        Try the beta edition of Void, and chat with our community on {' '}
                         <a href={discordLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
-                            feedback
+                            Discord
                         </a>
                         .
                     </div>
@@ -177,7 +179,12 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                                 </span>
                             </DownloadButton>
                         </div>
+
+                        <div>
+                            <CollapsibleNotice />
+                        </div>
                     </div>
+
                 </div>
 
                 {/* right */}
