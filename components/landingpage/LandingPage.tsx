@@ -13,10 +13,13 @@ import { StarOnGithubButton, DownloadButton } from '@/app/Buttons';
 import Image from 'next/image';
 import { discordLink, emailLink } from '../links';
 import { Hammer, Apple } from 'lucide-react'
+import ParallaxHover from './ParallaxHover'
+import FAQ from './FAQ'
+import ScrollTop from './ScrollTop'
 
 
 const BigContent = ({ title, desc, src, children, imgClassName = '' }: { title: string, desc: React.ReactNode, src: string, children?: React.ReactNode, imgClassName?: string }) => {
-    return <div className={`flex flex-col items-center`}>
+    return <div className={`flex flex-col items-center animate-in fade-in-50 zoom-in-50 duration-700 ease-out`}>
         <h2 className='text-center font-bold max-sm:text-lg text-2xl px-4'>
             {title}
         </h2>
@@ -27,7 +30,7 @@ const BigContent = ({ title, desc, src, children, imgClassName = '' }: { title: 
             src={src}
             alt={title}
             // shadow-[0px_0px_0px_4px_rgba(0,0,0)] and ring can overlap
-            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] lg:max-w-[400px] w-full h-full rounded-xl object-contain ${imgClassName}`}
+            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] lg:max-w-[400px] w-full h-full rounded-xl object-contain transition-transform duration-300 ease-out hover:scale-[1.02] ${imgClassName}`}
         />
         {children}
     </div>
@@ -61,7 +64,7 @@ const ProviderLogo = ({
                     bg-white
                     flex justify-center items-center shadow-xl
                      rounded-lg overflow-hidden border border-gray-300/40 relative transition-transform
-                      duration-200 hover:-translate-y-1`}
+                      duration-200 hover:-translate-y-1 hover:shadow-2xl`}
             >
                 <img src={src} alt={alt} className={`${className}`} />
             </div>
@@ -94,11 +97,11 @@ const GridElement = ({ name, src = undefined, alt = undefined, children, imageCl
     }
 
     return <>
-        <div className="py-4">
+        <div className="py-4 animate-in fade-in-50 slide-in-from-bottom-2 duration-700">
             <div>
                 {name ? <div className='text-center text-xl font-semibold pb-4'>{name}</div> : null}
 
-                <div className='flex items-center justify-center bg-[#252526] rounded-lg'>
+                <div className='flex items-center justify-center bg-[#252526] rounded-lg transition-transform duration-300 ease-out hover:scale-[1.01] hover:shadow-xl'>
                     {childContents}
                 </div>
             </div>
@@ -118,9 +121,11 @@ const Fold = () => {
 
             <div className='w-full'>
 
-                <h1 className='text-center font-extrabold tracking-tighter leading-tight transition duration-200 mt-[12vh]'>
+                <h1 className='text-center font-extrabold tracking-tighter leading-tight transition duration-200 mt-[12vh] animate-in fade-in-50 zoom-in-50 duration-700'>
 
-                    <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto max-sm:scale-75' src='/void/slice_of_void.png' alt={`A slice of the void`} height={250} width={250} />
+                    <ParallaxHover>
+                        <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto max-sm:scale-75 animate-in fade-in-50 slide-in-from-top-2 duration-700' src='/void/slice_of_void.png' alt={`A slice of the void`} height={250} width={250} />
+                    </ParallaxHover>
 
                     <span className='text-black drop-shadow-xl text-3xl md:text-7xl font-bold tracking-tighter'>
                         {`The open source`}
@@ -134,7 +139,7 @@ const Fold = () => {
                 </h1>
 
                 {/* Description */}
-                <div className='mx-auto text-center max-w-[800px] py-10 '>
+                <div className='mx-auto text-center max-w-[800px] py-10 animate-in fade-in-50 slide-in-from-bottom-2 duration-700 '>
 
                     {/* <div className='text-balance max-sm:text-base text-2xl font-bold tracking-tight leading-tight text-black drop-shadow-xl'>
                         {`Use AI autocomplete, inline edits, codebase chat, agentic features, and more, in a privacy-first AI IDE.`}
@@ -153,14 +158,14 @@ const Fold = () => {
                     {/* {`Void is an open source Cursor alternative. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama, and options for keeping your data private.`} */}
                 </div>
 
-                <div className='flex gap-x-3 gap-y-4 justify-center max-sm:flex-wrap'>
+                <div className='flex gap-x-3 gap-y-4 justify-center max-sm:flex-wrap animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
                     <DownloadButton posthogLabel="3" />
                     <StarOnGithubButton posthogLabel="2" />
                 </div>
 
 
                 {/* Backed by YC */}
-                <div className=' flex flex-col items-center w-full my-14 flex-nowrap text-nowrap'>
+                <div className=' flex flex-col items-center w-full my-14 flex-nowrap text-nowrap animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
                     <div className='inline-flex items-center relative px-5 rounded-full '>
                         <span className="relative inline-flex items-center text-gray-500 font-semibold">
                             Backed by
@@ -209,7 +214,7 @@ const CoreFeatures = () => {
     return <section className='py-16 lg:py-32 px-8 lg:px-16 gap-16 my-32 bg-gray-100 flex flex-col items-center justify-center rounded-xl text-black shadow-xl'>
 
 
-        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
+        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
             {/* {`The AI Feature Classics.`} */}
             {/* {`Native AI Integrations.`} */}
             {`The AI Features You Love.`}
@@ -231,7 +236,7 @@ const CoreFeatures = () => {
 
 const ALotMoreFeatures = () => {
     return <div className='py-20 space-y-40'>
-        <div>
+        <div className='animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
                 {/* {`All you could ask for.`} */}
                 {/* {`And Much More.`} */}
@@ -243,7 +248,7 @@ const ALotMoreFeatures = () => {
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
                 {/* Box 1 */}
-                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6'>
+                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 space-y-6 transition-transform duration-300 ease-out hover:scale-[1.01] hover:shadow-lg'>
                     <div className='text-center text-3xl font-black'>
                         Private LLMs
                     </div>
@@ -268,7 +273,7 @@ const ALotMoreFeatures = () => {
                 </div>
 
                 {/* Box 2 */}
-                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6'>
+                <div className='rounded-md gap-8 w-full flex flex-col justify-start bg-slate-100 p-8 max-sm:px-2 space-y-6 transition-transform duration-300 ease-out hover:scale-[1.01] hover:shadow-lg'>
                     <div className='text-center text-3xl font-black'>
                         Frontier LLMs
                     </div>
@@ -289,7 +294,7 @@ const ALotMoreFeatures = () => {
         </div>
 
 
-        <div>
+        <div className='animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
             <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black mt-20'>
                 {/* {`All you could ask for.`} */}
                 {/* {`And Much More.`} */}
@@ -310,60 +315,11 @@ const ALotMoreFeatures = () => {
                 {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' /> */}
-                {/* <GridElement name='SSH and WSL Support.' src='/demos/techstack.png' />
+                {/* <GridElement name='SSH and WSL Support.' src='/demos/techstack.png' /> */}
 
-                <div className='flex flex-col items-center mx-auto justify-center'>
-                    <div className='text-center text-xl font-semibold pb-4'>
-                        {`And More...`}
-                    </div>
-                    <div className='max-h-[300px] max-w-full rounded-lg border aspect-video flex items-center bg-[#252526] text-gray-200 shadow-xl py-2'>
-                        <div className=''>
-                            <div className='text-center px-4 text-balance'>
-                                {`If you're building in AI, `}
-                                <a href={emailLink} target='_blank' rel="noreferrer noopener nofollow"
-                                    className='underline font-bold'>
-                                    get in touch
-                                </a>
-                                {` to discuss integrating with Void.`}
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-            </div>
-        </div>
-
-        <div>
-            <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
-                {"Agent Mode and MCP."}
-            </h2>
-            <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Use any model in Agent mode - even open source models that don't natively support tool calling.`}
-            </div>
-
-
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1200px] mx-auto'>
-                {/* Agent Mode */}
-                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
-                    <div className='text-center text-3xl font-black mb-6'>
-                        Agent Mode
-                    </div>
-                    {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Agent Mode' src='/demos2/LintErrors.png' /> */}
-                    <div className='text-balance mx-auto text-center text-gray-600'>
-                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access and MCP tool access.`}
-                    </div>
-                </div>
-
-                {/* Gather Mode */}
-                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
-                    <div className='text-center text-3xl font-black mb-6'>
-                        Gather Mode
-                    </div>
-                    {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Gather Mode' src='/demos2/Links.png' /> */}
-
-                    <div className='text-balance mx-auto text-center text-gray-600'>
-                        {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
-                    </div>
-                </div>
+                {/* <div className='flex flex-col items-center mx-auto justify-center'> */}
+                {/* ... */}
+                {/* </div> */}
             </div>
         </div>
 
@@ -372,7 +328,7 @@ const ALotMoreFeatures = () => {
 
 const PoweredByVscode = () => {
     return <section className='w-full h-fit py-16 mt-32 mb-40 
-    flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100
+    flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100 animate-in fade-in-50 slide-in-from-bottom-2 duration-700
     '>
 
         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
@@ -395,7 +351,7 @@ const PoweredByVscode = () => {
     </section>
 }
 const InterestedInContributing = () => {
-    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
+    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100 animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
 
         <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
             <div className='flex justify-center items-center '>
@@ -410,7 +366,7 @@ const InterestedInContributing = () => {
         </div>
         <div className='flex items-center justify-center gap-8'>
             <a href={discordLink}>
-                <FaDiscord className='size-20 fill-black/80' />
+                <FaDiscord className='size-20 fill-black/80 transition-transform duration-300 ease-out hover:scale-[1.05]' />
             </a>
         </div>
 
@@ -419,8 +375,9 @@ const InterestedInContributing = () => {
 
 
 
+
 const GetStartedWithVoid = () => {
-    return <div className='my-40 overflow-hidden shadow-xl px-5 relative min-h-[600px] bg-gray-800 flex items-center justify-center gap-12 rounded-xl'>
+    return <div className='my-40 overflow-hidden shadow-xl px-5 relative min-h-[600px] bg-gray-800 flex items-center justify-center gap-12 rounded-xl animate-in fade-in-50 slide-in-from-bottom-2 duration-700'>
 
         <div className="absolute inset-0 z-0 w-full h-full scale-[1] transform opacity-0 lg:opacity-[50%] [mask-image:linear-gradient(#ffff, transparent, 75%)] pointer-events-none select-none bg-[length:100%]" style={{ mixBlendMode: "overlay", backgroundImage: `url(${process.env.NEXT_PUBLIC_BG_NOISE_IMG!})` }} />
 
@@ -460,6 +417,7 @@ export default function LandingPage() {
             <Fold />
             <CoreFeatures />
             <PoweredByVscode />
+            <FAQ />
         </div>
 
         <Wave />
@@ -475,6 +433,8 @@ export default function LandingPage() {
             <InterestedInContributing />
             <GetStartedWithVoid />
         </div>
+
+        <ScrollTop />
 
     </>)
 }
