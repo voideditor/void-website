@@ -9,11 +9,11 @@ import { baseUrl } from "@/app/sitemap"
 
 export const Header = () => {
 
-    return <div className='top-0 left-0 right-0 z-10 py-6 mx-auto'>
+    return <div className='top-0 left-0 right-0 z-20 sticky backdrop-blur-md supports'>
         <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12 '>
 
             {/* header */}
-            <div className='h-12 py-2 px-4 max-w-[1400px] mx-auto flex items-center justify-start bg-gray-50 backdrop-blur-md shadow-md rounded-lg overflow-hidden gap-3'>
+            <div className='h-12 my-3 py-2 px-4 max-w-[1400px] mx-auto flex items-center justify-start bg-gray-50/70 shadow-md rounded-lg overflow-hidden gap-3 animate-in fade-in slide-in-from-top-2 duration-500 ease-out'>
 
                 <Link draggable={false} href='/' className='group pr-2'>
                     <h2 className="flex items-center gap-2 font-extrabold">
