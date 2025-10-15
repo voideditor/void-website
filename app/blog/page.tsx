@@ -4,7 +4,7 @@ import { readPublicBlogPosts, formatDate } from "./utils"
 
 export const metadata = {
   title: 'Blog',
-  description: `Void's official blog page.`,
+  description: `CorteXIDE's official blog page.`,
 }
 
 
@@ -15,7 +15,7 @@ export default function Page() {
     <main>
       <section className='mx-auto px-2 mt-20 max-w-5xl w-full min-h-screen'>
 
-        {/* <h1 className="font-semibold text-2xl tracking-tighter mb-8">The void Blog</h1> */}
+        {/* <h1 className="font-semibold text-2xl tracking-tighter mb-8">The CorteXIDE Blog</h1> */}
 
         <div>
           {allBlogs

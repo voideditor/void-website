@@ -54,7 +54,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "New @file and @folder ability.",
       "New terminal tools for Agent mode. Agent can open persistent background terminals.",
       "Faster Fast-Apply by outputting Search/Replace blocks directly, instead of an intermediate change summary.",
-      "Void now runs on Linux.",
+      "CorteXIDE now runs on Linux.",
       "New onboarding screen with a focus on Gemini and OpenRouter.",
       "Context-window truncation works more consistently with small context windows.",
       "Added reasoning effort sliders on o3, Grok, and Gemini.",
@@ -82,7 +82,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "Upgraded tool-calling implementation; now, any model can run in Agent mode - R1, Gemma3, GPT 4.1, etc.",
       "Dynamic context squashing when the context window is not sufficiently large.",
       "Added SSH support and WSL support.",
-      "Void now comes with auto-updates, so we'll be pushing smaller and more frequent changes.",
+      "CorteXIDE now comes with auto-updates, so we'll be pushing smaller and more frequent changes.",
       "Gemini 2.5 Pro, GPT 4.1 (Quasar Alpha), OpenHands LM, DeepSeek V3, and Phi4 support.",
     ]
   },
@@ -92,7 +92,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     // className: 'opacity-50',
     date: "April 7, 2025",
     changes: [
-      "Experimental version of Void pushed to our Discord members.",
+      "Experimental version of CorteXIDE pushed to our Discord members.",
       "Initial version of the next patch.",
     ]
   },
@@ -104,7 +104,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
       "Added Agent mode, Gather mode, and Chat mode.",
       "Agent mode can control your terminal, read/write files, and search your codebase.",
       "Chat and Gather mode now make suggestions to edit specific files.",
-      "Void auto-detects when a model supports tools (Agent/Gather), FIM (Autocomplete), and thinking (Reasoning).",
+      "CorteXIDE auto-detects when a model supports tools (Agent/Gather), FIM (Autocomplete), and thinking (Reasoning).",
       "New slider to set a model's reasoning level preference.",
       "Autocomplete has been re-enabled, and you can use it with any FIM model.",
       "Added a Fast Apply option, enabled by default.",
@@ -135,7 +135,7 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     changes: [
       "Added quick edits (Ctrl+K)! This includes FIM-prompting, output parsing, and history management.",
       "Added autocomplete!",
-      "Void now lives natively in the VSCode codebase, no more extension API.",
+      "CorteXIDE now lives natively in the VSCode codebase, no more extension API.",
       "Added new UI to smoothly show the LLM's streamed changes in VSCode.",
       "New settings page with one-click switch, model selection, and even more providers.",
       "Added auto-detection of Ollama models by default.",
@@ -150,10 +150,10 @@ const CHANGELOG_ENTRIES: ChangelogEntry[] = [
     name: "Early Launch",
     date: "October 1, 2024",
     changes: [
-      "Initialized Void's website and GitHub repo.",
+      "Initialized CorteXIDE's website and GitHub repo.",
       "A lot of early setup work not recorded in this changelog.",
       "Basic features like LLM streaming in the editor, custom history, custom editor UI.",
-      "Users could build Void for an early version of Ctrl+L and (Slow) Apply.",
+      "Users could build CorteXIDE for an early version of Ctrl+L and (Slow) Apply.",
     ]
   }
 ];

@@ -120,7 +120,7 @@ const Fold = () => {
 
                 <h1 className='text-center font-extrabold tracking-tighter leading-tight transition duration-200 mt-[12vh]'>
 
-                    <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto max-sm:scale-75' src='/void/slice_of_void.png' alt={`A slice of the void`} height={250} width={250} />
+                    <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto max-sm:scale-75' src='/cortexide/slice_of_cortexide.png' alt={`A slice of the cortexide`} height={250} width={250} />
 
                     <span className='text-black drop-shadow-xl text-3xl md:text-7xl font-bold tracking-tighter'>
                         {`The open source`}
@@ -140,17 +140,17 @@ const Fold = () => {
                         {`Use AI autocomplete, inline edits, codebase chat, agentic features, and more, in a privacy-first AI IDE.`}
                     </div> */}
                     <div className='text-balance max-sm:text-base text-xl font-semibold tracking-tight leading-tight text-black drop-shadow-xl mb-2'>
-                        {/* {`Void is an open source Cursor alternative. Write code with your favorite AI tools, with options for hosting on-prem.`} */}
-                        {/* {`Void is an open source Cursor alternative. Develop in a fully-featured IDE, and host your LLM anywhere.`} */}
-                        {/* {`Void is an open source Cursor alternative. We let you use the best AI tools, while having full control over privacy.`} */}
-                        {/* {`Void is an open source Cursor alternative. Write code with the best AI tools, while having full control over your data.`} */}
-                        {`Void is an open source Cursor alternative. Write code with the best AI tools, use any model, and retain full control over your data.`}
+                        {/* {`CorteXIDE is an open source Cursor alternative. Write code with your favorite AI tools, with options for hosting on-prem.`} */}
+                        {/* {`CorteXIDE is an open source Cursor alternative. Develop in a fully-featured IDE, and host your LLM anywhere.`} */}
+                        {/* {`CorteXIDE is an open source Cursor alternative. We let you use the best AI tools, while having full control over privacy.`} */}
+                        {/* {`CorteXIDE is an open source Cursor alternative. Write code with the best AI tools, while having full control over your data.`} */}
+                        {`CorteXIDE is an open source Cursor alternative, forked from Void IDE. Write code with the best AI tools, use any model, and retain full control over your data.`}
                     </div>
-                    {/* {`Void is an open source Cursor alternative. Build your project with AI auto-complete, inline edits, and codebase chat, with full control over .`} */}
+                    {/* {`CorteXIDE is an open source Cursor alternative. Build your project with AI auto-complete, inline edits, and codebase chat, with full control over .`} */}
                     {/* {`We offer autocomplete, inline edits, embedded chat, agentic features, and more, without compromising privacy.`} */}
-                    {/* {`Void is an open source Cursor alternative. We use AI to give developers an insane productivity boost without sacrificing privacy. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama.`} */}
+                    {/* {`CorteXIDE is an open source Cursor alternative. We use AI to give developers an insane productivity boost without sacrificing privacy. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama.`} */}
 
-                    {/* {`Void is an open source Cursor alternative. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama, and options for keeping your data private.`} */}
+                    {/* {`CorteXIDE is an open source Cursor alternative. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama, and options for keeping your data private.`} */}
                 </div>
 
                 <div className='flex gap-x-3 gap-y-4 justify-center max-sm:flex-wrap'>
@@ -159,20 +159,6 @@ const Fold = () => {
                 </div>
 
 
-                {/* Backed by YC */}
-                <div className=' flex flex-col items-center w-full my-14 flex-nowrap text-nowrap'>
-                    <div className='inline-flex items-center relative px-5 rounded-full '>
-                        <span className="relative inline-flex items-center text-gray-500 font-semibold">
-                            Backed by
-                            <img src="/yc.svg" className="h-5 w-auto ml-2" alt="Y Combinator Logo" />
-                        </span>
-                    </div>
-
-                    {/* <a href='https://www.ycombinator.com/launches/Lrh-void-the-open-source-cursor-alternative' target='_blank'>
-                        <img alt='Launch YC: Void: The open source Cursor alternative' src='https://www.ycombinator.com/launches/Lrh-void-the-open-source-cursor-alternative/upvote_embed.svg' />
-                    </a> */}
-
-                </div>
             </div>
 
         </div>
@@ -239,7 +225,7 @@ const ALotMoreFeatures = () => {
                 {"Any LLM, Anywhere."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Void doesn't send your messages through a private backend like Cursor or Windsurf. Cut out the middleman and connect directly.`}
+                {`CorteXIDE doesn't send your messages through a private backend like Cursor or Windsurf. Cut out the middleman and connect directly.`}
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-x-8 lg:gap-x-16 gap-y-6'>
                 {/* Box 1 */}
@@ -263,7 +249,7 @@ const ALotMoreFeatures = () => {
                     </div>
 
                     <div className='text-balance mx-auto text-center max-w-[80%] text-gray-500'>
-                        {`Never run out of API credits again. Host any open source model with Void: DeepSeek, Llama, Gemini, Qwen, and more.`}
+                        {`Never run out of API credits again. Host any open source model with CorteXIDE: DeepSeek, Llama, Gemini, Qwen, and more.`}
                     </div>
                 </div>
 
@@ -326,7 +312,7 @@ const ALotMoreFeatures = () => {
                                     className='underline font-bold'>
                                     get in touch
                                 </a>
-                                {` to discuss integrating with Void.`}
+                                {` to discuss integrating with CorteXIDE.`}
                             </div>
                         </div>
                     </div>
@@ -390,13 +376,13 @@ const PoweredByVscode = () => {
 
         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
             <div className='text-center px-4 text-balance'>
-                {`Void is a fork of VS Code. We let you transfer over all your themes, keybinds, and settings in one click. `}
+                {`CorteXIDE is a fork of VS Code and Void IDE. We let you transfer over all your themes, keybinds, and settings in one click. `}
             </div>
         </div>
         <div className='flex items-center gap-8'>
             <VscVscode className='size-20 fill-black/80' />
             <FaArrowsLeftRight className='size-6' />
-            <Image className='ml-2' src={process.env.NEXT_PUBLIC_LOGO_URL!} alt={`A slice of the void`} height={70} width={70} />
+            <Image className='ml-2' src={process.env.NEXT_PUBLIC_LOGO_URL!} alt={`A slice of the cortexide`} height={70} width={70} />
         </div>
 
     </section>
@@ -426,7 +412,7 @@ const InterestedInContributing = () => {
 
 
 
-const GetStartedWithVoid = () => {
+const GetStartedWithCorteXIDE = () => {
     return <div className='my-40 overflow-hidden shadow-xl px-5 relative min-h-[600px] bg-gray-800 flex items-center justify-center gap-12 rounded-xl'>
 
         <div className="absolute inset-0 z-0 w-full h-full scale-[1] transform opacity-0 lg:opacity-[50%] [mask-image:linear-gradient(#ffff, transparent, 75%)] pointer-events-none select-none bg-[length:100%]" style={{ mixBlendMode: "overlay", backgroundImage: `url(${process.env.NEXT_PUBLIC_BG_NOISE_IMG!})` }} />
@@ -435,11 +421,11 @@ const GetStartedWithVoid = () => {
         <div className='w-full  max-w-7xl flex flex-1 flex-col items-center justify-center lg:flex-row lg:gap-16 gap-4'>
             <div className='w-full  flex-1 flex-grow-[.75] flex flex-col items-center justify-center text-center p-6 gap-12'>
 
-                {/* <Image className='brightness-110 max-lg:-top-20 inset-0 mx-auto' src='/void/logo_cube_noshadow.png' alt={`A slice of the void`} height={80} width={80} /> */}
+                {/* <Image className='brightness-110 max-lg:-top-20 inset-0 mx-auto' src='/cortexide/logo_cube_noshadow.png' alt={`A slice of the cortexide`} height={80} width={80} /> */}
 
                 <h1 className='  text-center font-extrabold tracking-tighter leading-tight hover:brightness-110 transition duration-200'>
                     <span className='text-white drop-shadow-xl text-3xl font-bold tracking-tighter'>
-                        Get Started with Void.
+                        Get Started with CorteXIDE.
                     </span>
                 </h1>
 
@@ -480,7 +466,7 @@ export default function LandingPage() {
         <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12'>
             {/* Removed DataPrivacy section from here since it's now part of ALotMoreFeatures */}
             <InterestedInContributing />
-            <GetStartedWithVoid />
+            <GetStartedWithCorteXIDE />
         </div>
 
     </>)

@@ -6,7 +6,6 @@ import { FaApple, FaWindows } from 'react-icons/fa';
 import './twinkle.css'
 import Image from 'next/image';
 import SparkleOverlay from './SparkleOverlay';
-import CollapsibleNotice from './CollapsibleNotice';
 
 
 
@@ -22,11 +21,11 @@ const TTL = 15 * 60 * 1000; // 15 minutes
 
 // All required asset filenames (can be regex or exact)
 const REQUIRED_ASSETS = [
-    (v: string) => `VoidSetup-x64-${v}.exe`,
-    (v: string) => `VoidSetup-arm64-${v}.exe`,
-    (v: string) => `Void.x64.${v}.dmg`,
-    (v: string) => `Void.arm64.${v}.dmg`,
-    // (v: string) => `Void-${v}.glibc2.29-x86_64.AppImage`,
+    (v: string) => `CorteXIDESetup-x64-${v}.exe`,
+    (v: string) => `CorteXIDESetup-arm64-${v}.exe`,
+    (v: string) => `CorteXIDE.x64.${v}.dmg`,
+    (v: string) => `CorteXIDE.arm64.${v}.dmg`,
+    // (v: string) => `CorteXIDE-${v}.glibc2.29-x86_64.AppImage`,
 ];
 
 // Server-side helper
@@ -37,7 +36,7 @@ async function getLatestReleaseVersion(): Promise<string> {
     }
 
     try {
-        const response = await fetch('https://api.github.com/repos/voideditor/binaries/releases/latest', {
+        const response = await fetch('https://api.github.com/repos/OpenCortexIDE/binaries/releases/latest', {
             // Avoid Next.js caching here—we handle our own
             cache: 'no-store',
         });
@@ -79,8 +78,8 @@ const FloatingElement = () => (
                 width={23 * 4 * 1.5}
                 height={24 * 4 * 1.5}
                 draggable={false}
-                src='/void/logo_cube_noshadow.png'
-                alt='Slice of the Void logo'
+                src='/cortexide/logo_cube_noshadow.png'
+                alt='Slice of the CorteXIDE logo'
             />
         </div>
         <svg
@@ -116,15 +115,15 @@ const DownloadButton = ({ url, children, className }: { url: string; children: R
 function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
     const downloadLinks = {
         windows: {
-            x64: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidSetup-x64-${releaseVersion}.exe`,
-            arm: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/VoidSetup-arm64-${releaseVersion}.exe`,
+            x64: `https://github.com/OpenCortexIDE/binaries/releases/download/${releaseVersion}/CorteXIDESetup-x64-${releaseVersion}.exe`,
+            arm: `https://github.com/OpenCortexIDE/binaries/releases/download/${releaseVersion}/CorteXIDESetup-arm64-${releaseVersion}.exe`,
         },
         mac: {
-            intel: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/Void.x64.${releaseVersion}.dmg`,
-            appleSilicon: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/Void.arm64.${releaseVersion}.dmg`,
+            intel: `https://github.com/OpenCortexIDE/binaries/releases/download/${releaseVersion}/CorteXIDE.x64.${releaseVersion}.dmg`,
+            appleSilicon: `https://github.com/OpenCortexIDE/binaries/releases/download/${releaseVersion}/CorteXIDE.arm64.${releaseVersion}.dmg`,
         },
         linux: {
-            x64: `https://github.com/voideditor/binaries/releases/download/${releaseVersion}/Void-${releaseVersion}.glibc2.29-x86_64.AppImage`,
+            x64: `https://github.com/OpenCortexIDE/binaries/releases/download/${releaseVersion}/CorteXIDE-${releaseVersion}.glibc2.29-x86_64.AppImage`,
         },
     };
 
@@ -134,11 +133,11 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                 {/* left */}
                 <div className='text-balance max-sm:text-base text-xl max-w-[600px] space-y-5'>
                     <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
-                        <div className='flex justify-center items-center '>Download Void.</div>
+                        <div className='flex justify-center items-center '>Download CorteXIDE.</div>
                     </h2>
 
                     <div className='mx-auto pb-4 text-center px-4 text-balance max-w-[400px]'>
-                        Try the beta edition of Void, or check out the source on {' '}
+                        Try the beta edition of CorteXIDE, or check out the source on {' '}
                         <a href={githubLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                             GitHub
                         </a>
@@ -180,9 +179,6 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
                             </DownloadButton>
                         </div>
 
-                        <div>
-                            <CollapsibleNotice />
-                        </div>
                     </div>
 
                 </div>
@@ -196,14 +192,14 @@ function DownloadBetaClient({ releaseVersion }: { releaseVersion: string }) {
             {/* desc */}
             <div className='mx-auto text-center px-4 text-balance opacity-25 pt-60 pb-40'>
                 <div className='my-1'>
-                    For Linux users, download Void{' '}
+                    For Linux users, download CorteXIDE{' '}
                     <a href={binariesLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                         here
                     </a>
                     .
                 </div>
                 <div className='my-1'>
-                    Alternatively, download Void from the source on{' '}
+                    Alternatively, download CorteXIDE from the source on{' '}
                     <a href={releaseLink} target='_blank' rel='noreferrer noopener nofollow' className='underline'>
                         GitHub
                     </a>

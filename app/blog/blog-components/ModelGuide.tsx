@@ -28,7 +28,7 @@ type DataType = {
 }
 
 
-// SEE MODELS PART OF void/ REPO FOR THESE SPECS:
+// SEE MODELS PART OF cortexide/ REPO FOR THESE SPECS:
 
 const chatData: DataType[] = [
   {

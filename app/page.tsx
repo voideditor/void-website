@@ -1,9 +1,9 @@
 import LandingPage from "@/components/landingpage/LandingPage";
 import { baseUrl } from "./sitemap";
 
-const title = 'Void'
-const shortTitle = 'Void'
-const description = 'Void is an open source Cursor alternative. Full privacy. Fully-featured.'
+const title = 'CorteXIDE'
+const shortTitle = 'CorteXIDE'
+const description = 'CorteXIDE is an open source Cursor alternative, forked from Void IDE. Full privacy. Fully-featured.'
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent(shortTitle)}&description=${encodeURIComponent(description)}`
 
 
@@ -52,7 +52,7 @@ export default function Home() {
             image: ogImage,
             author: {
               '@type': 'Organization',
-              name: 'Void Editor',
+              name: 'CorteXIDE Editor',
               url: baseUrl
             }
           }),

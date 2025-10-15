@@ -47,7 +47,7 @@ export const SignUp = () => {
             {/* <div className="absolute inset-0 z-0 w-full h-full scale-[3] origin-left transform opacity-0 lg:opacity-[50%] [mask-image:linear-gradient(#ffff,_transparent,_75%)] pointer-events-none select-none bg-[length:100%]" style={{ mixBlendMode: "overlay", backgroundImage: `url(${process.env.NEXT_PUBLIC_BG_NOISE_IMG_2})` }} /> */}
 
             <div className='w-full max-w-xl py-8 max-sm:px-4 px-8 bg-transparent shadow-2xl rounded-lg flex flex-col gap-6'>
-                <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto ' src='/void/slice_of_void.png' alt={`A slice of the void`} height={80} width={80} />
+                <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto ' src='/cortexide/slice_of_cortexide.png' alt={`A slice of the cortexide`} height={80} width={80} />
 
 
                 <h2 className="text-2xl lg:text-3xl font-bold text-center px-4 text-black"
@@ -56,7 +56,7 @@ export const SignUp = () => {
                     }}
                 >Get Early Access</h2>
                 <div className='text-black/50 text-center text-balance mx-auto'>
-                    {`Join Void's `}<a href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>Discord</a>{` channel for private beta access, and enter your email below for an alert when we officially release! `}
+                    {`Join CorteXIDE's `}<a href={discordLink} target='_blank' rel="noreferrer noopener nofollow" className='underline'>Discord</a>{` channel for private beta access, and enter your email below for an alert when we officially release! `}
                 </div>
                 <form className="flex max-sm:flex-col justify-center items-center max-w-xs gap-4 mx-auto" onSubmit={handleSubmit}>
                     <label className="w-full max-w-xs">
@@ -76,7 +76,7 @@ export const SignUp = () => {
                         <span className="sr-only">Reason for access</span>
                         <textarea
                             ref={reasonRef}
-                            placeholder="(Optional) Is there a specific reason you're interested in Void (e.g. hosting on-prem)?"
+                            placeholder="(Optional) Is there a specific reason you're interested in CorteXIDE (e.g. hosting on-prem)?"
                             className="px-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-28 bg-gray-700 text-white"
                             disabled={isSubmitted}
                             aria-required="false"

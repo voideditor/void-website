@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
-const VoidAnimatedText = () => {
+const CorteXIDEAnimatedText = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [seed, setSeed] = useState(0);
     const animationRef = useRef<SVGFETurbulenceElement | null>(null);
@@ -45,11 +45,11 @@ const VoidAnimatedText = () => {
                 onMouseLeave={() => setIsHovering(false)}
             >
                 <h2 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-tl from-black to-gray-500 text-3xl whitespace-nowrap">
-                    void
+                    cortexide
                 </h2>
             </div>
         </div>
     );
 };
 
-export default VoidAnimatedText;
+export default CorteXIDEAnimatedText;

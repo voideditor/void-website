@@ -80,7 +80,7 @@ export default function BlogPost({ params }) {
                         url: `${baseUrl}/blog/${post.slug}`,
                         author: {
                             '@type': 'Person',
-                            name: 'Void Editor',
+                            name: 'CorteXIDE Editor',
                         },
                     }),
                 }}
