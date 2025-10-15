@@ -307,7 +307,7 @@ const ALotMoreFeatures = () => {
                 <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Lint Error Detection.' src='/demos2/LintErrors3.png' />
                 <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='Tool Use.' src='/demos2/GatherMode.png' />
                 <GridElement imageClassName='' name='Fast Apply.' src='/demos3/example.png' />
-                <GridElement name='Works on 1000-Line Files.' src='/demos/instant.png' />
+                <GridElement name='Works On 1000-Line Files.' src='/demos/instant.png' />
                 <GridElement imageClassName='py-4' name='Bring Any Model.' src='/demos3/bring-any-model.png' />
                 {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' /> */}
@@ -339,7 +339,7 @@ const ALotMoreFeatures = () => {
                 {"Agent Mode and MCP."}
             </h2>
             <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Use any model in Agent mode - even open source models that don't natively support tool calling.`}
+                {`Use any model in Agent or Gather mode - even open source models that don't natively support tool calling.`}
             </div>
 
 
