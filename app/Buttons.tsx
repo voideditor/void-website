@@ -6,7 +6,7 @@ import posthog from "posthog-js"
 import { waitlistLink, githubStarLink, downloadLink } from "@/components/links"
 import { FaDiscord } from "react-icons/fa"
 
-export const StarOnGithubButton = ({ label = undefined, posthogLabel }: { label?: string, posthogLabel?: string }) => {
+export const StarOnGithubButton = ({ label = undefined, posthogLabel }: { label?: string, posthogLabel?: string, user?:boolean }) => {
     // <div className="shadow hover:shadow-lg bg-white w-20 h-20 duration-[.5s] ease-out active:scale-90"></div>
     return <a
         href={githubStarLink}

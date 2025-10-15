@@ -76,7 +76,7 @@ const ProviderLogo = ({
 };
 
 
-const GridElement = ({ name, src = undefined, alt = undefined, children, imageClassName = '' }: { name: string | null, src?: string, alt?: string, children?: React.ReactNode, imageClassName?: string }) => {
+const GridElement = ({ name, src = undefined, alt = undefined, children, imageClassName = '', noBg = false }: { name: string | null, src?: string, alt?: string, children?: React.ReactNode, imageClassName?: string, noBg?: boolean }) => {
 
     let childContents: React.ReactNode
     if (children) {
@@ -98,7 +98,7 @@ const GridElement = ({ name, src = undefined, alt = undefined, children, imageCl
             <div>
                 {name ? <div className='text-center text-xl font-semibold pb-4'>{name}</div> : null}
 
-                <div className='flex items-center justify-center bg-[#252526] rounded-lg'>
+                <div className={`flex items-center justify-center rounded-lg ${noBg ? '' : 'bg-[#252526]'}`}>
                     {childContents}
                 </div>
             </div>
@@ -305,8 +305,10 @@ const ALotMoreFeatures = () => {
                 {/* <GridElement name='Auto-Apply.' src='/demos/techstack.png' /> */}
                 <GridElement imageClassName='px-4 py-4 lg:px-24 lg:py-8' name='Checkpoints for LLM Changes.' src='/demos2/Checkpoints2.png' />
                 <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Lint Error Detection.' src='/demos2/LintErrors3.png' />
-                <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='Native Tool Use.' src='/demos2/GatherMode.png' />
-                <GridElement name='Fast Apply, Even on 1000-Line Files.' src='/demos/instant.png' />
+                <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='Tool Use.' src='/demos2/GatherMode.png' />
+                <GridElement imageClassName='' name='Fast Apply.' src='/demos3/example.png' />
+                <GridElement name='Works on 1000-Line Files.' src='/demos/instant.png' />
+                <GridElement imageClassName='py-4' name='Bring Any Model.' src='/demos3/bring-any-model.png' />
                 {/* <GridElement name='Checkpoints.' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='Auto-Fix Lint Errors.' src='/demos/techstack.png' /> */}
                 {/* <GridElement name='Autocomplete with FIM Models (e.g. Qwen 2.5-coder).' src='/demos/techstack.png' /> */}
@@ -341,27 +343,32 @@ const ALotMoreFeatures = () => {
             </div>
 
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-[1200px] mx-auto'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto'>
                 {/* Agent Mode */}
-                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
+                <div className='rounded-xl overflow-hidden px-8 '>
                     <div className='text-center text-3xl font-black mb-6'>
                         Agent Mode
                     </div>
-                    {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Agent Mode' src='/demos2/LintErrors.png' /> */}
                     <div className='text-balance mx-auto text-center text-gray-600'>
                         {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access and MCP tool access.`}
+                    </div>
+
+                    <div className="w-full flex items-center justify-center">
+                        <img src='/demos3/agent.png' alt='Agent Mode' className={`max-h-[700px] max-w-full w-auto h-auto rounded-lg object-contain`} />
                     </div>
                 </div>
 
                 {/* Gather Mode */}
-                <div className='bg-white rounded-xl shadow-lg overflow-hidden px-8 py-12'>
+                <div className='rounded-xl overflow-hidden px-8 '>
                     <div className='text-center text-3xl font-black mb-6'>
                         Gather Mode
                     </div>
-                    {/* <GridElement imageClassName='px-4 py-4 ' name={null} alt='Gather Mode' src='/demos2/Links.png' /> */}
 
                     <div className='text-balance mx-auto text-center text-gray-600'>
                         {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
+                    </div>
+                    <div className="w-full flex items-center justify-center">
+                        <img src='/demos3/gather.png' alt='Gather Mode' className={`max-h-[700px] max-w-full w-auto h-auto rounded-lg object-contain`} />
                     </div>
                 </div>
             </div>
@@ -405,7 +412,7 @@ const InterestedInContributing = () => {
 
         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[700px]'>
             <div className='text-center px-4 text-balance'>
-                {`We host weekly contributor meetups in our Discord server and share early releases with our community. Feel free to join!`}
+                {`We host contributor meetups in our Discord server and share early releases with our community. Feel free to join!`}
             </div>
         </div>
         <div className='flex items-center justify-center gap-8'>
