@@ -109,48 +109,28 @@ const GridElement = ({ name, src = undefined, alt = undefined, children, imageCl
 
 const Fold = () => {
 
-    return <section className=' '>
+    return <section className='py-16 lg:py-24'>
 
-        <div className='  relative w-full border shadow-xl px-5 min-h-[800px] flex justify-center gap-12 rounded-xl overflow-hidden'>
-
-            {/* This image is being preloaded in head */}
-            {/* <div className="absolute inset-0 z-0 w-full h-full scale-[1] transform opacity-[0%] [mask-image:linear-gradient(#ffff, transparent, 75%)] pointer-events-none select-none bg-[length:100%]" style={{ mixBlendMode: "overlay", backgroundImage: `url(${process.env.NEXT_PUBLIC_BG_NOISE_IMG!})` }} /> */}
+        <div className='relative w-full border border-gray-200 dark:border-gray-700 shadow-xl px-5 min-h-[800px] flex justify-center gap-12 rounded-xl overflow-hidden bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm'>
 
             <div className='w-full'>
 
                 <h1 className='text-center font-extrabold tracking-tighter leading-tight transition duration-200 mt-[12vh]'>
 
-                    <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto max-sm:scale-75' src='/cortexide/slice_of_cortexide.png' alt={`A slice of the cortexide`} height={250} width={250} />
+                    <img className='isolate -mb-4 max-lg:-top-20 inset-0 pt-3 mx-auto max-sm:scale-75' src='/assets/cortexide/hero-logo.svg' alt={`CorteXIDE Logo`} height={250} width={250} />
 
-                    <span className='text-black drop-shadow-xl text-3xl md:text-7xl font-bold tracking-tighter'>
-                        {`The open source`}
+                    <span className='gradient-text drop-shadow-xl text-3xl md:text-7xl font-bold tracking-tighter'>
+                        {`Open-source AI IDE`}
                         <br />
-                        {`AI code editor.`}
-                        {/* {`The open source `}
-                        <br />
-                        {`AI Code Editor.`} */}
-                        {/* {`The open source AI code editor. `} */}
+                        {`for privacy-first development.`}
                     </span>
                 </h1>
 
                 {/* Description */}
                 <div className='mx-auto text-center max-w-[800px] py-10 '>
-
-                    {/* <div className='text-balance max-sm:text-base text-2xl font-bold tracking-tight leading-tight text-black drop-shadow-xl'>
-                        {`Use AI autocomplete, inline edits, codebase chat, agentic features, and more, in a privacy-first AI IDE.`}
-                    </div> */}
-                    <div className='text-balance max-sm:text-base text-xl font-semibold tracking-tight leading-tight text-black drop-shadow-xl mb-2'>
-                        {/* {`CorteXIDE is an open source Cursor alternative. Write code with your favorite AI tools, with options for hosting on-prem.`} */}
-                        {/* {`CorteXIDE is an open source Cursor alternative. Develop in a fully-featured IDE, and host your LLM anywhere.`} */}
-                        {/* {`CorteXIDE is an open source Cursor alternative. We let you use the best AI tools, while having full control over privacy.`} */}
-                        {/* {`CorteXIDE is an open source Cursor alternative. Write code with the best AI tools, while having full control over your data.`} */}
+                    <div className='text-balance max-sm:text-base text-xl font-semibold tracking-tight leading-tight text-gray-700 dark:text-gray-300 drop-shadow-xl mb-2'>
                         {`CorteXIDE is an open source Cursor alternative, forked from Void IDE. Write code with the best AI tools, use any model, and retain full control over your data.`}
                     </div>
-                    {/* {`CorteXIDE is an open source Cursor alternative. Build your project with AI auto-complete, inline edits, and codebase chat, with full control over .`} */}
-                    {/* {`We offer autocomplete, inline edits, embedded chat, agentic features, and more, without compromising privacy.`} */}
-                    {/* {`CorteXIDE is an open source Cursor alternative. We use AI to give developers an insane productivity boost without sacrificing privacy. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama.`} */}
-
-                    {/* {`CorteXIDE is an open source Cursor alternative. We offer autocomplete, inline edits, codebase chat, AI agents, and integrations with tools like Greptile and Ollama, and options for keeping your data private.`} */}
                 </div>
 
                 <div className='flex gap-x-3 gap-y-4 justify-center max-sm:flex-wrap'>
@@ -158,12 +138,9 @@ const Fold = () => {
                     <StarOnGithubButton posthogLabel="2" />
                 </div>
 
-
             </div>
 
         </div>
-
-
 
     </section>
 }
@@ -174,7 +151,7 @@ const Fold = () => {
 const Wave = ({ isExitWave = false }: { isExitWave?: boolean }) => {
     return <div className={`overflow-hidden ${isExitWave ? '' : ''}`}>
         <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"
-            className={`h-5 w-full ${isExitWave ? '' : 'rotate-180'} scale-x-150 translate-x-[0] fill-slate-200`}>
+            className={`h-5 w-full ${isExitWave ? '' : 'rotate-180'} scale-x-150 translate-x-[0] fill-gray-200 dark:fill-gray-800`}>
             <path d="M321.39 56.44c58-10.79 114.16-30.13 172-41.86 82.39-16.72 168.19-17.73 250.45-.39C823.78 31 906.67 72 985.66 92.83c70.05 18.48 146.53 26.09 214.34 3V0H0v27.35a600.21 600.21 0 00321.39 29.09z"></path>
         </svg>
     </div>
@@ -184,31 +161,51 @@ const Wave = ({ isExitWave = false }: { isExitWave?: boolean }) => {
 
 const CoreFeatures = () => {
 
-    // const imgClassName = `
-    //     inset-0 
-    //     border-t-8 border-t-white/40
-    //     border-l-8 border-l-white/40
-    //     border-b-8 border-b-black/30
-    //     border-r-8 border-r-black/30
-    // `
+    const features = [
+        {
+            title: "Chat → Plan → Diff → Apply",
+            description: "Complete AI workflow from conversation to code changes",
+            src: '/demos2/AgentMode.png',
+            imgClassName: 'p-8 bg-[#1e1e1e]'
+        },
+        {
+            title: "Local-Only Mode",
+            description: "Run everything locally with Ollama, vLLM, or any OpenAI-compatible endpoint",
+            src: '/demos/autocomplete3.png'
+        },
+        {
+            title: "Repo Context RAG",
+            description: "AI understands your entire codebase for better suggestions",
+            src: '/demos/cmdK1.png'
+        },
+        {
+            title: "Safe Apply + Audit",
+            description: "Review all changes before applying with built-in diff viewer",
+            src: '/demos2/Checkpoints2.png',
+            imgClassName: 'px-4 py-4 lg:px-24 lg:py-8'
+        }
+    ]
 
-    return <section className='py-16 lg:py-32 px-8 lg:px-16 gap-16 my-32 bg-gray-100 flex flex-col items-center justify-center rounded-xl text-black shadow-xl'>
+    return <section className='py-16 lg:py-32 px-8 lg:px-16 gap-16 my-32 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm flex flex-col items-center justify-center rounded-xl text-gray-900 dark:text-gray-100 shadow-xl border border-gray-200 dark:border-gray-700'>
 
-
-        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
-            {/* {`The AI Feature Classics.`} */}
-            {/* {`Native AI Integrations.`} */}
-            {`The AI Features You Love.`}
+        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black gradient-text'>
+            {`Core AI Features`}
         </h2>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            <BigContent src='/demos/autocomplete3.png' title={`Tab`} desc={`Press 'Tab' to apply autocomplete.`} />
-            {/* <BigContent src='/demos2/aa.png' title={`Quick Edit`} desc={`Edit your selection inline.`} /> */}
-            {/* <BigContent src='/demos2/AgentMode.png' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
-            <BigContent src='/demos/cmdK1.png' title={`Quick Edit`} desc={`Edit your selection inline.`} />
-            {/* <BigContent src='/demos/chat5.png' imgClassName='py-12 bg-[#252526]' title={`Chat`} desc={`Agent, Gather, and Normal mode. `} /> */}
-            <BigContent src='/demos2/AgentMode.png' imgClassName='p-8 bg-[#1e1e1e]' title={`Chat`} desc={`Agent Mode, Gather Mode, and normal chat. `} />
-
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl'>
+            {features.map((feature, index) => (
+                <div key={index} className='bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-200 glow-button'>
+                    <h3 className='text-xl font-bold mb-3 text-cortexide-primary'>{feature.title}</h3>
+                    <p className='text-gray-600 dark:text-gray-400 mb-4'>{feature.description}</p>
+                    <div className='flex justify-center'>
+                        <img
+                            src={feature.src}
+                            alt={feature.title}
+                            className={`bg-[#1e1e1e] aspect-[16_10] max-w-[300px] w-full h-full rounded-xl object-contain ${feature.imgClassName || ''}`}
+                        />
+                    </div>
+                </div>
+            ))}
         </div>
 
     </section>
@@ -365,45 +362,45 @@ const ALotMoreFeatures = () => {
 
 const PoweredByVscode = () => {
     return <section className='w-full h-fit py-16 mt-32 mb-40 
-    flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100
+    flex flex-col items-center justify-center gap-8 rounded-xl text-gray-900 dark:text-gray-100 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700
     '>
 
-        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
+        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black gradient-text'>
             <div className='flex justify-center items-center '>
                 {`Powered by VS Code.`}
             </div>
         </h2>
 
         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[600px]'>
-            <div className='text-center px-4 text-balance'>
+            <div className='text-center px-4 text-balance text-gray-600 dark:text-gray-400'>
                 {`CorteXIDE is a fork of VS Code and Void IDE. We let you transfer over all your themes, keybinds, and settings in one click. `}
             </div>
         </div>
         <div className='flex items-center gap-8'>
-            <VscVscode className='size-20 fill-black/80' />
-            <FaArrowsLeftRight className='size-6' />
-            <Image className='ml-2' src={process.env.NEXT_PUBLIC_LOGO_URL!} alt={`A slice of the cortexide`} height={70} width={70} />
+            <VscVscode className='size-20 fill-gray-600 dark:fill-gray-400' />
+            <FaArrowsLeftRight className='size-6 text-cortexide-accent' />
+            <Image className='ml-2' src='/assets/cortexide/logo.svg' alt={`CorteXIDE Logo`} height={70} width={70} />
         </div>
 
     </section>
 }
 const InterestedInContributing = () => {
-    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-black shadow-xl bg-gray-100'>
+    return <section className='w-full h-fit py-16 mt-32 mb-20 flex flex-col items-center justify-center gap-8 rounded-xl text-gray-900 dark:text-gray-100 shadow-xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700'>
 
-        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black'>
+        <h2 className='mx-auto text-center text-3xl lg:text-4xl tracking-tight font-black gradient-text'>
             <div className='flex justify-center items-center '>
                 {`Join The Community`}
             </div>
         </h2>
 
         <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-[700px]'>
-            <div className='text-center px-4 text-balance'>
+            <div className='text-center px-4 text-balance text-gray-600 dark:text-gray-400'>
                 {`We host contributor meetups in our Discord server and share early releases with our community. Feel free to join!`}
             </div>
         </div>
         <div className='flex items-center justify-center gap-8'>
-            <a href={discordLink}>
-                <FaDiscord className='size-20 fill-black/80' />
+            <a href={discordLink} className='group'>
+                <FaDiscord className='size-20 fill-cortexide-secondary group-hover:fill-cortexide-accent transition-colors' />
             </a>
         </div>
 
@@ -413,22 +410,18 @@ const InterestedInContributing = () => {
 
 
 const GetStartedWithCorteXIDE = () => {
-    return <div className='my-40 overflow-hidden shadow-xl px-5 relative min-h-[600px] bg-gray-800 flex items-center justify-center gap-12 rounded-xl'>
+    return <div className='my-40 overflow-hidden shadow-xl px-5 relative min-h-[600px] bg-gradient-to-br from-cortexide-primary to-cortexide-secondary flex items-center justify-center gap-12 rounded-xl border border-gray-200 dark:border-gray-700'>
 
-        <div className="absolute inset-0 z-0 w-full h-full scale-[1] transform opacity-0 lg:opacity-[50%] [mask-image:linear-gradient(#ffff, transparent, 75%)] pointer-events-none select-none bg-[length:100%]" style={{ mixBlendMode: "overlay", backgroundImage: `url(${process.env.NEXT_PUBLIC_BG_NOISE_IMG!})` }} />
+        <div className="absolute inset-0 z-0 w-full h-full scale-[1] transform opacity-20 [mask-image:linear-gradient(#ffff, transparent, 75%)] pointer-events-none select-none bg-[length:100%]" style={{ mixBlendMode: "overlay", backgroundImage: `url(${process.env.NEXT_PUBLIC_BG_NOISE_IMG!})` }} />
 
+        <div className='w-full max-w-7xl flex flex-1 flex-col items-center justify-center lg:flex-row lg:gap-16 gap-4'>
+            <div className='w-full flex-1 flex-grow-[.75] flex flex-col items-center justify-center text-center p-6 gap-12'>
 
-        <div className='w-full  max-w-7xl flex flex-1 flex-col items-center justify-center lg:flex-row lg:gap-16 gap-4'>
-            <div className='w-full  flex-1 flex-grow-[.75] flex flex-col items-center justify-center text-center p-6 gap-12'>
-
-                {/* <Image className='brightness-110 max-lg:-top-20 inset-0 mx-auto' src='/cortexide/logo_cube_noshadow.png' alt={`A slice of the cortexide`} height={80} width={80} /> */}
-
-                <h1 className='  text-center font-extrabold tracking-tighter leading-tight hover:brightness-110 transition duration-200'>
+                <h1 className='text-center font-extrabold tracking-tighter leading-tight hover:brightness-110 transition duration-200'>
                     <span className='text-white drop-shadow-xl text-3xl font-bold tracking-tighter'>
                         Get Started with CorteXIDE.
                     </span>
                 </h1>
-
 
                 <div className='isolate space-y-4'>
                     <StarOnGithubButton posthogLabel="3" />
@@ -436,7 +429,6 @@ const GetStartedWithCorteXIDE = () => {
                 </div>
 
             </div>
-
         </div>
 
     </div>
@@ -456,7 +448,7 @@ export default function LandingPage() {
         </div>
 
         <Wave />
-        <div className='bg-slate-200'>
+        <div className='bg-gray-200 dark:bg-gray-800'>
             <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12'>
                 <ALotMoreFeatures />
             </div>

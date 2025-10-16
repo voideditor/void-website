@@ -1,0 +1,43 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cortexide-gradient-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7A3FFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00C6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent-gradient-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5AF3F9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00C6FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main cube shape -->
+  <rect x="50" y="100" width="150" height="150" rx="15" fill="url(#cortexide-gradient-hero)" />
+  
+  <!-- Top face of cube -->
+  <path d="M50 100 L125 50 L200 50 L125 100 Z" fill="url(#accent-gradient-hero)" opacity="0.8" />
+  
+  <!-- Right face of cube -->
+  <path d="M125 100 L200 50 L200 125 L125 175 Z" fill="url(#cortexide-gradient-hero)" opacity="0.6" />
+  
+  <!-- Inner accent lines -->
+  <rect x="75" y="125" width="100" height="100" rx="8" fill="none" stroke="url(#accent-gradient-hero)" stroke-width="3" opacity="0.7" />
+  
+  <!-- Inner grid pattern -->
+  <rect x="100" y="150" width="50" height="50" rx="4" fill="url(#accent-gradient-hero)" opacity="0.3" />
+  
+  <!-- Glow effect -->
+  <rect x="50" y="100" width="150" height="150" rx="15" fill="none" stroke="url(#accent-gradient-hero)" stroke-width="2" opacity="0.4" filter="url(#glow)" />
+  
+  <!-- Additional accent dots -->
+  <circle cx="100" cy="150" r="4" fill="url(#accent-gradient-hero)" opacity="0.8" />
+  <circle cx="150" cy="150" r="4" fill="url(#accent-gradient-hero)" opacity="0.8" />
+  <circle cx="100" cy="200" r="4" fill="url(#accent-gradient-hero)" opacity="0.8" />
+  <circle cx="150" cy="200" r="4" fill="url(#accent-gradient-hero)" opacity="0.8" />
+</svg>

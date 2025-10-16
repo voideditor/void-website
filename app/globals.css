@@ -1,3 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Light theme variables */
+  --background: #FAFAFA;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --border: #E5E5E5;
+  --primary: #7A3FFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #00C6FF;
+  --secondary-foreground: #FFFFFF;
+  --accent: #5AF3F9;
+  --accent-foreground: #1A1A1A;
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
+}
+
+.dark {
+  /* Dark theme variables */
+  --background: #0E0E10;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --border: #333333;
+  --primary: #7A3FFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #00C6FF;
+  --secondary-foreground: #FFFFFF;
+  --accent: #5AF3F9;
+  --accent-foreground: #0E0E10;
+  --muted: #2A2A2A;
+  --muted-foreground: #999999;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* CorteXIDE gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #7A3FFF 0%, #00C6FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect for buttons */
+.glow-button {
+  transition: all 0.2s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(90, 243, 249, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Smooth theme transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}

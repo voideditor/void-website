@@ -1,0 +1,26 @@
+{
+  "name": "CorteXIDE - Open-source AI IDE",
+  "short_name": "CorteXIDE",
+  "description": "Open-source AI IDE for privacy-first development. A Cursor alternative that gives you full control over your data.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#7A3FFF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/cortexide/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/cortexide/logo.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["developer", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}

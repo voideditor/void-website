@@ -23,9 +23,6 @@ import { CSPostHogProvider } from '../components/providers'
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 
-    const bg1 = 'rgba(255, 255, 255, 1)';
-    const bg2 = 'rgba(228, 229, 231, 0.85)';
-
     return (<>
 
         <html lang="en">
@@ -34,14 +31,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     name="viewport"
                     content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
                 />
-
+                <link rel="icon" href="/assets/cortexide/favicon.svg" type="image/svg+xml" />
+                <link rel="apple-touch-icon" href="/assets/cortexide/favicon.svg" />
+                <link rel="manifest" href="/manifest.json" />
             </head>
 
-            {/* <body className='text-black bg-gray-100 ' style={{ background: `url('/noise.png')` }}> */}
             <CSPostHogProvider>
-                <body className='text-black bg-gray-100' style={{ background: `linear-gradient(90deg, ${bg2} 0%, ${bg1} 25%, ${bg1} 75%, ${bg2} 100%)` }}>
+                <body className='bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark transition-colors duration-200'>
                     <div className='overflow-hidden rounded-sm'>
-                        {/* in dark mode, text-black is not the default */}
                         <GlassProvider>
                             <Header />
                             {children}

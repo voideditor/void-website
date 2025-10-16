@@ -1,9 +1,9 @@
 import LandingPage from "@/components/landingpage/LandingPage";
 import { baseUrl } from "./sitemap";
 
-const title = 'CorteXIDE'
+const title = 'CorteXIDE - Open-source AI IDE for Privacy-First Development'
 const shortTitle = 'CorteXIDE'
-const description = 'CorteXIDE is an open source Cursor alternative, forked from Void IDE. Full privacy. Fully-featured.'
+const description = 'Open-source AI IDE for privacy-first development. CorteXIDE is a Cursor alternative that gives you full control over your data while providing powerful AI coding features.'
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent(shortTitle)}&description=${encodeURIComponent(description)}`
 
 
