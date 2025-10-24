@@ -305,7 +305,8 @@ const ALotMoreFeatures = () => {
                 {/* <GridElement name='Auto-Apply.' src='/demos/techstack.png' /> */}
                 <GridElement imageClassName='px-4 py-4 lg:px-24 lg:py-8' name='Checkpoints for LLM Changes.' src='/demos2/Checkpoints2.png' />
                 <GridElement imageClassName='px-4 py-4 lg:px-32 lg:py-4' name='Lint Error Detection.' src='/demos2/LintErrors3.png' />
-                <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='Tool Use.' src='/demos2/GatherMode.png' />
+                <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='Custom Support for FIM Models.' src='/demos/autocomplete3.png' />
+                {/* <GridElement imageClassName='px-4 py-4 lg:px-20 lg:py-8' name='FIM Model Support.' src='/demos2/GatherMode.png' /> */}
                 <GridElement imageClassName='' name='Fast Apply.' src='/demos3/example.png' />
                 <GridElement name='Works On 1000-Line Files.' src='/demos/instant.png' />
                 <GridElement imageClassName='py-4' name='Bring Any Model.' src='/demos3/bring-any-model.png' />
