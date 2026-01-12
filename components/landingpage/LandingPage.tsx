@@ -480,7 +480,7 @@ export default function LandingPage() {
 
         <div className='relative max-w-[1400px] mx-auto px-4 lg:px-12'>
             {/* Removed DataPrivacy section from here since it's now part of ALotMoreFeatures */}
-            <InterestedInContributing />
+            {/* <InterestedInContributing /> */}
             <GetStartedWithVoid />
         </div>
 
