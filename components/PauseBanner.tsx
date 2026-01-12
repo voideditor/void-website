@@ -10,6 +10,7 @@ export default function PauseBanner() {
 
     if (!isVisible) return null;
 
+
     return (
         <div className='bg-yellow-50 border-b border-yellow-200 text-yellow-800 cursor-default py-3 px-4 text-center flex items-center justify-center gap-2  sticky top-0 z-50'>
             <MdPauseCircle className="fill-yellow-800 flex-shrink-0 hidden sm:block" />
