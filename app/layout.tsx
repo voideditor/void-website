@@ -41,8 +41,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             {/* <body className='text-black bg-gray-100 ' style={{ background: `url('/noise.png')` }}> */}
             <CSPostHogProvider>
                 <body className='text-black bg-gray-100' style={{ background: `linear-gradient(90deg, ${bg2} 0%, ${bg1} 25%, ${bg1} 75%, ${bg2} 100%)` }}>
+                    <PauseBanner />
                     <div className='overflow-hidden rounded-sm'>
-                        <PauseBanner />
                         {/* in dark mode, text-black is not the default */}
                         <GlassProvider>
                             <Header />

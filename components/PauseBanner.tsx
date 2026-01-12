@@ -12,7 +12,7 @@ export default function PauseBanner() {
 
 
     return (
-        <div className='bg-yellow-50 border-b border-yellow-200 text-yellow-800 cursor-default py-3 px-4 text-center flex items-center justify-center gap-2  sticky top-0 z-50'>
+        <div className='bg-yellow-50 border-b border-yellow-200 text-yellow-800 cursor-default py-3 px-4 text-center flex items-center justify-center gap-2 sticky top-0 z-50 w-full'>
             <MdPauseCircle className="fill-yellow-800 flex-shrink-0 hidden sm:block" />
             <span className='text-balance'>
                 Work on Void is currently <a href={githubLink} target="_blank" rel="noreferrer noopener" className="underline hover:text-yellow-900">paused</a>. Some features may be outdated or broken.
