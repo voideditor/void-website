@@ -3,7 +3,7 @@ import { baseUrl } from "./sitemap";
 
 const title = 'Void'
 const shortTitle = 'Void'
-const description = 'Void is an open source Cursor alternative. Full privacy. Fully-featured.'
+const description = 'Void is an open source AI IDE with full privacy.'
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent(shortTitle)}&description=${encodeURIComponent(description)}`
 
 

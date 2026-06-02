@@ -144,7 +144,7 @@ const Fold = () => {
                         {/* {`Void is an open source Cursor alternative. Develop in a fully-featured IDE, and host your LLM anywhere.`} */}
                         {/* {`Void is an open source Cursor alternative. We let you use the best AI tools, while having full control over privacy.`} */}
                         {/* {`Void is an open source Cursor alternative. Write code with the best AI tools, while having full control over your data.`} */}
-                        {`Void is an open source Cursor alternative. Write code with the best AI tools, use any model, and retain full control over your data.`}
+                        {`Void is an open source AI IDE. Write code with the best AI tools, use any model, and retain full control over your data.`}
                     </div>
                     {/* {`Void is an open source Cursor alternative. Build your project with AI auto-complete, inline edits, and codebase chat, with full control over .`} */}
                     {/* {`We offer autocomplete, inline edits, embedded chat, agentic features, and more, without compromising privacy.`} */}
