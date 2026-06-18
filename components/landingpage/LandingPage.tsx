@@ -335,46 +335,6 @@ const ALotMoreFeatures = () => {
             </div>
         </div>
 
-        <div>
-            <h2 className='mx-auto text-center text-4xl lg:text-5xl tracking-tight font-black'>
-                {"Agent Mode and MCP."}
-            </h2>
-            <div className='mx-auto text-center text-balance max-sm:text-base text-xl max-w-2xl my-8'>
-                {`Use any model in Agent or Gather mode - even open source models that don't natively support tool calling.`}
-            </div>
-
-
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mx-auto'>
-                {/* Agent Mode */}
-                <div className='rounded-xl overflow-hidden px-8 '>
-                    <div className='text-center text-3xl font-black mb-6'>
-                        Agent Mode
-                    </div>
-                    <div className='text-balance mx-auto text-center text-gray-600'>
-                        {`Agent mode can search, create, edit, and delete files & folders. It also has terminal access and MCP tool access.`}
-                    </div>
-
-                    <div className="w-full flex items-center justify-center">
-                        <img src='/demos3/agent.png' alt='Agent Mode' className={`max-h-[700px] max-w-full w-auto h-auto rounded-lg object-contain`} />
-                    </div>
-                </div>
-
-                {/* Gather Mode */}
-                <div className='rounded-xl overflow-hidden px-8 '>
-                    <div className='text-center text-3xl font-black mb-6'>
-                        Gather Mode
-                    </div>
-
-                    <div className='text-balance mx-auto text-center text-gray-600'>
-                        {`Gather mode is a restricted version of Agent mode that can only read and search, but not modify or edit.`}
-                    </div>
-                    <div className="w-full flex items-center justify-center">
-                        <img src='/demos3/gather.png' alt='Gather Mode' className={`max-h-[700px] max-w-full w-auto h-auto rounded-lg object-contain`} />
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 }
 
